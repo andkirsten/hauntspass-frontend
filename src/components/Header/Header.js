@@ -1,11 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import centerLogo from "../../images/daybreak_haunts_center.png";
+import "./Header.css";
 
 const Header = (props) => {
   const user = "matt";
 
   return (
-    <header>
+    <header className="header">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -43,7 +45,11 @@ const Header = (props) => {
         </div>
         <div className="navbar-center">
           <a href="/" className="btn btn-ghost normal-case text-xl">
-            DAYBREAK HAUNTS
+            <img
+              className="center-logo"
+              src={centerLogo}
+              alt="daybreak haunts logo"
+            ></img>
           </a>
         </div>
         {user ? (
