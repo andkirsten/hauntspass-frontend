@@ -1,11 +1,35 @@
-.perks-heading {
-  font-size: 50px;
-}
-
 .pass {
-  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../../images/smoke.jpeg");
 }
 
-.card-body {
+.pass-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 200px;
+  background-image: url("../../images/offeringsheader.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pass-title {
+  font-family: "HalloweenHaunted", sans-serif;
+  font-size: 50px;
+  line-height: 1.2;
   text-align: center;
+  padding-top: 40px;
+}
+
+.pass-house-img {
+  font-family: "SpookyNight", sans-serif;
+  font-size: 80px;
+  text-align: center;
+}
+
+.card {
+  margin: 30px 50px 0 50px;
 }

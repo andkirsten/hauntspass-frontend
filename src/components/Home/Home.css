@@ -1,0 +1,39 @@
+.hero-content {
+  padding: 40px 0;
+}
+
+.title {
+  font-family: "HalloweenHaunted", sans-serif;
+  font-size: 70px;
+  line-height: 1.2;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.info {
+  padding: 20px 0;
+
+  background-image: url("../../images/smoke.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.participate {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-image {
+  border-radius: 25px;
+  border: 4px solid #000;
+}

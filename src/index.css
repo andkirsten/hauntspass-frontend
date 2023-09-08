@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Ebrima";
+  src: url("../src/vendor/fonts/Ebrima/ebrima.ttf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Ebrima";
+  src: url("../src/vendor/fonts/Ebrima/ebrima-bold.ttf");
+  font-style: bold;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "HalloweenHaunted";
+  src: url("../src/vendor/fonts/HalloweenHaunted/HALLOWEN\ HAUNTED.otf");
+}
+
+@font-face {
+  font-family: "SpookyNight";
+  src: url("../src/vendor/fonts/SpookyNight/Spooky\ Night.otf");
+}

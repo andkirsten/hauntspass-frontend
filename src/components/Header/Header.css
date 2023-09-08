@@ -1,8 +1,7 @@
-.header {
-  height: 130px;
+.navbar {
+  height: 100px;
 }
 
-.center-logo {
-  height: 100px;
-  width: 100px;
+.logo {
+  width: 150px;
 }

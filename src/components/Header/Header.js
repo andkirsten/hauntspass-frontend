@@ -1,17 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import centerLogo from "../../images/daybreak_haunts_center.png";
+import Logo from "../../images/daybreakhauntslogoWhiteborder.png";
 import "./Header.css";
 
 const Header = (props) => {
   const user = "matt";
 
   return (
-    <header className="header">
-      <div className="navbar bg-base-100">
+    <header>
+      <div className="navbar bg-primary">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost btn-circle">
+            <label tabIndex={0} className="btn btn-ghost text-white lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -23,7 +23,7 @@ const Header = (props) => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h7"
+                  d="M4 6h16M4 12h8m-8 6h16"
                 />
               </svg>
             </label>
@@ -32,55 +32,65 @@ const Header = (props) => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a href="/">Homepage</a>
+                <NavLink to="/about">About</NavLink>
               </li>
               <li>
-                <a href="/about">About Us</a>
+                <NavLink to="/faqs">FAQs</NavLink>
               </li>
               <li>
-                <a href="/faqs">FAQs</a>
+                <NavLink to="/">How it works</NavLink>
+              </li>
+              <li className="text-white">
+                <NavLink to="/volunteer">Become a Haunts Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/map">Map</NavLink>
               </li>
             </ul>
           </div>
+          <NavLink to="/" className="btn btn-ghost normal-case text-xl">
+            <img className="logo" src={Logo} alt="daybreak haunts logo"></img>
+          </NavLink>
         </div>
-        <div className="navbar-center">
-          <a href="/" className="btn btn-ghost normal-case text-xl">
-            <img
-              className="center-logo"
-              src={centerLogo}
-              alt="daybreak haunts logo"
-            ></img>
-          </a>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li className="text-white">
+              <NavLink to="/about">About</NavLink>
+            </li>
+            <li className="text-white">
+              <NavLink to="/faqs">FAQs</NavLink>
+            </li>
+            <li className="text-white">
+              <NavLink to="/">How it Works</NavLink>
+            </li>
+            <li className="text-white">
+              <NavLink to="/volunteer">Become a Haunts Home</NavLink>
+            </li>
+            <li className="text-white">
+              <NavLink to="/map">Map</NavLink>
+            </li>
+          </ul>
         </div>
         {user ? (
           <div className="navbar-end">
-            <button className="btn btn-ghost">
+            <button className="btn btn-ghost text-white">
               <NavLink to="/pass">My Pass</NavLink>
             </button>
-            <button className="btn btn-ghost" onClick={props.handleLogout}>
+            <button
+              className="btn btn-ghost text-white"
+              onClick={props.handleLogout}
+            >
               <div className="indicator">Log Out</div>
             </button>
           </div>
         ) : (
           <div className="navbar-end">
-            <button className="btn btn-ghost">
+            <button className="btn btn-ghost text-white">
               <NavLink to="/login">Login</NavLink>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="3"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
             </button>
-            <button className="btn btn-ghost">
+            <button className="btn btn-ghost text-white">
               <div className="indicator">
                 <NavLink to="/register">Sign Up</NavLink>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="3"
-                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                />
               </div>
             </button>
           </div>

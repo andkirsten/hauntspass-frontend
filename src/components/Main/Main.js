@@ -7,6 +7,8 @@ import Login from "../Login/Login";
 import About from "../About/About";
 import FAQs from "../FAQs/FAQs";
 import Pass from "../Pass/Pass";
+import Volunteer from "../Volunteer/Volunteer";
+import Map from "../Map/Map";
 
 const Main = () => {
   return (
@@ -18,6 +20,8 @@ const Main = () => {
         <Route path="/about" element={<About />} />
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/pass" element={<Pass />} />
+        <Route path="/volunteer" element={<Volunteer />} />
+        <Route path="/map" element={<Map />} />
       </Routes>
     </div>
   );
