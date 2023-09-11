@@ -1,0 +1,23 @@
+.faq-header {
+  background-image: url("../../images/faqheader.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  padding: 40px 20px;
+}
+
+.faq-title {
+  font-family: "HalloweenHaunted", sans-serif;
+  font-size: 70px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.faq-subheading {
+  font-family: "HalloweenHaunted", sans-serif;
+  font-size: 40px;
+  line-height: 1.2;
+}

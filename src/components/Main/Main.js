@@ -10,13 +10,31 @@ import Pass from "../Pass/Pass";
 import Volunteer from "../Volunteer/Volunteer";
 import Map from "../Map/Map";
 
-const Main = () => {
+const Main = (props) => {
   return (
     <div className="main">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/signup"
+          element={
+            <Signup
+              handleSignup={props.handleSignup}
+              error={props.error}
+              loading={props.isLoading}
+            />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Login
+              handleLogin={props.handleLogin}
+              error={props.error}
+              loading={props.isLoading}
+            />
+          }
+        />
         <Route path="/about" element={<About />} />
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/pass" element={<Pass />} />

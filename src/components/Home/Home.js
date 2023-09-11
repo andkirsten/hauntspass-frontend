@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import step1 from "../../images/step1.png";
 import step2 from "../../images/step2.png";
@@ -8,7 +9,7 @@ import header from "../../images/hauntspass Header2.jpg";
 const Home = () => {
   return (
     <div>
-      <div className="hero bg-secondary">
+      <div className="hero">
         <div className="hero-content text-center">
           <div className="max-w-md">
             <img className="hero-image" src={header} alt="haunts pass" />
@@ -79,17 +80,23 @@ const Home = () => {
       </section>
       <section className="participate bg-default">
         <h2 className="participate__title title">Get Involved</h2>
-        <div className="flex w-8/12 flex-col lg:flex-row">
-          <div className="grid h-20 flex-grow card bg-primary text-white rounded-box place-items-center">
-            Offer a Reward as a Haunts Pass Business Location
-          </div>
+        <div className="flex flex-col w-full lg:flex-row">
+          <Link
+            to="/volunteer"
+            className="option grid flex-grow h-20 card bg-secondary rounded-box place-items-center"
+          >
+            Offer a Haunts Pass Reward
+          </Link>
           <div className="divider lg:divider-horizontal">OR</div>
-          <div className="grid h-20 flex-grow card bg-primary text-white rounded-box place-items-center">
-            Volunteer as a Haunts Pass Home
-          </div>
+          <Link
+            to="/volunteer"
+            className="option grid flex-grow h-20 card bg-secondary rounded-box place-items-center"
+          >
+            Become a Haunts Pass Home
+          </Link>
         </div>
       </section>
-      <section className="sponsors bg-base-200">
+      <section className="sponsors">
         <h2 className="sponsors__title title">Our Sponsors</h2>
         <div className="sponsors__container">
           <div className="sponsors__card">

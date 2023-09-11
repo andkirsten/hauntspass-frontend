@@ -3,6 +3,7 @@ import React from "react";
 import Rewards from "../Rewards/Rewards";
 import Homes from "../Homes/Homes";
 import "./Pass.css";
+import pass from "../../images/HauntsPassTwist.png";
 
 const Pass = () => {
   const [activeTab, setActiveTab] = React.useState("rewards");
@@ -16,8 +17,7 @@ const Pass = () => {
       <section className="pass">
         <div className="card lg:card-side bg-base-100 shadow-xl">
           <figure className="pass-container bg-secondary">
-            <p className="pass-title">Haunts Pass</p>
-            <p className="pass-house-img">G</p>
+            <img src={pass} alt="haunts pass"></img>
           </figure>
           <div className="card-body">
             <h2 className="card-title">Dave Matthews</h2>

@@ -2,9 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../images/daybreakhauntslogoWhiteborder.png";
 import "./Header.css";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 const Header = (props) => {
-  const user = "matt";
+  const currentUser = React.useContext(CurrentUserContext);
 
   return (
     <header>
@@ -71,7 +72,7 @@ const Header = (props) => {
             </li>
           </ul>
         </div>
-        {user ? (
+        {currentUser ? (
           <div className="navbar-end">
             <button className="btn btn-ghost text-white">
               <NavLink to="/pass">My Pass</NavLink>
@@ -90,7 +91,7 @@ const Header = (props) => {
             </button>
             <button className="btn btn-ghost text-white">
               <div className="indicator">
-                <NavLink to="/register">Sign Up</NavLink>
+                <NavLink to="/signup">Sign Up</NavLink>
               </div>
             </button>
           </div>
