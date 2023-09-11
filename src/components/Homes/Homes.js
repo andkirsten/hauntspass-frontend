@@ -1,16 +1,9 @@
 import React, { useState } from "react";
-import "./Rewards.css";
-import rewardsList from "../../utils/rewardsList";
+import { Link } from "react-router-dom";
+import "./Homes.css";
+import { neighborhoodList } from "../../utils/neighborhoodList";
 
-const AccordionItem = ({
-  title,
-  location,
-  reward,
-  limitations,
-  imageSrc,
-  isOpen,
-  toggleItem,
-}) => {
+const AccordionItem = ({ title, homes, isOpen, toggleItem }) => {
   return (
     <div className="collapse bg-white">
       <div
@@ -25,21 +18,11 @@ const AccordionItem = ({
         </div>
         {isOpen && (
           <div className="collapse-content">
-            <div className="reward-container">
-              {imageSrc && (
-                <div className="reward-image">
-                  <img src={imageSrc} alt="reward" />
-                </div>
-              )}
-              <div>
-                <p>Location: {location}</p>
-                <p>Reward: {reward}</p>
-                <p>Limitations: {limitations}</p>
-              </div>
-              <div className="reward-redeem-btn">
-                <button className="btn btn-secondary">Redeem</button>
-              </div>
-            </div>
+            <ul className="home-list list-disc">
+              {homes.map((home) => (
+                <li>{home}</li>
+              ))}
+            </ul>
           </div>
         )}
       </div>
@@ -54,10 +37,7 @@ const Accordion = ({ items, openIndex, toggleItem }) => {
         <AccordionItem
           key={index}
           title={item.title}
-          location={item.location}
-          reward={item.reward}
-          limitations={item.limitations}
-          imageSrc={item.imageSrc}
+          homes={item.homes}
           isOpen={index === openIndex}
           toggleItem={() => toggleItem(index)}
         />
@@ -66,7 +46,7 @@ const Accordion = ({ items, openIndex, toggleItem }) => {
   );
 };
 
-const Rewards = () => {
+const Homes = () => {
   const [openIndex, setOpenIndex] = useState(-1); // Initialize with -1 to have no item open by default
 
   const toggleItem = (index) => {
@@ -80,10 +60,13 @@ const Rewards = () => {
   };
 
   return (
-    <section className="rewards flex justify-center items-center p-4">
+    <section className="homes flex justify-center items-center p-4">
+      <Link to="/map" className="map-btn btn btn-wide bg-secondary">
+        View the Map
+      </Link>
       <div className="w-full accordion-container">
         <Accordion
-          items={rewardsList}
+          items={neighborhoodList}
           openIndex={openIndex}
           toggleItem={toggleItem}
         />
@@ -92,4 +75,4 @@ const Rewards = () => {
   );
 };
 
-export default Rewards;
+export default Homes;

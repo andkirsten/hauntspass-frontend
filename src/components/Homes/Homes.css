@@ -1,0 +1,14 @@
+.home-list {
+  padding: 10px;
+}
+
+.map-btn {
+  margin-bottom: 20px;
+}
+
+.homes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}

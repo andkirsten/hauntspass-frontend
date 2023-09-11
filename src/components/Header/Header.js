@@ -40,7 +40,7 @@ const Header = (props) => {
               <li>
                 <NavLink to="/">How it works</NavLink>
               </li>
-              <li className="text-white">
+              <li>
                 <NavLink to="/volunteer">Become a Haunts Home</NavLink>
               </li>
               <li>

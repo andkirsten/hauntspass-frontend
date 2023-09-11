@@ -1,7 +1,7 @@
 import React from "react";
 
 const HauntsHouse = () => {
-  return <div>Become a HauntsHouse</div>;
+  return <div>Become a Haunts House</div>;
 };
 
 export default HauntsHouse;

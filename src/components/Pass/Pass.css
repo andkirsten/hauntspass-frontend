@@ -1,8 +1,14 @@
+.pass-page {
+  padding-bottom: 20px;
+  background-color: rgba(253, 158, 6, 0.3);
+}
+
 .pass {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("../../images/smoke.jpeg");
+
+  padding-bottom: 20px;
 }
 
 .pass-container {
@@ -10,10 +16,6 @@
   flex-direction: column;
   width: 300px;
   height: 200px;
-  background-image: url("../../images/offeringsheader.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .pass-title {
@@ -32,4 +34,21 @@
 
 .card {
   margin: 30px 50px 0 50px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 20px 0;
+  font-family: "HalloweenHaunted", sans-serif;
+}
+
+.tab {
+  font-size: 40px;
+  align-content: center;
+}
+
+.collapse-content {
+  padding: 0 20px 10px 20px;
 }

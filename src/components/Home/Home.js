@@ -78,19 +78,42 @@ const Home = () => {
         </div>
       </section>
       <section className="participate bg-default">
-        <h2 className="participate__title title">How to participate</h2>
+        <h2 className="participate__title title">Get Involved</h2>
         <div className="flex w-8/12 flex-col lg:flex-row">
           <div className="grid h-20 flex-grow card bg-primary text-white rounded-box place-items-center">
-            Donate and get your Haunts Pass
+            Offer a Reward as a Haunts Pass Business Location
           </div>
           <div className="divider lg:divider-horizontal">OR</div>
           <div className="grid h-20 flex-grow card bg-primary text-white rounded-box place-items-center">
-            Volunteer as a Haunts Pass Location
+            Volunteer as a Haunts Pass Home
           </div>
         </div>
       </section>
-      <section className="sponsors">
-        <h2 className="sponsors__title title">Sponsors</h2>
+      <section className="sponsors bg-base-200">
+        <h2 className="sponsors__title title">Our Sponsors</h2>
+        <div className="sponsors__container">
+          <div className="sponsors__card">
+            <img
+              className="sponsors__image"
+              src="/images/harmons.png"
+              alt="daybreak logo"
+            />
+          </div>
+          <div className="sponsors__card">
+            <img
+              className="sponsors__image"
+              src="/images/1 3.07.19 PM.png"
+              alt="daybreak logo"
+            />
+          </div>
+          <div className="sponsors__card">
+            <img
+              className="sponsors__image"
+              src="/images/cupbap.png"
+              alt="daybreak logo"
+            />
+          </div>
+        </div>
       </section>
     </div>
   );
