@@ -1,4 +1,5 @@
 const API_URL = "api.staging.justgiving.com";
+const AppId = "0130e193";
 
 export const handleResponse = (response) => {
   if (response.ok) {
@@ -8,8 +9,10 @@ export const handleResponse = (response) => {
 };
 
 const donationApi = {
-  getDonation: (donationId) => {
-    return fetch(`${API_URL}/donation/${donationId}`).then(handleResponse);
+  getDonation: (donationRef) => {
+    return fetch(`${API_URL}/${AppId}/v1/donation/${donationRef}`).then(
+      handleResponse
+    );
   },
 };
 

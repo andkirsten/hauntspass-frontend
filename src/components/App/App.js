@@ -3,46 +3,52 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import React, { useEffect, useState } from "react";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-import api from "../../utils/api";
 import { registerUser, loginUser, verifyToken } from "../../utils/auth";
+import { useNavigate } from "react-router-dom";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
+  const { currentUser, setCurrentUser } = useCurrentUser();
+
+  const navigate = useNavigate();
+  // eslint-disable-next-line
   const [token, setToken] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [pass, setPass] = useState(null);
 
-  const handleRegister = async (registerData) => {
+  const handleSignup = async (data) => {
+    setLoading(true);
+    console.log(data);
     try {
-      setLoading(true);
-      const userData = await registerUser(registerData);
-      setCurrentUser(userData.user);
-      setToken(userData.token);
-      localStorage.setItem("authToken", userData.token);
-      api.defaults.headers.common.authorization = `Bearer ${userData.token}`;
-      setLoading(false);
-      setIsLogged(true);
+      const userData = await registerUser(data);
+      if (userData) {
+        handleLogin(userData);
+      } else {
+        setError("Something went wrong");
+      }
     } catch (err) {
-      setError(err.response.data.message);
-      setLoading(false);
+      console.log(err);
+      setError(err);
     }
+    setLoading(false);
   };
 
-  const handleLogin = async (loginData) => {
+  const handleLogin = async (data) => {
+    setLoading(true);
+
     try {
-      setLoading(true);
-      const userData = await loginUser(loginData);
-      setCurrentUser(userData.user);
-      setToken(userData.token);
-      localStorage.setItem("authToken", userData.token);
-      api.defaults.headers.common.authorization = `Bearer ${userData.token}`;
-      setLoading(false);
+      const loggedInData = await loginUser(data);
+      setCurrentUser(loggedInData.data.user);
+      setToken(loggedInData.data.token);
+      localStorage.setItem("authToken", loggedInData.data.token);
       setIsLogged(true);
+      navigate("/pass");
+      setLoading(false);
     } catch (err) {
-      setError(err.response.data.message);
+      console.log(err);
       setLoading(false);
     }
   };
@@ -51,53 +57,42 @@ function App() {
     setCurrentUser(null);
     setToken(null);
     localStorage.removeItem("authToken");
-    api.defaults.headers.common.authorization = null;
     setIsLogged(false);
-  };
-
-  const handleVerify = async () => {
-    const userData = await verifyToken();
-    setCurrentUser(userData.user);
-    setToken(userData.token);
-    localStorage.setItem("authToken", userData.token);
-    api.defaults.headers.common.authorization = `Bearer ${userData.token}`;
-    setIsLogged(true);
+    navigate("/");
   };
 
   useEffect(() => {
-    handleVerify(token)
-      .then((res) => {
-        setToken(token);
-        setCurrentUser(res.user);
-        setIsLogged(true);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [token]);
-
-  useEffect(() => {
-    if (currentUser) {
-      api
-        .get(`/pass/${currentUser._id}`)
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      verifyToken(token)
         .then((res) => {
-          setPass(res.data);
+          console.log(res);
+          setToken(token);
+          setCurrentUser({
+            data: { name: res.name, email: res.email, id: res._id },
+          });
+          setIsLogged(true);
         })
         .catch((err) => {
           console.log(err);
         });
+    } else {
+      setIsLogged(false);
     }
-  }, [currentUser]);
+  }, [setCurrentUser]);
 
   return (
     <div className="app">
-      <Header isLogged={isLogged} setIsLogged={setIsLogged} />
+      <Header
+        isLogged={isLogged}
+        setIsLogged={setIsLogged}
+        handleLogout={handleLogout}
+      />
       <Main
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
-        handleRegister={handleRegister}
+        handleSignup={handleSignup}
         handleLogin={handleLogin}
-        handleLogout={handleLogout}
         error={error}
         setError={setError}
         loading={loading}

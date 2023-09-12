@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useForm(inputValues) {
+const useForm = (inputValues) => {
   const [values, setValues] = useState(inputValues);
 
   function handleChange(e) {
@@ -8,5 +8,7 @@ export default function useForm(inputValues) {
     setValues({ ...values, [name]: value });
   }
 
-  return { values, handleChange, setValues };
-}
+  return { values, handleChange };
+};
+
+export default useForm;

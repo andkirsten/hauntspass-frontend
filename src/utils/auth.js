@@ -1,25 +1,26 @@
 import { handleResponse } from "./api";
 
 const API_URL = "http://localhost:3001";
-export function registerUser({ name, email, password }) {
+export function registerUser(data) {
+  console.log(data);
   return fetch(`${API_URL}/signup`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, email, password }),
+    body: JSON.stringify(data),
   }).then(handleResponse);
 }
 
-export function loginUser(email, password) {
-  return fetch(`${API_URL}/signin`, {
+export function loginUser(data) {
+  return fetch(`${API_URL}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
 
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify(data),
   }).then(handleResponse);
 }
 

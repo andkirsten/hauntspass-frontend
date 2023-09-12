@@ -2,10 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../images/daybreakhauntslogoWhiteborder.png";
 import "./Header.css";
-import CurrentUserContext from "../../contexts/CurrentUserContext";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const Header = (props) => {
-  const currentUser = React.useContext(CurrentUserContext);
+  const { currentUser } = useCurrentUser();
 
   return (
     <header>

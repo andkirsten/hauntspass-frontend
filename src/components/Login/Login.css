@@ -1,0 +1,21 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(253, 158, 6, 0.3);
+  padding-bottom: 30px;
+}
+
+.login__title {
+  font-family: "HalloweenHaunted", sans-serif;
+  font-size: 70px;
+  line-height: 1.2;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.login__button {
+  margin-top: 30px;
+}

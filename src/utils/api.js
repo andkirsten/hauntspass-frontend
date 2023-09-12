@@ -8,11 +8,12 @@ export const handleResponse = (response) => {
 };
 
 const api = {
-  createPass: (pass) => {
+  createPass: (pass, token) => {
     return fetch(`${API_URL}/pass`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(pass),
     }).then(handleResponse);

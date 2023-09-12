@@ -21,7 +21,7 @@ const Main = (props) => {
             <Signup
               handleSignup={props.handleSignup}
               error={props.error}
-              loading={props.isLoading}
+              isLoading={props.isLoading}
             />
           }
         />
@@ -31,7 +31,7 @@ const Main = (props) => {
             <Login
               handleLogin={props.handleLogin}
               error={props.error}
-              loading={props.isLoading}
+              isLoading={props.isLoading}
             />
           }
         />
