@@ -1,9 +1,9 @@
 import { handleResponse } from "./api";
+import { baseUrl } from "./constants";
 
-const API_URL = "http://localhost:3001";
 export function registerUser(data) {
   console.log(data);
-  return fetch(`${API_URL}/signup`, {
+  return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -14,7 +14,7 @@ export function registerUser(data) {
 }
 
 export function loginUser(data) {
-  return fetch(`${API_URL}/login`, {
+  return fetch(`${baseUrl}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -25,7 +25,7 @@ export function loginUser(data) {
 }
 
 export function verifyToken(token) {
-  return fetch(`${API_URL}/users/me`, {
+  return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,

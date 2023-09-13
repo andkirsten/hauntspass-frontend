@@ -1,4 +1,4 @@
-const API_URL = "api.staging.justgiving.com";
+import { baseUrl } from "./constants";
 
 export const handleResponse = (response) => {
   if (response.ok) {
@@ -9,7 +9,7 @@ export const handleResponse = (response) => {
 
 const api = {
   createPass: (pass, token) => {
-    return fetch(`${API_URL}/pass`, {
+    return fetch(`${baseUrl}/pass`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
