@@ -1,0 +1,15 @@
+.map__title {
+  font-family: "HalloweenHaunted", sans-serif;
+  font-size: 70px;
+  line-height: 1.2;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.map__iframe {
+  width: 100%;
+  max-width: 100%;
+  height: 500px;
+  border: 0;
+}
