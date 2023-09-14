@@ -37,6 +37,7 @@ function App() {
   };
 
   const handleLogin = async (data) => {
+    console.log(data);
     setLoading(true);
 
     try {
@@ -50,7 +51,7 @@ function App() {
       setError(null);
     } catch (err) {
       console.log(err);
-      setError(err);
+      setError(err.message);
       setLoading(false);
     }
   };
@@ -77,7 +78,7 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
-          setError(err);
+          setError(err.message);
         });
     } else {
       setIsLogged(false);
