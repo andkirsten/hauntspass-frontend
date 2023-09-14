@@ -10,15 +10,6 @@
   padding: 20px 0;
 }
 
-.pass__number {
-  font-family: "HalloweenHaunted", sans-serif;
-  font-size: 70px;
-  line-height: 1.2;
-  text-align: center;
-  padding: 20px 0;
-  margin: 0;
-}
-
 .pass-container {
   display: flex;
   flex-direction: column;
@@ -26,12 +17,24 @@
   height: 200px;
 }
 
-.pass-title {
+.pass__title {
   font-family: "HalloweenHaunted", sans-serif;
-  font-size: 50px;
+  font-size: 30px;
   line-height: 1.2;
   text-align: center;
-  padding-top: 40px;
+}
+
+.pass__goodfor {
+  font-size: 20px;
+}
+
+.pass__number {
+  font-family: "HalloweenHaunted", sans-serif;
+  font-size: 70px;
+  line-height: 1.2;
+  text-align: center;
+
+  margin: 0;
 }
 
 .pass-house-img {
@@ -44,13 +47,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0 20px 0;
-  font-family: "HalloweenHaunted", sans-serif;
 }
 
 .tab {
-  font-size: 40px;
-  align-content: center;
+  font-family: "HalloweenHaunted", sans-serif;
+  font-size: 25px;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .collapse-content {

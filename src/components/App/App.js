@@ -37,7 +37,6 @@ function App() {
 
   const handleLogin = async (data) => {
     setLoading(true);
-    console.log(data);
     loginUser(data)
       .then((res) => {
         if (res && res.token) {
@@ -76,7 +75,6 @@ function App() {
     if (token) {
       verifyToken(token)
         .then((res) => {
-          console.log(res);
           setToken(token);
           setCurrentUser({
             data: { name: res.name, email: res.email, id: res._id },

@@ -1,8 +1,5 @@
 .hero-content {
   background-color: rgba(253, 158, 6, 0.3);
-}
-
-.hero-content {
   padding: 40px 20px;
   width: 100%;
   max-width: 100%;
@@ -17,7 +14,7 @@
 }
 
 .info {
-  padding: 20px 0;
+  padding: 20px 20px;
 
   background-image: url("../../images/smoke.jpeg");
   background-size: cover;
@@ -33,7 +30,7 @@
 }
 
 .participate {
-  padding: 20px 0;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,12 +43,12 @@
 
 .sponsors {
   background-color: rgba(253, 158, 6, 0.3);
+  padding: 10px 20px 20px 20px;
 }
 
 .sponsors__container {
   display: flex;
   align-items: center;
-  padding: 0 0 20px 0;
   justify-content: center;
 }
 

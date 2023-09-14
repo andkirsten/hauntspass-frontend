@@ -19,7 +19,9 @@ const Pass = () => {
       <section className="pass">
         <div className="card lg:card-side bg-base-100 shadow-xl">
           <figure className="pass-container bg-secondary">
-            <p className="pass__number">5 Passes</p>
+            <p className="pass__title">Haunts Pass</p>
+            <p className="pass__goodfor">good for</p>
+            <p className="pass__number">5 People</p>
           </figure>
           <div className="card-body">
             <h2 className="card-title">{currentUser.name}</h2>
@@ -34,8 +36,8 @@ const Pass = () => {
             <li
               className={
                 activeTab === "rewards"
-                  ? "tab tab-lg tab-bordered tab-active"
-                  : "tab tab-bordered tab-lg "
+                  ? "tab tab-bordered tab-active"
+                  : "tab tab-bordered "
               }
               onClick={() => handleTabChange("rewards")}
             >
@@ -44,8 +46,8 @@ const Pass = () => {
             <li
               className={
                 activeTab === "homes"
-                  ? "tab tab-lg tab-bordered tab-active"
-                  : "tab tab-bordered tab-lg "
+                  ? "tab tab-bordered tab-active"
+                  : "tab tab-bordered "
               }
               onClick={() => handleTabChange("homes")}
             >

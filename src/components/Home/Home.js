@@ -8,8 +8,8 @@ import header from "../../images/hauntspass Header2.jpg";
 
 const Home = () => {
   return (
-    <div>
-      <div className="hero">
+    <div className="home">
+      <section className="hero">
         <div className="hero-content text-center">
           <div className="max-w-md">
             <img className="hero-image" src={header} alt="haunts pass" />
@@ -23,7 +23,7 @@ const Home = () => {
             </button>
           </div>
         </div>
-      </div>
+      </section>
       <section className="info">
         <h2 className="info__title title text-white">How it works</h2>
         <div className="cards">

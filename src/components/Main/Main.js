@@ -1,5 +1,4 @@
 import React from "react";
-import "./Main.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "../Home/Home";
 import Signup from "../Signup/Signup";
