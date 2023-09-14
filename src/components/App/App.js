@@ -24,7 +24,7 @@ function App() {
     try {
       const res = await registerUser(data);
       if (res) {
-        handleLogin(data);
+        handleLogin({ email: data.email, password: data.password });
         setError(null);
       } else {
         setError(res.message);
