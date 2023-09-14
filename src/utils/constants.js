@@ -1,4 +1,4 @@
 export const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://api.hauntspass.ignorelist.com"
+    ? "https://api.daybreakhaunts.ignorelist.com"
     : "http://localhost:3001";
