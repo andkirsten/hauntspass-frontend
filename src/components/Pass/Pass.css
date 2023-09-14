@@ -41,10 +41,6 @@
   text-align: center;
 }
 
-.card {
-  margin: 30px 50px 0 50px;
-}
-
 .tabs {
   display: flex;
   justify-content: center;

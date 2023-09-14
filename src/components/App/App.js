@@ -21,11 +21,11 @@ function App() {
 
   const handleSignup = async (data) => {
     setLoading(true);
-    console.log(data);
     try {
       const userData = await registerUser(data);
       if (userData) {
         handleLogin(userData);
+        setError(null);
       } else {
         setError("Something went wrong");
       }
@@ -47,8 +47,10 @@ function App() {
       setIsLogged(true);
       navigate("/pass");
       setLoading(false);
+      setError(null);
     } catch (err) {
       console.log(err);
+      setError(err);
       setLoading(false);
     }
   };
@@ -75,6 +77,7 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
+          setError(err);
         });
     } else {
       setIsLogged(false);

@@ -46,6 +46,7 @@ const Login = (props) => {
             onChange={handleChange}
           />
         </div>
+        <div className="error-message">{props.error}</div>
         <div>
           <button
             type="button"
