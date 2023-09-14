@@ -27,34 +27,39 @@ function App() {
         handleLogin({ email: userData.email, password: userData.password });
         setError(null);
       } else {
-        setError("Something went wrong");
+        setError(userData.message);
       }
     } catch (err) {
       console.log(err);
-      setError(err);
     }
     setLoading(false);
   };
 
   const handleLogin = async (data) => {
-    console.log(data);
     setLoading(true);
+    loginUser(data)
+      .then((res) => {
+        if (res && res.token) {
+          localStorage.setItem("authToken", res.token);
+          setToken(res.token);
+          const userInfo = verifyToken(res.token).catch((err) =>
+            console.log(err)
+          );
 
-    try {
-      const loggedInData = await loginUser(data);
-      console.log(loggedInData);
-      setCurrentUser(loggedInData.data.user);
-      setToken(loggedInData.token);
-      localStorage.setItem("authToken", loggedInData.token);
-      setIsLogged(true);
-      navigate("/pass");
-      setLoading(false);
-      setError(null);
-    } catch (err) {
-      console.log(err);
-      setError(err.message);
-      setLoading(false);
-    }
+          return userInfo;
+        } else {
+          setError(res.message);
+        }
+      })
+      .then((userInfo) => {
+        setCurrentUser(userInfo);
+        setIsLogged(true);
+        navigate("/pass");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    setLoading(false);
   };
 
   const handleLogout = () => {
