@@ -42,9 +42,10 @@ function App() {
 
     try {
       const loggedInData = await loginUser(data);
+      console.log(loggedInData);
       setCurrentUser(loggedInData.data.user);
-      setToken(loggedInData.data.token);
-      localStorage.setItem("authToken", loggedInData.data.token);
+      setToken(loggedInData.token);
+      localStorage.setItem("authToken", loggedInData.token);
       setIsLogged(true);
       navigate("/pass");
       setLoading(false);

@@ -4,7 +4,7 @@ const rewardsList = [
     location: "5440 W Daybreak Parkway",
     reward: "One Free Handheld Burrito",
     limitations: "One per pass",
-    imageSrc: "/images/harmons.png",
+    imageSrc: "/images/costavida.jpeg",
     extras:
       "Every Tuesday, Buy one entree with a drink and get the second entree free",
   },
