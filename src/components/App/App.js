@@ -22,12 +22,12 @@ function App() {
   const handleSignup = async (data) => {
     setLoading(true);
     try {
-      const userData = await registerUser(data);
-      if (userData) {
-        handleLogin({ email: userData.email, password: userData.password });
+      const res = await registerUser(data);
+      if (res) {
+        handleLogin(data);
         setError(null);
       } else {
-        setError(userData.message);
+        setError(res.message);
       }
     } catch (err) {
       console.log(err);
@@ -37,6 +37,7 @@ function App() {
 
   const handleLogin = async (data) => {
     setLoading(true);
+    console.log(data);
     loginUser(data)
       .then((res) => {
         if (res && res.token) {
