@@ -3,7 +3,6 @@ import React from "react";
 import Rewards from "../Rewards/Rewards";
 import Homes from "../Homes/Homes";
 import "./Pass.css";
-import pass from "../../images/HauntsPassTwist.png";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const Pass = () => {
@@ -20,7 +19,7 @@ const Pass = () => {
       <section className="pass">
         <div className="card lg:card-side bg-base-100 shadow-xl">
           <figure className="pass-container bg-secondary">
-            <img src={pass} alt="haunts pass"></img>
+            <p className="pass__number">5 Passes</p>
           </figure>
           <div className="card-body">
             <h2 className="card-title">{currentUser.name}</h2>

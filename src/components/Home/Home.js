@@ -33,10 +33,7 @@ const Home = () => {
             </figure>
             <div className="card-body text-white">
               <h2 className="card-title">MAKE DONATION</h2>
-              <p>
-                Make a donation of $20 per person to the Utah Food Bank through
-                our JustGiving Campaign.
-              </p>
+              <p>Make a donation of $20 per person to the Utah Food Bank.</p>
               <div className="card-actions justify-end">
                 <button className="btn btn-secondary">Donate now</button>
               </div>
@@ -49,7 +46,7 @@ const Home = () => {
             <div className="card-body text-white">
               <h2 className="card-title">GET A PASS</h2>
               <p>
-                Submit your donation receipt for a Haunts Pass her on the
+                Submit your donation receipt for a Haunts Pass here on the
                 website.
               </p>
               <div className="card-actions justify-end">
@@ -81,13 +78,6 @@ const Home = () => {
       <section className="participate bg-default">
         <h2 className="participate__title title">Get Involved</h2>
         <div className="flex flex-col w-full lg:flex-row">
-          <Link
-            to="/volunteer"
-            className="option grid flex-grow h-20 card bg-secondary rounded-box place-items-center"
-          >
-            Offer a Haunts Pass Reward
-          </Link>
-          <div className="divider lg:divider-horizontal">OR</div>
           <Link
             to="/volunteer"
             className="option grid flex-grow h-20 card bg-secondary rounded-box place-items-center"

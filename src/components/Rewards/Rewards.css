@@ -13,12 +13,32 @@
 
 .reward-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   padding: 15px 15px;
+}
+
+.redeem-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .reward-image {
   width: 75px;
   height: 75px;
+  border: 1px solid black;
+  border-radius: 20%;
+}
+
+.redeem-info {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 20px;
+}
+
+.reward-extras {
+  padding-top: 30px;
 }

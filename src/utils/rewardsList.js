@@ -1,24 +1,54 @@
 const rewardsList = [
   {
-    title: "Harmons Grocery Store: Free Ice Cream Cone",
-    location: "Harmons on Center Street",
-    reward: "Free Ice Cream Cone",
+    title: "Costa Vida: Free Handheld Burrito",
+    location: "5440 W Daybreak Parkway",
+    reward: "One Free Handheld Burrito",
     limitations: "One per pass",
     imageSrc: "/images/harmons.png",
+    extras:
+      "Every Tuesday, Buy one entree with a drink and get the second entree free",
   },
   {
-    title: "Cupbap: Free Mandu",
-    location: "Cupbap on 40th South",
-    reward: "Free order of Mandu",
+    title: "Cupbop: Buy one entree get one free",
+    location: "Cupbop on 40th Sout11259 Kestrel Rise Rd, Suite# 100",
+    reward: "Buy one entree get one free",
     limitations: "One per pass",
-    imageSrc: "",
+    imageSrc: "/images/cupbap.png",
+    extras:
+      "Monday-Thursday, Receive 2 pieces of Mando with your entree purchase",
   },
   {
-    title: "Haunts Mini Gold: %50 off game",
-    location: "Haunts Mini Golf on 1948 West",
-    reward: "%50 percent off one game",
-    limitations: "One per passholder",
-    imageSrc: "",
+    title: "Just Burgers: Buy one burger get one free",
+    location: "4727 W. South Jordan Parkway",
+    reward: "Buy one burger get one free of equal or lesser value",
+    limitations: "One per pass",
+    imageSrc: "/images/justBurgers.jpg",
+    extras: "Wednesdays, Free fries with purchase of a burger",
+  },
+  {
+    title: "Sweet & Cool: Buy one Soft Serve or Bingsoo get one free",
+    location: "11274 S Kestrel Rise Rd",
+    reward: "Buy one Soft Serve or Bingsoo get one free",
+    limitations: "One per pass",
+    imageSrc: "/images/sweetAndCool.jpg",
+    extras: "Monday-Wednesday, recieve 20% off a 24oz Slush",
+  },
+  {
+    title:
+      "Lucienne (Salon - Spa - Boutique): One Free Fringe Triim or Neck & Ear Trim",
+    location: "4709 W Daybreak Pkwy Ste A",
+    reward: "One Free Fringe Triim or Neck & Ear Trim",
+    limitations: "One per pass",
+    imageSrc: "/images/lucienne.jpeg",
+    extras: "Recieve 50% off Advance Chemical Peels",
+  },
+  {
+    title: "Tios Mexican Restaurant: Buy one entree get one free",
+    location: "4709 W Daybreak Pkwy Ste A",
+    reward: "Buy one entree get one of lesser or equal value free",
+    limitations: "One per pass",
+    imageSrc: "/images/tios.jpeg",
+    extras: "Every Tuesday, recieve a free churro with any purchase",
   },
 ];
 
