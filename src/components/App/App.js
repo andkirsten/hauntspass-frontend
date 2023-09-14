@@ -24,7 +24,7 @@ function App() {
     try {
       const userData = await registerUser(data);
       if (userData) {
-        handleLogin(userData);
+        handleLogin({ email: userData.email, password: userData.password });
         setError(null);
       } else {
         setError("Something went wrong");

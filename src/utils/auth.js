@@ -2,7 +2,6 @@ import { handleResponse } from "./api";
 import { baseUrl } from "./constants";
 
 export function registerUser(data) {
-  console.log(data);
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
