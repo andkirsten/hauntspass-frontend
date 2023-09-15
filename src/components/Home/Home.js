@@ -14,13 +14,15 @@ const Home = () => {
           <div className="max-w-md">
             <img className="hero-image" src={header} alt="haunts pass" />
             <p className="py-6">
-              Daybreak Haunts is a volunteer group that creates yearly map that
-              includes Daybreak homes and businesses offering something extra
-              for those who donate to Food Bank fundraiser.
+              Daybreak Haunts is a volunteer group that creates a yearly map
+              that includes Daybreak homes and businesses offering something
+              extra for those who donate to the Utah Food Bank fundraiser.
             </p>
-            <button className="btn btn-primary">
-              Donate Now to get your Haunts Pass
-            </button>
+            <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
+              <button className="btn btn-primary">
+                Donate Now to get your Haunts Pass
+              </button>
+            </a>
           </div>
         </div>
       </section>
@@ -35,7 +37,9 @@ const Home = () => {
               <h2 className="card-title">MAKE DONATION</h2>
               <p>Make a donation of $20 per person to the Utah Food Bank.</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-secondary">Donate now</button>
+                <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
+                  <button className="btn btn-secondary">Donate now</button>
+                </a>
               </div>
             </div>
           </div>
@@ -67,9 +71,7 @@ const Home = () => {
                 for special perks and rewards.
               </p>
               <div className="card-actions justify-end">
-                <button className="btn btn-secondary">
-                  See Map of Locations
-                </button>
+                <button className="btn btn-secondary">SEE REWARDS NOW</button>
               </div>
             </div>
           </div>

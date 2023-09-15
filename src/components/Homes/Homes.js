@@ -61,7 +61,7 @@ const Homes = () => {
 
   return (
     <section className="homes flex justify-center items-center p-4">
-      <Link to="/map" className="map-btn btn btn-wide bg-secondary">
+      <Link to="/map" className="map-btn btn btn-wide bg-white border-black">
         View the Map
       </Link>
       <div className="w-full accordion-container">

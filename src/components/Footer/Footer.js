@@ -9,13 +9,16 @@ const Footer = () => {
           <NavLink to="/about" className="link link-hover">
             About us
           </NavLink>
-          <NavLink to="/faq" className="link link-hover">
+          <NavLink to="/faqs" className="link link-hover">
             FAQs
           </NavLink>
           <NavLink to="/volunteer" className="link link-hover">
             Become a Haunt Pass Home
           </NavLink>
-          <NavLink to="" className="link link-hover">
+          <NavLink
+            to="https://www.justgiving.com/page/daybreak-haunts-2023"
+            className="link link-hover"
+          >
             Donate to JustGiving Campaign
           </NavLink>
         </nav>

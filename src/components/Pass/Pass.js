@@ -6,6 +6,7 @@ import "./Pass.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const Pass = () => {
+  //eslint-disable-next-line
   const { currentUser } = useCurrentUser();
 
   const [activeTab, setActiveTab] = React.useState("rewards");
@@ -15,40 +16,23 @@ const Pass = () => {
   };
 
   return (
-    <div className="pass-page">
+    <div className="pass-page bg-secondary">
       <section className="pass">
-        <div className="card lg:card-side bg-base-100 shadow-xl">
-          <figure className="pass-container bg-secondary">
-            <p className="pass__title">Haunts Pass</p>
-            <p className="pass__goodfor">good for</p>
-            <p className="pass__number">5 People</p>
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">{currentUser.name}</h2>
-            <p>Number of Passes: 5</p>
-            <p>Rewards remaining: 7</p>
-          </div>
+        <div className="pass__container">
+          <p className="pass__number">5</p>
         </div>
       </section>
       <section className="rewards">
         <div>
           <ul className="tabs">
             <li
-              className={
-                activeTab === "rewards"
-                  ? "tab tab-bordered tab-active"
-                  : "tab tab-bordered "
-              }
+              className={activeTab === "rewards" ? "tab tab-active " : "tab "}
               onClick={() => handleTabChange("rewards")}
             >
               Business Rewards
             </li>
             <li
-              className={
-                activeTab === "homes"
-                  ? "tab tab-bordered tab-active"
-                  : "tab tab-bordered "
-              }
+              className={activeTab === "homes" ? "tab tab-active" : "tab "}
               onClick={() => handleTabChange("homes")}
             >
               Haunts Homes

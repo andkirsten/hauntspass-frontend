@@ -10,30 +10,24 @@
   padding: 20px 0;
 }
 
-.pass-container {
-  display: flex;
-  flex-direction: column;
+.pass__container {
+  background-image: url("../../images/hauntspassticketPNG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 300px;
   height: 200px;
-}
-
-.pass__title {
-  font-family: "HalloweenHaunted", sans-serif;
-  font-size: 30px;
-  line-height: 1.2;
-  text-align: center;
-}
-
-.pass__goodfor {
-  font-size: 20px;
+  position: relative;
 }
 
 .pass__number {
+  position: absolute;
+  top: 120px;
+  left: 45%;
   font-family: "HalloweenHaunted", sans-serif;
-  font-size: 70px;
+  font-size: 60px;
   line-height: 1.2;
-  text-align: center;
-
+  color: white;
   margin: 0;
 }
 
