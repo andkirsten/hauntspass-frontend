@@ -35,9 +35,9 @@ const rewardsList = [
   },
   {
     title:
-      "Lucienne (Salon - Spa - Boutique): One Free Fringe Triim or Neck & Ear Trim",
+      "Lucienne (Salon - Spa - Boutique): One Free Fringe Trim or Neck & Ear Trim",
     location: "4709 W Daybreak Pkwy Ste A",
-    reward: "One Free Fringe Triim or Neck & Ear Trim",
+    reward: "One Free Fringe Trim or Neck & Ear Trim",
     limitations: "One per person",
     imageSrc: "/images/lucienne.jpeg",
     extras: "Recieve 50% off Advance Chemical Peels",
