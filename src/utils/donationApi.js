@@ -9,8 +9,8 @@ export const handleResponse = (response) => {
 };
 
 const donationApi = {
-  getDonation: (donationRef) => {
-    return fetch(`${API_URL}/${AppId}/v1/donation/${donationRef}`).then(
+  getDonation: (donationId) => {
+    return fetch(`${API_URL}/${AppId}/v1/donation/${donationId}`).then(
       handleResponse
     );
   },
