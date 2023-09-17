@@ -8,7 +8,7 @@ export const handleResponse = (response) => {
 };
 
 const api = {
-  createPass: (pass, token) => {
+  registerPass: (pass, token) => {
     return fetch(`${baseUrl}/pass`, {
       method: "POST",
       headers: {
@@ -16,6 +16,16 @@ const api = {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(pass),
+    }).then(handleResponse);
+  },
+  redeemReward: (rewardId, token) => {
+    return fetch(`${baseUrl}/${rewardId}/redeem`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(rewardId, token),
     }).then(handleResponse);
   },
 };
