@@ -10,9 +10,12 @@ export const handleResponse = (response) => {
 
 const donationApi = {
   getDonation: (donationId) => {
-    return fetch(`${API_URL}/${AppId}/v1/donation/${donationId}`).then(
-      handleResponse
-    );
+    return fetch(`${API_URL}/${AppId}/v1/donation/${donationId}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    }).then(handleResponse);
   },
 };
 

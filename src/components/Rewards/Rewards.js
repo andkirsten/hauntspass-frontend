@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Rewards.css";
 import rewardsList from "../../utils/rewardsList";
+import { useCurrentPass } from "../../contexts/CurrentPassContext";
+import api from "../../utils/api";
 
 const AccordionItem = ({
   title,
@@ -11,7 +13,29 @@ const AccordionItem = ({
   imageSrc,
   isOpen,
   toggleItem,
+  rewardId,
+  setError,
 }) => {
+  const { currentPass } = useCurrentPass();
+
+  const handleRedeem = (e) => {
+    e.preventDefault();
+    api
+      .redeemReward({
+        rewardId: rewardId,
+        pass: currentPass,
+      })
+      .then((res) => {
+        if (res) {
+          setError(null);
+          document.getElementById("confirm-modal").close();
+          document.getElementById("redeem-modal").showModal();
+        } else {
+          setError(res.message);
+        }
+      });
+  };
+
   return (
     <div className="collapse bg-white">
       <div
@@ -45,7 +69,12 @@ const AccordionItem = ({
                   </p>
                 </div>
               </div>
-              <button className="reward-redeem-btn btn btn-wide btn-secondary">
+              <button
+                className="reward-redeem-btn btn btn-wide btn-secondary"
+                onClick={() =>
+                  document.getElementById("confirm-modal").showModal()
+                }
+              >
                 Redeem Now
               </button>
               <div>
@@ -61,6 +90,40 @@ const AccordionItem = ({
           </div>
         )}
       </div>
+      <dialog id="confirm-modal" className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
+          <h3 className="font-bold text-lg">Are You Sure?</h3>
+          <p className="py-4">
+            You can only redeem this reward ONCE! Wait until you are ready to
+            claim your reward before you redeem
+          </p>
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn btn-secondary" onClick={handleRedeem}>
+                Yes, Redeem Now
+              </button>
+              <button className="btn">No, Cancel</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+      <dialog id="redeem-modal" className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
+          <h3 className="font-bold text-lg">{location} Reward!</h3>
+          <p className="py-4">
+            You have successfully redeemed your reward of {reward}! Please show
+            this screen to the business to claim your reward.
+          </p>
+          <p className="py-4">Reward good for {currentPass.passAmt} people.</p>
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn">
+                All Finished, check out other rewards.
+              </button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };

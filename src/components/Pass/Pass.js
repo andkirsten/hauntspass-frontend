@@ -5,7 +5,7 @@ import Homes from "../Homes/Homes";
 import "./Pass.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-const Pass = () => {
+const Pass = (props) => {
   //eslint-disable-next-line
   const { currentUser } = useCurrentUser();
 

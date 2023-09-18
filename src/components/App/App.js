@@ -1,15 +1,18 @@
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+
 import Footer from "../Footer/Footer";
 import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
+import { useCurrentPass } from "../../contexts/CurrentPassContext";
 import { registerUser, loginUser, verifyToken } from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
+import api from "../../utils/api";
 
 function App() {
   const { currentUser, setCurrentUser } = useCurrentUser();
+  const { currentPass, setCurrentPass } = useCurrentPass();
 
   const navigate = useNavigate();
   // eslint-disable-next-line
@@ -17,7 +20,6 @@ function App() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
-  const [pass, setPass] = useState(null);
 
   const handleSignup = async (data) => {
     setLoading(true);
@@ -80,6 +82,16 @@ function App() {
             data: { name: res.name, email: res.email, id: res._id },
           });
           setIsLogged(true);
+          api
+            .getPass(res._id, token)
+            .then((res) => {
+              if (res) {
+                setCurrentPass(res);
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         })
         .catch((err) => {
           console.log(err);
@@ -88,7 +100,7 @@ function App() {
     } else {
       setIsLogged(false);
     }
-  }, [setCurrentUser]);
+  }, [setCurrentUser, setCurrentPass]);
 
   return (
     <div className="app">
@@ -106,8 +118,8 @@ function App() {
         setError={setError}
         loading={loading}
         setLoading={setLoading}
-        pass={pass}
-        setPass={setPass}
+        currentPass={currentPass}
+        setCurrentPass={setCurrentPass}
       />
       <Footer />
     </div>
