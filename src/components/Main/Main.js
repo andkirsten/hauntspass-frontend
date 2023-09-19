@@ -40,12 +40,29 @@ const Main = (props) => {
         <Route path="/faqs" element={<FAQs />} />
         <Route
           path="/pass"
-          element={props.currentPass ? <Pass /> : <PassForm />}
+          element={
+            props.currentPass ? (
+              <Pass />
+            ) : (
+              <PassForm handleRegisterPass={props.handleRegisterPass} />
+            )
+          }
         />
-        <Route path="/pass" element={<Pass />} />
+
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/map" element={<Map />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route
+          path="/admin"
+          element={
+            <Admin
+              handleCreateEvent={props.handleCreateEvent}
+              events={props.events}
+              handleCreateReward={props.handleCreateReward}
+              handleUpdateReward={props.handleUpdateReward}
+              rewards={props.rewards}
+            />
+          }
+        />
         <Route path="*" element={<Home />} />
       </Routes>
     </div>

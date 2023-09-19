@@ -13,7 +13,6 @@ export function registerUser(data) {
 }
 
 export function loginUser(data) {
-  console.log(data);
   return fetch(`${baseUrl}/login`, {
     method: "POST",
     headers: {

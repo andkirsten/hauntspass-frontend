@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import useForm from "../../hooks/useForm";
 import api from "../../utils/api";
 
-const Admin = () => {
+const Admin = (props) => {
   const [activeTab, setActiveTab] = useState("CreateReward");
 
   const handleTabClick = (tabName) => {
@@ -38,20 +38,28 @@ const Admin = () => {
         </button>
       </div>
       <div className="form-container">
-        {activeTab === "CreateEvent" && <CreateEventForm />}
-        {activeTab === "CreateReward" && <CreateRewardForm />}
+        {activeTab === "CreateEvent" && (
+          <CreateEventForm handleCreateEvent={props.handleCreateEvent} />
+        )}
+        {activeTab === "CreateReward" && (
+          <CreateRewardForm
+            events={props.events}
+            handleCreateReward={props.handleCreateReward}
+          />
+        )}
         {activeTab === "UpdateReward" && <UpdateRewardForm />}
       </div>
     </div>
   );
 };
 
-const CreateEventForm = () => {
+const CreateEventForm = (props) => {
   const { values, handleChange } = useForm({
     eventName: "",
   });
   const handleCreateEvent = (e) => {
     e.preventDefault();
+    props.handleCreateEvent(values);
   };
   return (
     <>
@@ -85,18 +93,11 @@ const CreateEventForm = () => {
   );
 };
 
-const CreateRewardForm = () => {
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    api.getEvents().then((res) => {
-      setEvents(res);
-    });
-  }, []);
-
+const CreateRewardForm = (props) => {
+  const eventArray = props.events;
   const { values, handleChange } = useForm({
     eventId: "",
-    rewardId: "",
+
     rewardTitle: "",
     rewardLocation: "",
     rewardDescription: "",
@@ -106,6 +107,8 @@ const CreateRewardForm = () => {
   });
   const handleCreateReward = (e) => {
     e.preventDefault();
+    console.log(values);
+    props.handleCreateReward(values);
   };
   return (
     <div className="mx-auto max-w-md p-4">
@@ -124,9 +127,14 @@ const CreateRewardForm = () => {
               value={values.eventId}
               onChange={handleChange}
             >
-              {events.map((event) => {
-                return <option value={event._id}>{event.eventName}</option>;
-              })}
+              {Array.isArray(eventArray) &&
+                eventArray.map((event) => {
+                  return (
+                    <option value={event._id} key={event._id}>
+                      {event.eventName}
+                    </option>
+                  );
+                })}
             </select>
           </div>
           <div>

@@ -20,6 +20,8 @@ function App() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
+  const [events, setEvents] = useState([]);
+  const [rewards, setRewards] = useState([]);
 
   const handleSignup = async (data) => {
     setLoading(true);
@@ -37,31 +39,34 @@ function App() {
     setLoading(false);
   };
 
-  const handleLogin = async (data) => {
+  const handleLogin = (data) => {
     setLoading(true);
     loginUser(data)
       .then((res) => {
         if (res && res.token) {
           localStorage.setItem("authToken", res.token);
+          verifyToken(res.token).then((res) => {
+            setCurrentUser({
+              data: {
+                name: res.data.user.name,
+                email: res.data.user.email,
+                id: res.data.user._id,
+              },
+            });
+          });
           setToken(res.token);
-          const userInfo = verifyToken(res.token).catch((err) =>
-            console.log(err)
-          );
-
-          return userInfo;
+          setIsLogged(true);
+          setError(null);
+          console.log(currentUser);
         } else {
           setError(res.message);
         }
-      })
-      .then((userInfo) => {
-        setCurrentUser(userInfo);
-        setIsLogged(true);
-        navigate("/pass");
       })
       .catch((err) => {
         console.log(err);
       });
     setLoading(false);
+    navigate("/pass");
   };
 
   const handleLogout = () => {
@@ -72,26 +77,105 @@ function App() {
     navigate("/");
   };
 
+  const handleCreateEvent = (data) => {
+    console.log(data);
+    api
+      .createEvent(data, token)
+      .then((res) => {
+        if (res) {
+          console.log(res);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleRegisterPass = (props) => {
+    const { donationId, passAmt } = props;
+    api
+      .registerPass(donationId, passAmt, token)
+      .then((res) => {
+        if (res) {
+          console.log(res);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleCreateReward = (props) => {
+    const {
+      eventId,
+      rewardTitle,
+      rewardLocation,
+      rewardDescription,
+      rewardImageUrl,
+      rewardExtras,
+      rewardTerms,
+    } = props;
+    api
+      .createReward(
+        {
+          eventId,
+          rewardTitle,
+          rewardLocation,
+          rewardDescription,
+          rewardImageUrl,
+          rewardExtras,
+          rewardTerms,
+        },
+        token
+      )
+      .then((res) => {
+        if (res) {
+          console.log(res);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleUpdateReward = (props) => {
+    const { title, location, description, imageUrl, extras, terms } = props;
+    api
+      .updateReward(
+        title,
+        location,
+        description,
+        imageUrl,
+        extras,
+        terms,
+        token
+      )
+      .then((res) => {
+        if (res) {
+          console.log(res);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (token) {
       verifyToken(token)
         .then((res) => {
           setToken(token);
+          console.log(res);
           setCurrentUser({
-            data: { name: res.name, email: res.email, id: res._id },
+            data: {
+              name: res.data.user.name,
+              email: res.data.user.email,
+              id: res.data.user._id,
+            },
           });
+
           setIsLogged(true);
-          api
-            .getPass(res._id, token)
-            .then((res) => {
-              if (res) {
-                setCurrentPass(res);
-              }
-            })
-            .catch((err) => {
-              console.log(err);
-            });
         })
         .catch((err) => {
           console.log(err);
@@ -101,6 +185,38 @@ function App() {
       setIsLogged(false);
     }
   }, [setCurrentUser, setCurrentPass]);
+
+  useEffect(() => {
+    if (token) {
+      api
+        .getEvents(token)
+        .then((res) => {
+          console.log(res);
+          if (res) {
+            setEvents(res);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [token]);
+
+  useEffect(() => {
+    if (token) {
+      api
+        .getRewards(token)
+        .then((res) => {
+          console.log(res);
+          if (res) {
+            setRewards(res);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [token]);
 
   return (
     <div className="app">
@@ -114,6 +230,12 @@ function App() {
         setCurrentUser={setCurrentUser}
         handleSignup={handleSignup}
         handleLogin={handleLogin}
+        handleCreateEvent={handleCreateEvent}
+        handleRegisterPass={handleRegisterPass}
+        handleCreateReward={handleCreateReward}
+        handleUpdateReward={handleUpdateReward}
+        rewards={rewards}
+        events={events}
         error={error}
         setError={setError}
         loading={loading}

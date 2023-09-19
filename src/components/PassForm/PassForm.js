@@ -10,6 +10,7 @@ const PassForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    props.handleRegisterPass(values);
   };
 
   return (
