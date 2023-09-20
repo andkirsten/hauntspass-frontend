@@ -1,73 +1,63 @@
 import React, { useState } from "react";
 import "./Rewards.css";
-import rewardsList from "../../utils/rewardsList";
-import { useCurrentPass } from "../../contexts/CurrentPassContext";
-import api from "../../utils/api";
 
-const AccordionItem = ({
-  title,
-  location,
-  reward,
-  limitations,
-  extras,
-  imageSrc,
-  isOpen,
-  toggleItem,
-  rewardId,
-  setError,
-}) => {
-  const { currentPass } = useCurrentPass();
-
+const AccordionItem = (props) => {
   const handleRedeem = (e) => {
     e.preventDefault();
-    api
-      .redeemReward({
-        rewardId: rewardId,
-        pass: currentPass,
-      })
-      .then((res) => {
-        if (res) {
-          setError(null);
-          document.getElementById("confirm-modal").close();
-          document.getElementById("redeem-modal").showModal();
-        } else {
-          setError(res.message);
-        }
-      });
+    document.getElementById("confirm-modal").close();
+    document.getElementById("redeem-modal").showModal();
+    props.handleRedemption(props.item._id);
+  };
+
+  const onClick = () => {
+    props.toggleItem(props.index);
+    props.setActiveReward(props.item);
   };
 
   return (
     <div className="collapse bg-white">
       <div
-        className={`accordion__item ${isOpen ? "open" : ""}`}
-        onClick={toggleItem}
+        className={`accordion__item ${props.isOpen ? "open" : ""}`}
+        onClick={onClick}
       >
-        <div className="collapse-title text-xl text-white font-medium bg-primary">
-          <span>{title}</span>
-          <span
-            className={`accordion__icon ${isOpen ? "rotate-180" : ""}`}
-          ></span>
+        <div className="collapse-title text-white text-xl font-medium bg-primary">
+          <span>{props.item.rewardTitle}</span>
+          <span>
+            <img
+              src={props.item.imgUrl}
+              alt={props.item.rewardTitle}
+              className="reward-icon"
+            />
+          </span>
         </div>
-        {isOpen && (
+        {props.isOpen && (
           <div className="collapse-content">
-            <div className="reward-container">
-              <div className="redeem-content">
-                {imageSrc && (
+            <div className="collapse-container">
+              <div className="collapse-header">
+                {props.item.imgUrl && (
                   <div>
-                    <img src={imageSrc} alt="reward" className="reward-image" />
+                    <img
+                      src={props.item.imgUrl}
+                      alt="reward"
+                      className="reward-image"
+                    />
                   </div>
                 )}
-                <div className="redeem-info">
-                  <p>
-                    <strong>Location:</strong> {location}
-                  </p>
-                  <p>
-                    <strong>Reward:</strong> {reward}
-                  </p>
-                  <p>
-                    <strong>Limitations:</strong> {limitations}
-                  </p>
-                </div>
+                {props.businessDescription && (
+                  <div className="redeem-business">
+                    <p>
+                      <strong>{props.item.businessDescription}</strong>
+                    </p>
+                  </div>
+                )}
+              </div>
+              <div className="redeem-info space-y-4">
+                <p>
+                  <strong>Reward:</strong> {props.item.offer}
+                </p>
+                <p>
+                  <strong>Limitations:</strong> {props.item.rewardTerms}
+                </p>
               </div>
               <button
                 className="reward-redeem-btn btn btn-wide btn-secondary"
@@ -78,10 +68,11 @@ const AccordionItem = ({
                 Redeem Now
               </button>
               <div>
-                {extras && (
+                {props.item.rewardExtras && (
                   <div className="reward-extras text-center">
                     <p>
-                      <strong>PLUS During October:</strong> {extras}
+                      <strong>PLUS During October:</strong>{" "}
+                      {props.item.rewardExtras}
                     </p>
                   </div>
                 )}
@@ -109,12 +100,16 @@ const AccordionItem = ({
       </dialog>
       <dialog id="redeem-modal" className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
-          <h3 className="font-bold text-lg">{location} Reward!</h3>
+          <h3 className="font-bold text-lg">
+            {props.activeReward.rewardTitle} Reward!
+          </h3>
+          <p className="py-4">redeemed at: </p>
           <p className="py-4">
-            You have successfully redeemed your reward of {reward}! Please show
-            this screen to the business to claim your reward.
+            You have successfully redeemed your reward of{" "}
+            {props.activeReward.offer}! Please show this screen to the business
+            to claim your reward.
           </p>
-          <p className="py-4">Reward good for {currentPass.passAmt} people.</p>
+          <p className="py-4">Reward terms: {props.activeReward.rewardTerms}</p>
           <div className="modal-action">
             <form method="dialog">
               <button className="btn">
@@ -128,27 +123,29 @@ const AccordionItem = ({
   );
 };
 
-const Accordion = ({ items, openIndex, toggleItem }) => {
+const Accordion = ({ handleRedemption, rewards, openIndex, toggleItem }) => {
+  const [activeReward, setActiveReward] = useState({});
+
+  console.log(activeReward);
+
   return (
     <div>
-      {items.map((item, index) => (
+      {rewards.map((item, index) => (
         <AccordionItem
+          handleRedemption={handleRedemption}
           key={index}
-          title={item.title}
-          location={item.location}
-          reward={item.reward}
-          limitations={item.limitations}
-          extras={item.extras}
-          imageSrc={item.imageSrc}
+          item={item}
           isOpen={index === openIndex}
           toggleItem={() => toggleItem(index)}
+          activeReward={activeReward}
+          setActiveReward={setActiveReward}
         />
       ))}
     </div>
   );
 };
 
-const Rewards = () => {
+const Rewards = (props) => {
   const [openIndex, setOpenIndex] = useState(-1); // Initialize with -1 to have no item open by default
 
   const toggleItem = (index) => {
@@ -165,7 +162,8 @@ const Rewards = () => {
     <section className="rewards flex justify-center items-center p-4">
       <div className="w-full accordion-container">
         <Accordion
-          items={rewardsList}
+          handleRedemption={props.handleRedemption}
+          rewards={props.rewards}
           openIndex={openIndex}
           toggleItem={toggleItem}
         />

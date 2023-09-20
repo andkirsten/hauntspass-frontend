@@ -124,13 +124,12 @@ const CreateRewardForm = (props) => {
               id="eventId"
               name="eventId"
               className="w-full input input-bordered"
-              value={values.eventId}
               onChange={handleChange}
             >
               {Array.isArray(eventArray) &&
                 eventArray.map((event) => {
                   return (
-                    <option value={event._id} key={event._id}>
+                    <option value={values.event._id} key={event._id}>
                       {event.eventName}
                     </option>
                   );

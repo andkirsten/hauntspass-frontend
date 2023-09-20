@@ -86,7 +86,6 @@ const api = {
     }).then(handleResponse);
   },
   getEvents: (token) => {
-    console.log(token);
     return fetch(`${baseUrl}/events`, {
       method: "GET",
       headers: {

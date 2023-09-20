@@ -1,7 +1,7 @@
 // CurrentUserContext.js
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
-const CurrentUserContext = createContext();
+export const CurrentUserContext = createContext();
 
 export function CurrentUserProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
@@ -11,8 +11,4 @@ export function CurrentUserProvider({ children }) {
       {children}
     </CurrentUserContext.Provider>
   );
-}
-
-export function useCurrentUser() {
-  return useContext(CurrentUserContext);
 }

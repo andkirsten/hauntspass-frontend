@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import Rewards from "../Rewards/Rewards";
 import Homes from "../Homes/Homes";
 import "./Pass.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const Pass = (props) => {
   //eslint-disable-next-line
-  const { currentUser } = useCurrentUser();
+  const { currentUser } = useContext(CurrentUserContext);
 
   const [activeTab, setActiveTab] = React.useState("rewards");
 
@@ -40,7 +40,12 @@ const Pass = (props) => {
           </ul>
         </div>
         <div className="tab-content">
-          {activeTab === "rewards" && <Rewards />}
+          {activeTab === "rewards" && (
+            <Rewards
+              rewards={props.rewards}
+              handleRedemption={props.handleRedemption}
+            />
+          )}
           {activeTab === "homes" && <Homes />}
         </div>
       </section>

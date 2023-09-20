@@ -1,21 +1,22 @@
+import { useContext } from "react";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 
 import Footer from "../Footer/Footer";
 import React, { useEffect, useState } from "react";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useCurrentPass } from "../../contexts/CurrentPassContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { CurrentPassContext } from "../../contexts/CurrentPassContext";
 import { registerUser, loginUser, verifyToken } from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
 
 function App() {
-  const { currentUser, setCurrentUser } = useCurrentUser();
-  const { currentPass, setCurrentPass } = useCurrentPass();
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+  const { currentPass, setCurrentPass } = useContext(CurrentPassContext);
 
   const navigate = useNavigate();
-  // eslint-disable-next-line
+
   const [token, setToken] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -57,7 +58,6 @@ function App() {
           setToken(res.token);
           setIsLogged(true);
           setError(null);
-          console.log(currentUser);
         } else {
           setError(res.message);
         }
@@ -160,13 +160,43 @@ function App() {
       });
   };
 
+  const handleRedemption = (props) => {
+    console.log(currentPass);
+    const { rewardId } = props;
+    //get current pass id from currentPass
+    api
+      .createRedemption(rewardId, { passId: currentPass.id }, token)
+      .then((res) => {
+        if (res) {
+          console.log(res);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  //eslint-disable-next-line
+  const getRedemption = (props) => {
+    const { redemptionId } = props;
+    api
+      .getRedemption(redemptionId, token)
+      .then((res) => {
+        if (res) {
+          console.log(res);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (token) {
       verifyToken(token)
         .then((res) => {
           setToken(token);
-          console.log(res);
           setCurrentUser({
             data: {
               name: res.data.user.name,
@@ -191,7 +221,6 @@ function App() {
       api
         .getEvents(token)
         .then((res) => {
-          console.log(res);
           if (res) {
             setEvents(res);
           }
@@ -207,7 +236,6 @@ function App() {
       api
         .getRewards(token)
         .then((res) => {
-          console.log(res);
           if (res) {
             setRewards(res);
           }
@@ -234,6 +262,7 @@ function App() {
         handleRegisterPass={handleRegisterPass}
         handleCreateReward={handleCreateReward}
         handleUpdateReward={handleUpdateReward}
+        handleRedemption={handleRedemption}
         rewards={rewards}
         events={events}
         error={error}

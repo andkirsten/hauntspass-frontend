@@ -92,25 +92,59 @@ const Home = () => {
         <h2 className="sponsors__title title">Our Sponsors</h2>
         <div className="sponsors__container">
           <div className="sponsors__card">
-            <img
-              className="sponsors__image"
-              src="/images/harmons.png"
-              alt="daybreak logo"
-            />
+            <a href="https://alloypersonaltraining.com/">
+              <img
+                className="sponsors__image"
+                src="/images/alloy_logo.png"
+                alt="alloy personal training"
+              />
+            </a>
           </div>
           <div className="sponsors__card">
-            <img
-              className="sponsors__image"
-              src="/images/1 3.07.19 PM.png"
-              alt="daybreak logo"
-            />
+            <a href="https://www.mathnasium.com/southjordan/about">
+              <img
+                className="sponsors__image"
+                src="/images/mathnasium_logo.jpg"
+                alt="mathnasium logo"
+              />
+            </a>
           </div>
           <div className="sponsors__card">
-            <img
-              className="sponsors__image"
-              src="/images/cupbap.png"
-              alt="daybreak logo"
-            />
+            <a href="https://www.mountainmikespizza.com/locations/south-jordan-w-10400-s/">
+              <img
+                className="sponsors__image"
+                src="/images/mountain_mikes_logo.jpeg"
+                alt="mountain mikes pizza"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://www.cupbop.com/">
+              <img
+                className="sponsors__image"
+                src="/images/cupbop.png"
+                alt="cupbop korean bbq in a cup"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://mywarrens.com/">
+              <img
+                className="sponsors__image"
+                src="/images/warrens.png"
+                alt="warrens"
+              />
+            </a>
+          </div>
+
+          <div className="sponsors__card">
+            <a href="https://www.google.com/maps/place/Sweet+and+Cool/@40.5468679,-112.0053056,17z/data=!3m1!4b1!4m6!3m5!1s0x875285cb41b19bdd:0xb41c307d94b60a15!8m2!3d40.5468679!4d-112.0027307!16s%2Fg%2F11t_jdvqhg?entry=ttu">
+              <img
+                className="sponsors__image"
+                src="/images/sweetAndCool.jpg"
+                alt="sweet and cool"
+              />
+            </a>
           </div>
         </div>
       </section>

@@ -42,7 +42,10 @@ const Main = (props) => {
           path="/pass"
           element={
             props.currentPass ? (
-              <Pass />
+              <Pass
+                rewards={props.rewards}
+                handleRedemption={props.handleRedemption}
+              />
             ) : (
               <PassForm handleRegisterPass={props.handleRegisterPass} />
             )
