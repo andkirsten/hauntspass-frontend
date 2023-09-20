@@ -47,7 +47,7 @@ const Main = (props) => {
                 handleRedemption={props.handleRedemption}
               />
             ) : (
-              <PassForm handleRegisterPass={props.handleRegisterPass} />
+              <PassForm handleCreatePass={props.handleCreatePass} />
             )
           }
         />

@@ -91,65 +91,9 @@ function App() {
       });
   };
 
-  const handleRegisterPass = (props) => {
-    const { donationId, passAmt } = props;
+  const handleCreatePass = (receiptRef) => {
     api
-      .registerPass(donationId, passAmt, token)
-      .then((res) => {
-        if (res) {
-          console.log(res);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const handleCreateReward = (props) => {
-    const {
-      eventId,
-      rewardTitle,
-      rewardLocation,
-      rewardDescription,
-      rewardImageUrl,
-      rewardExtras,
-      rewardTerms,
-    } = props;
-    api
-      .createReward(
-        {
-          eventId,
-          rewardTitle,
-          rewardLocation,
-          rewardDescription,
-          rewardImageUrl,
-          rewardExtras,
-          rewardTerms,
-        },
-        token
-      )
-      .then((res) => {
-        if (res) {
-          console.log(res);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const handleUpdateReward = (props) => {
-    const { title, location, description, imageUrl, extras, terms } = props;
-    api
-      .updateReward(
-        title,
-        location,
-        description,
-        imageUrl,
-        extras,
-        terms,
-        token
-      )
+      .createPass(receiptRef, token)
       .then((res) => {
         if (res) {
           console.log(res);
@@ -259,9 +203,7 @@ function App() {
         handleSignup={handleSignup}
         handleLogin={handleLogin}
         handleCreateEvent={handleCreateEvent}
-        handleRegisterPass={handleRegisterPass}
-        handleCreateReward={handleCreateReward}
-        handleUpdateReward={handleUpdateReward}
+        handleCreatePass={handleCreatePass}
         handleRedemption={handleRedemption}
         rewards={rewards}
         events={events}

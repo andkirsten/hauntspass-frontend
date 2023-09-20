@@ -8,23 +8,24 @@ export const handleResponse = (response) => {
 };
 
 const api = {
-  registerPass: (donationId, passAmt, token) => {
+  createPass: (receiptRef, token) => {
     return fetch(`${baseUrl}/pass`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(donationId, passAmt),
+      body: JSON.stringify(receiptRef),
     }).then(handleResponse);
   },
   getPass: (userId, token) => {
-    return fetch(`${baseUrl}/pass/${userId}`, {
+    return fetch(`${baseUrl}/pass`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+      body: JSON.stringify(userId),
     }).then(handleResponse);
   },
   createRedemption: (rewardId, passId, token) => {

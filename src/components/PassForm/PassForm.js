@@ -4,20 +4,19 @@ import useForm from "../../hooks/useForm";
 
 const PassForm = (props) => {
   const { values, handleChange } = useForm({
-    donationId: "",
-    passAmt: "",
+    receiptRef: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.handleRegisterPass(values);
+    props.handleCreatePass(values);
   };
 
   return (
     <div className="pass-form">
       <h2 className="pass-form__title">Get A Haunts Pass</h2>
       <div className="p-6 space-y-4">
-        <p>Redeem your donation reciept to get your Haunts Pass</p>
+        <p>Redeem your donation receipt to get your Haunts Pass</p>
         <p>
           One haunts pass will cover multiple people, but the donation amount
           must be at least $15 per person in your group/family.
@@ -25,30 +24,16 @@ const PassForm = (props) => {
       </div>
       <form className="space-y-4">
         <div>
-          <label htmlFor="donationId" className="text-gray-600">
+          <label htmlFor="receiptRef" className="text-gray-600">
             Receipt Reference
           </label>
           <input
             type="text"
-            id="donationId"
+            id="receiptRef"
             className="w-full input input-bordered"
             placeholder="Enter Receipt Reference"
-            name="donationId"
-            value={values.donationId}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="passAmt" className="text-gray-600">
-            Number of People
-          </label>
-          <input
-            type="number"
-            id="passAmt"
-            className="w-full input input-bordered"
-            placeholder="Enter Number of People"
-            name="passAmt"
-            value={values.passAmt}
+            name="receiptRef"
+            value={values.receiptRef}
             onChange={handleChange}
           />
         </div>

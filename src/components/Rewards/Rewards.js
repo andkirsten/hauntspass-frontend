@@ -126,8 +126,6 @@ const AccordionItem = (props) => {
 const Accordion = ({ handleRedemption, rewards, openIndex, toggleItem }) => {
   const [activeReward, setActiveReward] = useState({});
 
-  console.log(activeReward);
-
   return (
     <div>
       {rewards.map((item, index) => (
