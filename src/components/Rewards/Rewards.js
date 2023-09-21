@@ -4,14 +4,24 @@ import "./Rewards.css";
 const AccordionItem = (props) => {
   const handleRedeem = (e) => {
     e.preventDefault();
-    document.getElementById("confirm-modal").close();
-    document.getElementById("redeem-modal").showModal();
-    props.handleRedemption(props.item._id);
+    props.handleRedemption(props.activeReward._id);
   };
 
   const onClick = () => {
     props.toggleItem(props.index);
     props.setActiveReward(props.item);
+  };
+
+  const handleFinishRedemption = (e) => {
+    e.preventDefault();
+    document.getElementById("redeem-modal").close();
+  };
+
+  const formattedDateAndTime = (date) => {
+    const newDate = new Date(date);
+    const formattedDate = newDate.toLocaleDateString("en-US");
+    const formattedTime = newDate.toLocaleTimeString("en-US");
+    return `${formattedDate} at ${formattedTime}`;
   };
 
   return (
@@ -43,7 +53,7 @@ const AccordionItem = (props) => {
                     />
                   </div>
                 )}
-                {props.businessDescription && (
+                {props.item.businessDescription && (
                   <div className="redeem-business">
                     <p>
                       <strong>{props.item.businessDescription}</strong>
@@ -56,7 +66,8 @@ const AccordionItem = (props) => {
                   <strong>Reward:</strong> {props.item.offer}
                 </p>
                 <p>
-                  <strong>Limitations:</strong> {props.item.rewardTerms}
+                  <strong>Terms and Conditions:</strong>{" "}
+                  {props.item.rewardTerms}
                 </p>
               </div>
               <button
@@ -90,8 +101,14 @@ const AccordionItem = (props) => {
           </p>
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn btn-secondary" onClick={handleRedeem}>
-                Yes, Redeem Now
+              <button
+                className={`btn ${
+                  props.loading ? "btn-disabled" : "btn-secondary"
+                }`}
+                onClick={handleRedeem}
+                disabled={props.loading}
+              >
+                {props.loading ? "Loading Reward" : "Yes, Redeem Now"}
               </button>
               <button className="btn">No, Cancel</button>
             </form>
@@ -101,18 +118,22 @@ const AccordionItem = (props) => {
       <dialog id="redeem-modal" className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
           <h3 className="font-bold text-lg">
-            {props.activeReward.rewardTitle} Reward!
+            {props.activeReward?.rewardTitle} Reward!
           </h3>
-          <p className="py-4">redeemed at: </p>
+          <p className="py-4">
+            redeemed at: {formattedDateAndTime(props.redemption?.redeemedAt)}{" "}
+          </p>
           <p className="py-4">
             You have successfully redeemed your reward of{" "}
-            {props.activeReward.offer}! Please show this screen to the business
+            {props.activeReward?.offer}! Please show this screen to the business
             to claim your reward.
           </p>
-          <p className="py-4">Reward terms: {props.activeReward.rewardTerms}</p>
+          <p className="py-4">
+            Reward terms: {props.activeReward?.rewardTerms}
+          </p>
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn">
+              <button className="btn" onClick={handleFinishRedemption}>
                 All Finished, check out other rewards.
               </button>
             </form>
@@ -123,20 +144,20 @@ const AccordionItem = (props) => {
   );
 };
 
-const Accordion = ({ handleRedemption, rewards, openIndex, toggleItem }) => {
-  const [activeReward, setActiveReward] = useState({});
-
+const Accordion = (props) => {
   return (
     <div>
-      {rewards.map((item, index) => (
+      {props.rewards.map((item, index) => (
         <AccordionItem
-          handleRedemption={handleRedemption}
+          handleRedemption={props.handleRedemption}
           key={index}
           item={item}
-          isOpen={index === openIndex}
-          toggleItem={() => toggleItem(index)}
-          activeReward={activeReward}
-          setActiveReward={setActiveReward}
+          isOpen={index === props.openIndex}
+          toggleItem={() => props.toggleItem(index)}
+          activeReward={props.activeReward}
+          setActiveReward={props.setActiveReward}
+          redemption={props.redemption}
+          loading={props.loading}
         />
       ))}
     </div>
@@ -145,6 +166,7 @@ const Accordion = ({ handleRedemption, rewards, openIndex, toggleItem }) => {
 
 const Rewards = (props) => {
   const [openIndex, setOpenIndex] = useState(-1); // Initialize with -1 to have no item open by default
+  const [activeReward, setActiveReward] = useState(null);
 
   const toggleItem = (index) => {
     if (openIndex === index) {
@@ -164,6 +186,10 @@ const Rewards = (props) => {
           rewards={props.rewards}
           openIndex={openIndex}
           toggleItem={toggleItem}
+          activeReward={activeReward}
+          setActiveReward={setActiveReward}
+          redemption={props.redemption}
+          loading={props.loading}
         />
       </div>
     </section>

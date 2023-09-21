@@ -45,10 +45,13 @@ const PassForm = (props) => {
         <div>
           <button
             type="button"
-            className="login__button w-full btn btn-primary"
+            className={`login__button w-full btn ${
+              props.loading ? "btn-disabled" : "btn-primary"
+            }`}
             onClick={handleSubmit}
+            disabled={props.loading}
           >
-            Submit
+            {props.loading ? "Loading..." : "Submit"}
           </button>
         </div>
       </form>

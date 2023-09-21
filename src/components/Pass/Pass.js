@@ -44,6 +44,9 @@ const Pass = (props) => {
             <Rewards
               rewards={props.rewards}
               handleRedemption={props.handleRedemption}
+              setRedemption={props.setRedemption}
+              redemption={props.redemption}
+              loading={props.loading}
             />
           )}
           {activeTab === "homes" && <Homes />}

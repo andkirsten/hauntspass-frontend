@@ -9,7 +9,7 @@ import Pass from "../Pass/Pass";
 import PassForm from "../PassForm/PassForm";
 import Volunteer from "../Volunteer/Volunteer";
 import Map from "../Map/Map";
-import Admin from "../Admin/Admin";
+// import Admin from "../Admin/Admin";
 
 const Main = (props) => {
   return (
@@ -45,16 +45,23 @@ const Main = (props) => {
               <Pass
                 rewards={props.rewards}
                 handleRedemption={props.handleRedemption}
+                redemption={props.redemption}
+                setRedemption={props.setRedemption}
+                loading={props.loading}
               />
             ) : (
-              <PassForm handleCreatePass={props.handleCreatePass} />
+              <PassForm
+                handleCreatePass={props.handleCreatePass}
+                error={props.error}
+                loading={props.loading}
+              />
             )
           }
         />
 
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/map" element={<Map />} />
-        <Route
+        {/* <Route
           path="/admin"
           element={
             <Admin
@@ -65,7 +72,7 @@ const Main = (props) => {
               rewards={props.rewards}
             />
           }
-        />
+        /> */}
         <Route path="*" element={<Home />} />
       </Routes>
     </div>

@@ -21,8 +21,9 @@ function App() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
-  const [events, setEvents] = useState([]);
   const [rewards, setRewards] = useState([]);
+  const [redemption, setRedemption] = useState(null);
+  const [redeemed, setRedeemed] = useState([]);
 
   const handleSignup = async (data) => {
     setLoading(true);
@@ -92,11 +93,14 @@ function App() {
   };
 
   const handleCreatePass = (receiptRef) => {
+    setLoading(true);
     api
       .createPass(receiptRef, token)
       .then((res) => {
         if (res) {
-          console.log(res);
+          setCurrentPass(res);
+          setLoading(false);
+          navigate("/pass");
         }
       })
       .catch((err) => {
@@ -105,30 +109,19 @@ function App() {
   };
 
   const handleRedemption = (props) => {
-    console.log(currentPass);
-    const { rewardId } = props;
-    //get current pass id from currentPass
+    setLoading(true);
+    const passId = currentPass.id;
+    const rewardId = props;
+    const data = { rewardId, passId };
     api
-      .createRedemption(rewardId, { passId: currentPass.id }, token)
+      .createRedemption(data, token)
       .then((res) => {
         if (res) {
-          console.log(res);
+          setRedemption(res);
         }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  //eslint-disable-next-line
-  const getRedemption = (props) => {
-    const { redemptionId } = props;
-    api
-      .getRedemption(redemptionId, token)
-      .then((res) => {
-        if (res) {
-          console.log(res);
-        }
+        setLoading(false);
+        document.getElementById("confirm-modal").close();
+        document.getElementById("redeem-modal").showModal();
       })
       .catch((err) => {
         console.log(err);
@@ -136,59 +129,75 @@ function App() {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("authToken");
     if (token) {
-      verifyToken(token)
-        .then((res) => {
-          setToken(token);
-          setCurrentUser({
-            data: {
-              name: res.data.user.name,
-              email: res.data.user.email,
-              id: res.data.user._id,
-            },
+      const getRewards = () => {
+        api
+          .getRewards(token)
+          .then((res) => {
+            if (res) {
+              setRewards(res);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
           });
+      };
 
-          setIsLogged(true);
-        })
-        .catch((err) => {
-          console.log(err);
-          setError(err.message);
-        });
-    } else {
-      setIsLogged(false);
-    }
-  }, [setCurrentUser, setCurrentPass]);
+      const getRedemptions = () => {
+        api
+          .getRedemptions(token)
+          .then((res) => {
+            if (res) {
+              setRedeemed(res);
+            }
+          })
+          .catch((err) => {
+            console.log("get Redemptions", err);
+          });
+      };
 
-  useEffect(() => {
-    if (token) {
-      api
-        .getEvents(token)
-        .then((res) => {
-          if (res) {
-            setEvents(res);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [token]);
+      const verifyUser = () => {
+        const token = localStorage.getItem("authToken");
+        if (token) {
+          verifyToken(token)
+            .then((res) => {
+              setToken(token);
+              setCurrentUser({
+                data: {
+                  name: res.data.user.name,
+                  email: res.data.user.email,
+                  id: res.data.user._id,
+                },
+              });
+              setIsLogged(true);
+            })
+            .catch((err) => {
+              console.log(err);
+              setError(err.message);
+            });
+        }
+      };
 
-  useEffect(() => {
-    if (token) {
-      api
-        .getRewards(token)
-        .then((res) => {
-          if (res) {
-            setRewards(res);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      const getPass = () => {
+        api
+          .getPass(token)
+          .then((res) => {
+            if (res) {
+              setCurrentPass(res);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+
+      getPass();
+      verifyUser();
+      getRedemptions();
+      getRewards();
+      getRedemptions();
     }
-  }, [token]);
+  }, [token, setCurrentUser, setCurrentPass, currentPass]);
 
   return (
     <div className="app">
@@ -205,8 +214,10 @@ function App() {
         handleCreateEvent={handleCreateEvent}
         handleCreatePass={handleCreatePass}
         handleRedemption={handleRedemption}
+        setRedemption={setRedemption}
+        redemption={redemption}
+        redeemed={redeemed}
         rewards={rewards}
-        events={events}
         error={error}
         setError={setError}
         loading={loading}

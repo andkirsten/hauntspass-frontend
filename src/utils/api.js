@@ -18,44 +18,32 @@ const api = {
       body: JSON.stringify(receiptRef),
     }).then(handleResponse);
   },
-  getPass: (userId, token) => {
+  getPass: (token) => {
     return fetch(`${baseUrl}/pass`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(userId),
     }).then(handleResponse);
   },
-  createRedemption: (rewardId, passId, token) => {
-    return fetch(`${baseUrl}/pass/${passId}/${rewardId}`, {
+  createRedemption: (data, token) => {
+    return fetch(`${baseUrl}/redemption`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(rewardId, passId),
+      body: JSON.stringify(data),
     }).then(handleResponse);
   },
-  updateRedemption: (rewardId, passId, token) => {
-    return fetch(`${baseUrl}/pass/${passId}/${rewardId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(rewardId, passId),
-    }).then(handleResponse);
-  },
-  getRedemption: (rewardId, passId, token) => {
-    return fetch(`${baseUrl}/pass/${passId}/${rewardId}`, {
+  getRedemptions: (token) => {
+    return fetch(`${baseUrl}/redemption`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(rewardId, passId),
     }).then(handleResponse);
   },
   createReward: (data, token) => {
