@@ -12,7 +12,11 @@
   color: white;
 }
 
-.current-rewards-title {
+.cr__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
   background-color: rgba(253, 158, 6, 0.3);
 }
 
