@@ -37,7 +37,7 @@ function App() {
       }
     } catch (err) {
       console.log(err);
-      setError(err.message);
+      setError(err.validation.body.message);
     }
     setLoading(false);
   };
@@ -107,7 +107,7 @@ function App() {
       })
       .catch((err) => {
         setLoading(false);
-        setError(err.validation.body.message);
+        setError(err.validation);
       });
   };
 
@@ -173,7 +173,7 @@ function App() {
             }
           })
           .catch((err) => {
-            console.log(err);
+            setError(err.error);
           });
       };
 
