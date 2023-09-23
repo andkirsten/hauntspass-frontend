@@ -4,7 +4,7 @@ import "./Home.css";
 import step1 from "../../images/step1.png";
 import step2 from "../../images/step2.png";
 import step3 from "../../images/step3.png";
-import header from "../../images/hauntspass Header2.jpg";
+import header from "../../images/hauntspass Header2.png";
 
 const Home = () => {
   return (
@@ -35,7 +35,7 @@ const Home = () => {
             </figure>
             <div className="card-body text-white">
               <h2 className="card-title">MAKE DONATION</h2>
-              <p>Make a donation of $20 per person to the Utah Food Bank.</p>
+              <p>Make a donation of $20 or more to the Utah Food Bank.</p>
               <div className="card-actions justify-end">
                 <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
                   <button className="btn btn-secondary">Donate now</button>
@@ -68,7 +68,7 @@ const Home = () => {
               <h2 className="card-title">GET REWARDS</h2>
               <p>
                 Redeem your Haunts Pass at participating homes and businesses
-                for special perks and rewards.
+                for special perks and rewards until November 14th.
               </p>
               <div className="card-actions justify-end">
                 <button className="btn btn-secondary">SEE REWARDS NOW</button>
@@ -92,25 +92,77 @@ const Home = () => {
         <h2 className="sponsors__title title">Our Sponsors</h2>
         <div className="sponsors__container">
           <div className="sponsors__card">
-            <img
-              className="sponsors__image"
-              src="/images/harmons.png"
-              alt="daybreak logo"
-            />
+            <a href="https://alloypersonaltraining.com/">
+              <img
+                className="sponsors__image"
+                src="/images/alloy_logo.png"
+                alt="alloy personal training"
+              />
+            </a>
           </div>
           <div className="sponsors__card">
-            <img
-              className="sponsors__image"
-              src="/images/1 3.07.19 PM.png"
-              alt="daybreak logo"
-            />
+            <a href="https://www.mathnasium.com/southjordan/about">
+              <img
+                className="sponsors__image"
+                src="/images/mathnasium_logo.jpg"
+                alt="mathnasium logo"
+              />
+            </a>
           </div>
           <div className="sponsors__card">
-            <img
-              className="sponsors__image"
-              src="/images/cupbap.png"
-              alt="daybreak logo"
-            />
+            <a href="https://www.mountainmikespizza.com/locations/south-jordan-w-10400-s/">
+              <img
+                className="sponsors__image"
+                src="/images/mountain_mikes_logo.jpeg"
+                alt="mountain mikes pizza"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://www.cupbop.com/">
+              <img
+                className="sponsors__image"
+                src="/images/cupbop.png"
+                alt="cupbop korean bbq in a cup"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://mywarrens.com/">
+              <img
+                className="sponsors__image"
+                src="/images/warrens.png"
+                alt="warrens"
+              />
+            </a>
+          </div>
+
+          <div className="sponsors__card">
+            <a href="https://www.google.com/maps/place/Sweet+and+Cool/@40.5468679,-112.0053056,17z/data=!3m1!4b1!4m6!3m5!1s0x875285cb41b19bdd:0xb41c307d94b60a15!8m2!3d40.5468679!4d-112.0027307!16s%2Fg%2F11t_jdvqhg?entry=ttu">
+              <img
+                className="sponsors__image"
+                src="/images/sweetAndCool.jpg"
+                alt="sweet and cool"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://luciennesalon.com/">
+              <img
+                className="sponsors__image"
+                src="/images/lucienne.jpeg"
+                alt="lucienne"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://www.costavida.com/locations/south-jordan">
+              <img
+                className="sponsors__image"
+                src="/images/costavida.jpeg"
+                alt="costa vida"
+              />
+            </a>
           </div>
         </div>
       </section>

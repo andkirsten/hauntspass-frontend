@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../images/daybreakhauntslogoWhiteborder.png";
 import "./Header.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const Header = (props) => {
-  const { currentUser } = useCurrentUser();
+  const { currentUser } = useContext(CurrentUserContext);
 
   return (
     <header>
@@ -39,6 +39,9 @@ const Header = (props) => {
                 <NavLink to="/faqs">FAQs</NavLink>
               </li>
               <li>
+                <NavLink to="/current-rewards">Current Reward Offers</NavLink>
+              </li>
+              <li>
                 <NavLink to="/">How it works</NavLink>
               </li>
               <li>
@@ -60,6 +63,9 @@ const Header = (props) => {
             </li>
             <li className="text-white">
               <NavLink to="/faqs">FAQs</NavLink>
+            </li>
+            <li className="text-white">
+              <NavLink to="/current-rewards">Current Reward Offers</NavLink>
             </li>
             <li className="text-white">
               <NavLink to="/">How it Works</NavLink>

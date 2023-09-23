@@ -6,8 +6,11 @@ import Login from "../Login/Login";
 import About from "../About/About";
 import FAQs from "../FAQs/FAQs";
 import Pass from "../Pass/Pass";
+import PassForm from "../PassForm/PassForm";
 import Volunteer from "../Volunteer/Volunteer";
+import CurrentRewards from "../CurrentRewards/CurrentRewards";
 import Map from "../Map/Map";
+// import Admin from "../Admin/Admin";
 
 const Main = (props) => {
   return (
@@ -35,10 +38,46 @@ const Main = (props) => {
           }
         />
         <Route path="/about" element={<About />} />
+        <Route
+          path="/current-rewards"
+          element={<CurrentRewards rewards={props.rewards} />}
+        />
         <Route path="/faqs" element={<FAQs />} />
-        <Route path="/pass" element={<Pass />} />
+        <Route
+          path="/pass"
+          element={
+            props.currentPass ? (
+              <Pass
+                rewards={props.rewards}
+                handleRedemption={props.handleRedemption}
+                redemptions={props.redemptions}
+                loading={props.loading}
+              />
+            ) : (
+              <PassForm
+                handleCreatePass={props.handleCreatePass}
+                error={props.error}
+                loading={props.loading}
+              />
+            )
+          }
+        />
+
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/map" element={<Map />} />
+        {/* <Route
+          path="/admin"
+          element={
+            <Admin
+              handleCreateEvent={props.handleCreateEvent}
+              events={props.events}
+              handleCreateReward={props.handleCreateReward}
+              handleUpdateReward={props.handleUpdateReward}
+              rewards={props.rewards}
+            />
+          }
+        /> */}
+        <Route path="*" element={<Home />} />
       </Routes>
     </div>
   );
