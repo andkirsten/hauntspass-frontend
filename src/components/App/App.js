@@ -187,7 +187,7 @@ function App() {
   useEffect(() => {
     const getRewards = () => {
       api
-        .getRewards(token)
+        .getRewards()
         .then((res) => {
           if (res) {
             setRewards(res);
@@ -198,7 +198,7 @@ function App() {
         });
     };
     getRewards();
-  }, [token]);
+  }, []);
 
   return (
     <div className="app">

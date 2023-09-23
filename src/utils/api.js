@@ -57,12 +57,11 @@ const api = {
       body: JSON.stringify(data),
     }).then(handleResponse);
   },
-  getRewards: (token) => {
+  getRewards: () => {
     return fetch(`${baseUrl}/rewards`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
     }).then(handleResponse);
   },
