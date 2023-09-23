@@ -60,7 +60,7 @@ const Signup = (props) => {
             onChange={handleChange}
           />
         </div>
-        <div className="modal__error">{props.error}</div>
+        <div className="signup-error">{props.error}</div>
 
         <div>
           <button

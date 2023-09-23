@@ -16,6 +16,15 @@
   margin: 0;
 }
 
-.login__button {
-  margin-top: 30px;
+.login__form {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+  max-width: 80%;
+}
+
+.error-message {
+  color: red;
+  font-size: 20px;
+  max-width: 80%;
 }
