@@ -1,11 +1,11 @@
 import { baseUrl } from "./constants";
 
-export const handleResponse = (response) => {
+export const handleResponse = async (response) => {
   if (response.ok) {
-    console.log(response);
     return response.json();
   }
-  return Promise.reject(`Error: ${response.status}`);
+  const error = await response.json();
+  return Promise.reject(error);
 };
 
 const api = {

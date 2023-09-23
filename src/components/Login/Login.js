@@ -17,7 +17,7 @@ const Login = (props) => {
   return (
     <div className="login">
       <h2 className="login__title">Login</h2>
-      <form className="space-y-4">
+      <form className="login__form space-y-4">
         <div>
           <label htmlFor="email" className="text-gray-600">
             Email

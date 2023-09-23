@@ -37,6 +37,7 @@ function App() {
       }
     } catch (err) {
       console.log(err);
+      setError(err.message);
     }
     setLoading(false);
   };
@@ -65,8 +66,7 @@ function App() {
         }
       })
       .catch((err) => {
-        console.log(err.message);
-        setError(err);
+        setError(err.validation.body.message);
       });
     setLoading(false);
   };
@@ -79,19 +79,20 @@ function App() {
     navigate("/");
   };
 
-  const handleCreateEvent = (data) => {
-    console.log(data);
-    api
-      .createEvent(data, token)
-      .then((res) => {
-        if (res) {
-          console.log(res);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  /* ---------------------------- for admin feature --------------------------- */
+  // const handleCreateEvent = (data) => {
+  //   console.log(data);
+  //   api
+  //     .createEvent(data, token)
+  //     .then((res) => {
+  //       if (res) {
+  //         console.log(res);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const handleCreatePass = (receiptRef) => {
     setLoading(true);
@@ -105,7 +106,8 @@ function App() {
         }
       })
       .catch((err) => {
-        console.log(err);
+        setLoading(false);
+        setError(err.validation.body.message);
       });
   };
 
@@ -210,7 +212,6 @@ function App() {
         setCurrentUser={setCurrentUser}
         handleSignup={handleSignup}
         handleLogin={handleLogin}
-        handleCreateEvent={handleCreateEvent}
         handleCreatePass={handleCreatePass}
         handleRedemption={handleRedemption}
         redemptions={redemptions}

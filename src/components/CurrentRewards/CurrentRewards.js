@@ -13,7 +13,7 @@ const AccordionItem = (props) => {
         className={`accordion__item ${props.isOpen ? "open" : ""}`}
         onClick={onClick}
       >
-        <div className="collapse-title text-white text-xl font-medium bg-primary">
+        <div className="collapse-title text-xl font-medium">
           <span>{props.item.rewardTitle}</span>
           <span>
             <img

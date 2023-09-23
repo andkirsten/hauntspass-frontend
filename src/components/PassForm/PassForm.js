@@ -40,14 +40,14 @@ const PassForm = (props) => {
           />
         </div>
         {props.error && (
-          <div className="p-6 space-y-4">
+          <div className="pass-error">
             <p>{props.error}</p>
           </div>
         )}
         <div>
           <button
             type="button"
-            className={`login__button w-full btn ${
+            className={`w-full btn ${
               props.loading ? "btn-disabled" : "btn-primary"
             }`}
             onClick={handleSubmit}
