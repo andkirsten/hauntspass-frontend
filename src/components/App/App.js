@@ -22,8 +22,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [rewards, setRewards] = useState([]);
-  const [redemption, setRedemption] = useState(null);
-  const [redeemed, setRedeemed] = useState([]);
+  const [redemptions, setRedemptions] = useState(null);
 
   const handleSignup = async (data) => {
     setLoading(true);
@@ -32,6 +31,7 @@ function App() {
       if (res) {
         handleLogin({ email: data.email, password: data.password });
         setError(null);
+        navigate("/pass");
       } else {
         setError(res.message);
       }
@@ -59,15 +59,16 @@ function App() {
           setToken(res.token);
           setIsLogged(true);
           setError(null);
+          navigate("/pass");
         } else {
           setError(res.message);
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.message);
+        setError(err);
       });
     setLoading(false);
-    navigate("/pass");
   };
 
   const handleLogout = () => {
@@ -117,7 +118,7 @@ function App() {
       .createRedemption(data, token)
       .then((res) => {
         if (res) {
-          setRedemption(res);
+          setRedemptions(res);
         }
         setLoading(false);
         document.getElementById("confirm-modal").close();
@@ -130,53 +131,36 @@ function App() {
 
   useEffect(() => {
     if (token) {
-      const getRewards = () => {
-        api
-          .getRewards(token)
-          .then((res) => {
-            if (res) {
-              setRewards(res);
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      };
-
       const getRedemptions = () => {
         api
           .getRedemptions(token)
           .then((res) => {
             if (res) {
-              setRedeemed(res);
+              const redeemedRewardsIds = res.map((reward) => reward.rewardId);
+              setRedemptions(redeemedRewardsIds);
             }
           })
-          .catch((err) => {
-            console.log("get Redemptions", err);
-          });
+          .catch((err) => {});
       };
 
-      const verifyUser = () => {
-        const token = localStorage.getItem("authToken");
-        if (token) {
-          verifyToken(token)
-            .then((res) => {
-              setToken(token);
-              setCurrentUser({
-                data: {
-                  name: res.data.user.name,
-                  email: res.data.user.email,
-                  id: res.data.user._id,
-                },
-              });
-              setIsLogged(true);
-            })
-            .catch((err) => {
-              console.log(err);
-              setError(err.message);
+      function verifyUser() {
+        verifyToken(token)
+          .then((res) => {
+            setToken(token);
+            setCurrentUser({
+              data: {
+                name: res.data.user.name,
+                email: res.data.user.email,
+                id: res.data.user._id,
+              },
             });
-        }
-      };
+            setIsLogged(true);
+          })
+          .catch((err) => {
+            console.log(err);
+            setError(err.message);
+          });
+      }
 
       const getPass = () => {
         api
@@ -194,10 +178,25 @@ function App() {
       getPass();
       verifyUser();
       getRedemptions();
-      getRewards();
-      getRedemptions();
     }
-  }, [token, setCurrentUser, setCurrentPass, currentPass]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
+
+  useEffect(() => {
+    const getRewards = () => {
+      api
+        .getRewards(token)
+        .then((res) => {
+          if (res) {
+            setRewards(res);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getRewards();
+  }, [token]);
 
   return (
     <div className="app">
@@ -214,9 +213,7 @@ function App() {
         handleCreateEvent={handleCreateEvent}
         handleCreatePass={handleCreatePass}
         handleRedemption={handleRedemption}
-        setRedemption={setRedemption}
-        redemption={redemption}
-        redeemed={redeemed}
+        redemptions={redemptions}
         rewards={rewards}
         error={error}
         setError={setError}

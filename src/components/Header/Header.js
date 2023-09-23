@@ -39,6 +39,9 @@ const Header = (props) => {
                 <NavLink to="/faqs">FAQs</NavLink>
               </li>
               <li>
+                <NavLink to="/current-rewards">Current Reward Offers</NavLink>
+              </li>
+              <li>
                 <NavLink to="/">How it works</NavLink>
               </li>
               <li>
@@ -60,6 +63,9 @@ const Header = (props) => {
             </li>
             <li className="text-white">
               <NavLink to="/faqs">FAQs</NavLink>
+            </li>
+            <li className="text-white">
+              <NavLink to="/current-rewards">Current Reward Offers</NavLink>
             </li>
             <li className="text-white">
               <NavLink to="/">How it Works</NavLink>

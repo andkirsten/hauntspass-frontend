@@ -24,6 +24,20 @@ const AccordionItem = (props) => {
     return `${formattedDate} at ${formattedTime}`;
   };
 
+  const checkRedemption = () => {
+    if (props.redemptions === undefined) {
+      return false;
+    }
+    if (props.activeReward === undefined) {
+      return false;
+    }
+    if (props.redemptions.includes(props.activeReward?._id)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <div className="collapse bg-white">
       <div
@@ -71,18 +85,21 @@ const AccordionItem = (props) => {
                 </p>
               </div>
               <button
-                className="reward-redeem-btn btn btn-wide btn-secondary"
+                className={`reward-redeem-btn btn btn-wide ${
+                  checkRedemption() ? "btn-disabled" : "btn-secondary"
+                } `}
                 onClick={() =>
                   document.getElementById("confirm-modal").showModal()
                 }
+                disabled={checkRedemption()}
               >
-                Redeem Now
+                {checkRedemption() ? "Already Redeemed" : "Redeem Now"}
               </button>
               <div>
                 {props.item.rewardExtras && (
                   <div className="reward-extras text-center">
                     <p>
-                      <strong>PLUS During October:</strong>{" "}
+                      <strong>Valid anytime until November 14th:</strong>{" "}
                       {props.item.rewardExtras}
                     </p>
                   </div>
@@ -156,7 +173,7 @@ const Accordion = (props) => {
           toggleItem={() => props.toggleItem(index)}
           activeReward={props.activeReward}
           setActiveReward={props.setActiveReward}
-          redemption={props.redemption}
+          redemptions={props.redemptions}
           loading={props.loading}
         />
       ))}
@@ -188,7 +205,7 @@ const Rewards = (props) => {
           toggleItem={toggleItem}
           activeReward={activeReward}
           setActiveReward={setActiveReward}
-          redemption={props.redemption}
+          redemptions={props.redemptions}
           loading={props.loading}
         />
       </div>

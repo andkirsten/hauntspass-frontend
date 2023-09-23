@@ -8,6 +8,7 @@ import FAQs from "../FAQs/FAQs";
 import Pass from "../Pass/Pass";
 import PassForm from "../PassForm/PassForm";
 import Volunteer from "../Volunteer/Volunteer";
+import CurrentRewards from "../CurrentRewards/CurrentRewards";
 import Map from "../Map/Map";
 // import Admin from "../Admin/Admin";
 
@@ -37,6 +38,10 @@ const Main = (props) => {
           }
         />
         <Route path="/about" element={<About />} />
+        <Route
+          path="/current-rewards"
+          element={<CurrentRewards rewards={props.rewards} />}
+        />
         <Route path="/faqs" element={<FAQs />} />
         <Route
           path="/pass"
@@ -45,8 +50,7 @@ const Main = (props) => {
               <Pass
                 rewards={props.rewards}
                 handleRedemption={props.handleRedemption}
-                redemption={props.redemption}
-                setRedemption={props.setRedemption}
+                redemptions={props.redemptions}
                 loading={props.loading}
               />
             ) : (

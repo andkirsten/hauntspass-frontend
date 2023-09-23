@@ -4,7 +4,7 @@ import "./Home.css";
 import step1 from "../../images/step1.png";
 import step2 from "../../images/step2.png";
 import step3 from "../../images/step3.png";
-import header from "../../images/hauntspass Header2.jpg";
+import header from "../../images/hauntspass Header2.png";
 
 const Home = () => {
   return (
@@ -35,7 +35,7 @@ const Home = () => {
             </figure>
             <div className="card-body text-white">
               <h2 className="card-title">MAKE DONATION</h2>
-              <p>Make a donation of $20 per person to the Utah Food Bank.</p>
+              <p>Make a donation of $20 or more to the Utah Food Bank.</p>
               <div className="card-actions justify-end">
                 <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
                   <button className="btn btn-secondary">Donate now</button>
@@ -68,7 +68,7 @@ const Home = () => {
               <h2 className="card-title">GET REWARDS</h2>
               <p>
                 Redeem your Haunts Pass at participating homes and businesses
-                for special perks and rewards.
+                for special perks and rewards until November 14th.
               </p>
               <div className="card-actions justify-end">
                 <button className="btn btn-secondary">SEE REWARDS NOW</button>
@@ -143,6 +143,24 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/sweetAndCool.jpg"
                 alt="sweet and cool"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://luciennesalon.com/">
+              <img
+                className="sponsors__image"
+                src="/images/lucienne.jpeg"
+                alt="lucienne"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://www.costavida.com/locations/south-jordan">
+              <img
+                className="sponsors__image"
+                src="/images/costavida.jpeg"
+                alt="costa vida"
               />
             </a>
           </div>

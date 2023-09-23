@@ -18,9 +18,7 @@ const Pass = (props) => {
   return (
     <div className="pass-page bg-secondary">
       <section className="pass">
-        <div className="pass__container">
-          <p className="pass__number">5</p>
-        </div>
+        <div className="pass__container"></div>
       </section>
       <section className="rewards">
         <div>
@@ -44,8 +42,7 @@ const Pass = (props) => {
             <Rewards
               rewards={props.rewards}
               handleRedemption={props.handleRedemption}
-              setRedemption={props.setRedemption}
-              redemption={props.redemption}
+              redemptions={props.redemptions}
               loading={props.loading}
             />
           )}

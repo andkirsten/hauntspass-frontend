@@ -2,6 +2,7 @@ import { baseUrl } from "./constants";
 
 export const handleResponse = (response) => {
   if (response.ok) {
+    console.log(response);
     return response.json();
   }
   return Promise.reject(`Error: ${response.status}`);
