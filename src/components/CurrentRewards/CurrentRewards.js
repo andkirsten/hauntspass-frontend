@@ -74,16 +74,19 @@ const AccordionItem = (props) => {
 const Accordion = (props) => {
   return (
     <div>
-      {props.rewards.map((item, index) => (
-        <AccordionItem
-          key={index}
-          item={item}
-          isOpen={index === props.openIndex}
-          toggleItem={() => props.toggleItem(index)}
-          activeReward={props.activeReward}
-          setActiveReward={props.setActiveReward}
-        />
-      ))}
+      {props.rewards
+        .slice() // Create a shallow copy of the rewards array
+        .sort((a, b) => a.rewardTitle.localeCompare(b.rewardTitle)) // Sort alphabetically by title
+        .map((item, index) => (
+          <AccordionItem
+            key={index}
+            item={item}
+            isOpen={index === props.openIndex}
+            toggleItem={() => props.toggleItem(index)}
+            activeReward={props.activeReward}
+            setActiveReward={props.setActiveReward}
+          />
+        ))}
     </div>
   );
 };

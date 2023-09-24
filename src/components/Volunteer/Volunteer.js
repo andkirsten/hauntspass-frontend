@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const HauntsHouse = () => {
   return (
-    <div>
-      <div className="volunteer__header max-w-screen-md mx-auto">
+    <div className="volunteer">
+      <div className="volunteer__header mx-auto">
         <h1 className="volunteer__title text-3xl">
           Support the Utah Food Bank by being a Haunts Pass Home!
         </h1>
@@ -18,7 +18,7 @@ const HauntsHouse = () => {
         <h2 className="volunteer__heading">Instructions/Process:</h2>
         <ol className="p-6 list-decimal">
           <li>
-            After you fill out the form, we will mark you as a Haunts Pass
+            After you fill out the form below, we will mark you as a Haunts Pass
             Location on the Daybreak Haunts map and add you to the website.
           </li>
           <li>
@@ -36,7 +36,17 @@ const HauntsHouse = () => {
           </Link>{" "}
           for more details.
         </p>
-        <button className="btn btn-primary">Sign Up Now</button>
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSf4Dcu0I89-h2FI2s0vl0PPrpmQFXrft2lPg25nmTz_t0XFhw/viewform?embedded=true"
+          width="100%"
+          height="800"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="volunteer-form"
+        >
+          Loading…
+        </iframe>
       </div>
     </div>
   );

@@ -66,7 +66,8 @@ function App() {
         }
       })
       .catch((err) => {
-        setError(err.validation.body.message);
+        console.log(err.message);
+        setError(err.message);
       });
     setLoading(false);
   };

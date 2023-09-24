@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./FAQs.css";
 
 const FAQ = () => {
@@ -18,11 +19,27 @@ const FAQ = () => {
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">How do I get my pass?</h3>
           <p>
-            <span className="text-primary">Answer:</span> Donate to the Utah
-            Food Bank a minimum of $5 per person. Please be generous and donate
-            as much as you would like. A receipt will be emailed to you - the
-            emailed receipt is your Haunts Pass. Print it for the Harmons treat,
-            or save to your phone for the rest.
+            <span className="text-primary">Answer:</span> Donate to the{" "}
+            <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
+              Utah Food Bank
+            </a>{" "}
+            a minimum of $20 per household. Please be generous and donate as
+            much as you would like. A receipt will be emailed to you. Then go to
+            the Daybreak Haunts website and follow the instructions to register
+            your pass. You will need to provide the Receipt Reference number
+            found on the receipt.
+          </p>
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold">How do I redeem a reward?</h3>
+          <p>
+            <span className="text-primary">Answer:</span> Log into your pass,
+            and choose a business. By clicking on the business name, the offer
+            details will appear with a “Redeem Now” button. Click the redeem
+            button while present at the business and display your pass to the
+            employee. Many businesses also offer month-long deals where no
+            redemption is required. Simply show your pass and receive the deal.
           </p>
         </div>
 
@@ -32,12 +49,15 @@ const FAQ = () => {
           </h3>
           <p>
             <span className="text-primary">Answer:</span> No. We ask that you
-            donate at least $5 per person and the total amount will be reflected
-            on the receipt. For example, if you donate $10, the single donation
-            receipt will be valid for 2 people (you'll just need to communicate
-            the number of passes/trick-or-treaters at participating locations).
-            However, this is a fundraiser so please donate as much as you'd like
-            to the Food Bank.
+            donate as much as you can to support the{" "}
+            <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
+              Food Bank
+            </a>{" "}
+            with a minimum of $20 per household. The business deals are designed
+            to accommodate multiple family members. On Halloween night, while
+            trick-or-treating, show your Haunts Pass to the participating home,
+            which is good for all present family members that want to receive a
+            reward.
           </p>
         </div>
 
@@ -47,9 +67,9 @@ const FAQ = () => {
           </h3>
           <p>
             <span className="text-primary">Answer:</span> In addition to a warm
-            feeling in your heart, check out our current offerings. All pass
-            holders must be present at the participating location to receive the
-            bonus treat.
+            feeling in your heart, check out our{" "}
+            <Link to="/current-rewards">current offerings</Link>
+            and the terms and conditions.
           </p>
         </div>
 
@@ -58,9 +78,10 @@ const FAQ = () => {
             How do I find a Haunts Pass location?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> Look at the Daybreak
-            Haunts map to find the locations displaying the Daybreak Haunts
-            haunted house logo, or check out our current offerings listing the
+            <span className="text-primary">Answer:</span> Look at the{" "}
+            <Link to="/map">Daybreak Haunts map</Link> to find the locations
+            displaying the Daybreak Haunts haunted house logo, or check out our{" "}
+            <Link to="/current-rewards">current offerings</Link> listing the
             locations.
           </p>
         </div>
@@ -70,10 +91,42 @@ const FAQ = () => {
             When can I use the Haunts Pass?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> Participating homes
-            may be visited Halloween night during your typical trick-or-treating
-            hours. Check current offerings for exceptions such as Harmons
-            Daybreak.
+            <span className="text-primary">Answer:</span> Participating
+            businesses generally have their rewards available for the month of
+            October. Participating homes may be visited Halloween night during
+            your typical trick-or-treating hours. Check the{" "}
+            <Link to="/current-rewards">current offerings</Link> page for
+            locations, rewards, and terms & conditions.
+          </p>
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold">
+            Why donate money and not cans? Can I donate a can?
+          </h3>
+          <p>
+            <span className="text-primary">Answer:</span> Well, sure, you can
+            donate a can, but remember, cans are notorious introverts at
+            parties. They sit quietly on the shelf, while money? Money's the
+            life of the pantry! For every $1 donated, the Food Bank can throw a
+            pantry bash worth $9.04 in goods and services. So, unless your can's
+            planning to breakdance, we'd suggest sticking to cash. Party on,
+            donors! Visit{" "}
+            <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
+              our donation page at Justgiving.org
+            </a>
+          </p>
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold">
+            How much of my donation goes to the Utah Food Bank?
+          </h3>
+          <p>
+            <span className="text-primary">Answer:</span> The Utah Food Bank
+            uses Justgiving.com to collect donations and receives 97% of the
+            funds. Daybreak Haunts <strong>does not</strong> collect any portion
+            of the donations.
           </p>
         </div>
 
@@ -87,11 +140,10 @@ const FAQ = () => {
           </h3>
           <p>
             <span className="text-primary">Answer:</span> These are Daybreak
-            resident homes or businesses that would like to participate in a
-            fundraiser, by simply giving out candy to pass holders on Halloween.
-            The only difference is you are providing a special bonus treat to
-            those who show you their Food Bank donation receipt (Daybreak Haunts
-            Pass). Volunteer to be a participating home.
+            resident homes that would like to support the fundraiser. The only
+            difference is the home provides a special bonus treat to those that
+            show their Daybreak Haunts Pass.{" "}
+            <Link to="/volunteer">Volunteer to be a participating home.</Link>
           </p>
         </div>
 

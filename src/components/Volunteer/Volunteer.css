@@ -1,10 +1,14 @@
+.volunteer {
+  background-color: rgba(253, 158, 6, 0.3);
+}
+
 .volunteer__header {
   text-align: center;
   background-image: url("../../images/smoke.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
+  width: 100%;
   margin: 0;
   color: white;
 }
@@ -15,6 +19,7 @@
   line-height: 1.2;
   text-align: center;
   padding: 20px;
+  width: 100%;
 }
 
 .volunteer__callout {

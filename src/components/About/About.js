@@ -3,7 +3,7 @@ import "./About.css";
 
 const About = () => {
   return (
-    <section className="max-w-screen-md mx-auto">
+    <section className="mx-auto">
       <div className="about__heading">
         <h1 className="about__title text-3xl">About Us</h1>
       </div>
