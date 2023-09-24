@@ -5,22 +5,22 @@ import "./FAQs.css";
 const FAQ = () => {
   return (
     <section className="faq">
-      <div className="faq-header hero">
-        <div className="hero-content text-center">
-          <div className="max-w-md">
-            <h1 className="faq-title text-5xl font-bold">
-              Frequently Asked Questions
-            </h1>
-          </div>
-        </div>
+      <div className="faq-header place-items-center">
+        <h1 className="faq-title text-5xl font-bold">
+          Frequently Asked Questions
+        </h1>
       </div>
+
       <div className="p-6 space-y-6">
         <h2 className="faq-subheading text-2xl font-semibold">Passholders</h2>
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">How do I get my pass?</h3>
           <p>
-            <span className="text-primary">Answer:</span> Donate to the{" "}
-            <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
+            <span className="font-bold">Answer:</span> Donate to the{" "}
+            <a
+              href="https://www.justgiving.com/page/daybreak-haunts-2023"
+              className="link"
+            >
               Utah Food Bank
             </a>{" "}
             a minimum of $20 per household. Please be generous and donate as
@@ -34,8 +34,8 @@ const FAQ = () => {
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">How do I redeem a reward?</h3>
           <p>
-            <span className="text-primary">Answer:</span> Log into your pass,
-            and choose a business. By clicking on the business name, the offer
+            <span className="font-bold">Answer:</span> Log into your pass, and
+            choose a business. By clicking on the business name, the offer
             details will appear with a “Redeem Now” button. Click the redeem
             button while present at the business and display your pass to the
             employee. Many businesses also offer month-long deals where no
@@ -48,9 +48,12 @@ const FAQ = () => {
             I have two kids, do I have to get two separate passes?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> No. We ask that you
+            <span className="font-bold">Answer:</span> No. We ask that you
             donate as much as you can to support the{" "}
-            <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
+            <a
+              href="https://www.justgiving.com/page/daybreak-haunts-2023"
+              className="link"
+            >
               Food Bank
             </a>{" "}
             with a minimum of $20 per household. The business deals are designed
@@ -66,9 +69,11 @@ const FAQ = () => {
             What do I get if I have a Haunts Pass?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> In addition to a warm
+            <span className="font-bold">Answer:</span> In addition to a warm
             feeling in your heart, check out our{" "}
-            <Link to="/current-rewards">current offerings</Link>
+            <Link to="/current-rewards" className="link">
+              current offerings
+            </Link>{" "}
             and the terms and conditions.
           </p>
         </div>
@@ -78,11 +83,16 @@ const FAQ = () => {
             How do I find a Haunts Pass location?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> Look at the{" "}
-            <Link to="/map">Daybreak Haunts map</Link> to find the locations
-            displaying the Daybreak Haunts haunted house logo, or check out our{" "}
-            <Link to="/current-rewards">current offerings</Link> listing the
-            locations.
+            <span className="font-bold">Answer:</span> Look at the{" "}
+            <Link to="/map" className="link">
+              Daybreak Haunts map
+            </Link>{" "}
+            to find the locations displaying the Daybreak Haunts haunted house
+            logo, or check out our{" "}
+            <Link to="/current-rewards" className="link">
+              current offerings
+            </Link>{" "}
+            listing the locations.
           </p>
         </div>
 
@@ -91,12 +101,14 @@ const FAQ = () => {
             When can I use the Haunts Pass?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> Participating
-            businesses generally have their rewards available for the month of
-            October. Participating homes may be visited Halloween night during
-            your typical trick-or-treating hours. Check the{" "}
-            <Link to="/current-rewards">current offerings</Link> page for
-            locations, rewards, and terms & conditions.
+            <span className="font-bold">Answer:</span> Participating businesses
+            generally have their rewards available for the month of October.
+            Participating homes may be visited Halloween night during your
+            typical trick-or-treating hours. Check the{" "}
+            <Link to="/current-rewards" className="link">
+              current offerings
+            </Link>{" "}
+            page for locations, rewards, and terms & conditions.
           </p>
         </div>
 
@@ -105,14 +117,17 @@ const FAQ = () => {
             Why donate money and not cans? Can I donate a can?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> Well, sure, you can
+            <span className="font-bold">Answer:</span> Well, sure, you can
             donate a can, but remember, cans are notorious introverts at
             parties. They sit quietly on the shelf, while money? Money's the
             life of the pantry! For every $1 donated, the Food Bank can throw a
             pantry bash worth $9.04 in goods and services. So, unless your can's
             planning to breakdance, we'd suggest sticking to cash. Party on,
             donors! Visit{" "}
-            <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
+            <a
+              href="https://www.justgiving.com/page/daybreak-haunts-2023"
+              className="link"
+            >
               our donation page at Justgiving.org
             </a>
           </p>
@@ -123,10 +138,10 @@ const FAQ = () => {
             How much of my donation goes to the Utah Food Bank?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> The Utah Food Bank
-            uses Justgiving.com to collect donations and receives 97% of the
-            funds. Daybreak Haunts <strong>does not</strong> collect any portion
-            of the donations.
+            <span className="font-bold">Answer:</span> The Utah Food Bank uses
+            Justgiving.com to collect donations and receives 97% of the funds.
+            Daybreak Haunts <strong>does not</strong> collect any portion of the
+            donations.
           </p>
         </div>
 
@@ -139,11 +154,13 @@ const FAQ = () => {
             What is a participating home?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> These are Daybreak
+            <span className="font-bold">Answer:</span> These are Daybreak
             resident homes that would like to support the fundraiser. The only
             difference is the home provides a special bonus treat to those that
             show their Daybreak Haunts Pass.{" "}
-            <Link to="/volunteer">Volunteer to be a participating home.</Link>
+            <Link to="/volunteer" className="link">
+              Volunteer to be a participating home.
+            </Link>
           </p>
         </div>
 
@@ -152,13 +169,14 @@ const FAQ = () => {
             What type of “bonus treat” should I provide?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> Your bonus treat can
-            be as big or small as you want. Just tell us what works best for
-            you, and we’ll share the details on the map. Examples we’ve heard so
-            far include “full-size candy bars,” “Double the candy,” “Photo
-            opportunity with characters,” “custom experience” e.g., fast pass to
-            haunted house, “bag of popcorn,” “can of soda,” “a small gift bag,”
-            or a themed toy – e.g., “Harry Potter wand.”
+            <span className="font-bold">Answer:</span> Your bonus treat can be
+            as big or small as you want. Just tell us what works best for you,
+            and weU+2019ll share the details on the map and current offering
+            page. Examples weU+2019ve heard so far include “full-size candy
+            bars,” “Double the candy,” “Photo opportunity with characters,”
+            “custom experience” e.g., fast pass to haunted house, “bag of
+            popcorn,” “can of soda,” “a small gift bag,” or a themed toy U+002d
+            e.g., “Harry Potter wand.”
           </p>
         </div>
 
@@ -167,11 +185,12 @@ const FAQ = () => {
             What if I run out of “bonus treats”?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> Many homes are listing
+            <span className="font-bold">Answer:</span> Many homes are listing
             “while supplies last” on their map description. Other ideas include,
             “First (insert number here) passholders receive …,” etc. When your
             supplies run out, simply take down the sign near your door knowing
-            that Daybreak has many generous trick-or-treaters.
+            that the fundraiser was successful with many trick-or-treaters
+            donating to the Utah Food Bank.
           </p>
         </div>
 
@@ -181,12 +200,12 @@ const FAQ = () => {
             prepared?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> The Utah Food Bank
-            website lists the number of donors and total donation amount, which
-            provides a ball park idea of pass holders. However, among other
-            variables, many pass holders will not visit every home. So it may be
-            difficult to predict. See FAQ question #3 for ideas on how to handle
-            this.
+            <span className="font-bold">Answer:</span> We can provide an
+            estimation on the number of current passholders before Halloween.
+            However, among other variables, many pass holders will not visit
+            every home. Last year, homes nearby large attractions received more
+            visitors. So it may be difficult to predict. See FAQ question #3 for
+            ideas on how to handle this.
           </p>
         </div>
 
@@ -195,34 +214,23 @@ const FAQ = () => {
             When is the Daybreak Haunts Pass valid?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> Residential homes will
-            give out bonus treats during typical trick-or-treating hours on
-            Halloween. Harmon’s however, is allowing passholders to visit the
-            store Oct 29th-31st. See “Current Offers” for more details.
+            <span className="font-bold">Answer:</span> Businesses rewards are
+            available for the month of October and some into November.
+            Residential homes will give out bonus treats during typical
+            trick-or-treating hours on Halloween.
           </p>
         </div>
 
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">
-            What if the trick-or-treater shows me a single donation receipt for
-            $10? Does that cover more than one person?
+            What if the trick-or-treater claims they have a pass but canU+2019t
+            display it?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> Yes. We are asking
-            people to donate at least $5 per person. However, if one pass holder
-            shows a single pass for $10, that would be valid for two people.
-          </p>
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold">
-            What if the trick-or-treater claims they have a pass but doesn’t
-            have a receipt?
-          </h3>
-          <p>
-            <span className="text-primary">Answer:</span> Just make sure the
-            costume is cute if you’re going to allow it. But know that Daybreak
-            Haunts will sorely curse any trick-or-treater that is telling a fib.
+            <span className="font-bold">Answer:</span> Just make sure the
+            costume is cute if youU+2019re going to allow it. But know that
+            Daybreak Haunts will sorely curse any trick-or-treater that is
+            telling a fib.
           </p>
         </div>
 
@@ -231,8 +239,8 @@ const FAQ = () => {
             Do I have to have crazy decorations at my home to participate?
           </h3>
           <p>
-            <span className="text-primary">Answer:</span> No, your house is
-            perfect the way it is.
+            <span className="font-bold">Answer:</span> No, your house is perfect
+            the way it is.
           </p>
         </div>
       </div>

@@ -1,17 +1,18 @@
 .about__heading {
   text-align: center;
-  background-image: url("../../images/smoke.jpeg");
+  background-image: url("../../images/Daybreak\ Background.JPG");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100px;
+  height: 150px;
   margin: 0;
   width: 100%;
+  border-bottom: solid 5px black;
 }
 
 .about__title {
   font-family: "HalloweenHaunted", sans-serif;
-  font-size: 40px;
+  font-size: 70px;
   line-height: 1.2;
   text-align: center;
   color: white;

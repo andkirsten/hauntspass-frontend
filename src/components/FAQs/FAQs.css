@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  height: 150px;
 }
 
 .hero-content {
@@ -14,10 +15,12 @@
   font-size: 70px;
   line-height: 1.2;
   text-align: center;
+  padding: 40px 0;
 }
 
 .faq-subheading {
   font-family: "HalloweenHaunted", sans-serif;
   font-size: 40px;
   line-height: 1.2;
+  text-align: center;
 }

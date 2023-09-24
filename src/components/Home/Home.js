@@ -5,6 +5,7 @@ import step1 from "../../images/step1.png";
 import step2 from "../../images/step2.png";
 import step3 from "../../images/step3.png";
 import header from "../../images/hauntspass Header2.png";
+import foodbank from "../../images/utah_food_bank_logo.png";
 
 const Home = () => {
   return (
@@ -13,11 +14,7 @@ const Home = () => {
         <div className="hero-content text-center">
           <div className="max-w-md">
             <img className="hero-image" src={header} alt="haunts pass" />
-            <p className="py-6">
-              Daybreak Haunts is a volunteer group that creates a yearly map
-              that includes Daybreak homes and businesses offering something
-              extra for those who donate to the Utah Food Bank fundraiser.
-            </p>
+
             <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
               <button className="btn btn-primary">
                 Donate Now to get your Haunts Pass
@@ -35,7 +32,9 @@ const Home = () => {
             </figure>
             <div className="card-body text-white">
               <h2 className="card-title">MAKE DONATION</h2>
-              <p>Make a donation of $20 or more to the Utah Food Bank.</p>
+              <img src={foodbank} alt="utah food bank" />
+              <p>Make a donation of $20 or more through our fundraiser.</p>
+
               <div className="card-actions justify-end">
                 <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
                   <button className="btn btn-secondary">Donate now</button>
@@ -48,7 +47,7 @@ const Home = () => {
               <img className="card-photo" src={step2} alt="kids" />
             </figure>
             <div className="card-body text-white">
-              <h2 className="card-title">GET A PASS</h2>
+              <h2 className="card-title">GET HAUNTS PASS NOW</h2>
               <p>
                 Submit your donation receipt for a Haunts Pass here on the
                 website.
@@ -70,7 +69,7 @@ const Home = () => {
               <h2 className="card-title">GET REWARDS</h2>
               <p>
                 Redeem your Haunts Pass at participating homes and businesses
-                for special perks and rewards until November 14th.
+                for special perks and rewards. See terms and conditions.
               </p>
               <div className="card-actions justify-end">
                 <Link to="/current-rewards">
@@ -81,12 +80,12 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="participate bg-default">
-        <h2 className="participate__title title">Get Involved</h2>
-        <div className="flex flex-col w-full lg:flex-row">
+      <section className="volunteer bg-default">
+        <h2 className="title">Get Involved</h2>
+        <div className="flex flex-col justify-center w-full lg:flex-row">
           <Link
             to="/volunteer"
-            className="option grid flex-grow h-20 card bg-secondary rounded-box place-items-center"
+            className="option grid flex-grow h-20 card bg-primary text-white max-w-md rounded-box place-items-center"
           >
             Become a Haunts Pass Home
           </Link>

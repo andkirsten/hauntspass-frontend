@@ -13,7 +13,7 @@ const AccordionItem = (props) => {
         className={`accordion__item ${props.isOpen ? "open" : ""}`}
         onClick={onClick}
       >
-        <div className="cr__title collapse-title flex text-xl font-medium bg-primary">
+        <div className="cr__title text-white collapse-title flex text-xl font-medium bg-primary">
           <span>{props.item.rewardTitle}</span>
           <span>
             <img
@@ -106,10 +106,7 @@ const CurrentRewards = (props) => {
   };
 
   return (
-    <section
-      className="current-rewards flex flex-col
-     justify-center items-center p-4"
-    >
+    <section className="current-rewards flex flex-col justify-center items-center">
       <h2 className="current-rewards-title">Current Reward Offers</h2>
       <div className="w-full accordion-container">
         <Accordion
