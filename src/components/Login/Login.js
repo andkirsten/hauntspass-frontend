@@ -19,7 +19,7 @@ const Login = (props) => {
       <h2 className="login__title">Login</h2>
       <form className="login__form space-y-4">
         <div>
-          <label htmlFor="email" className="text-gray-600">
+          <label htmlFor="email" className="text-white">
             Email
           </label>
           <input
@@ -33,7 +33,7 @@ const Login = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="password" className="text-gray-600">
+          <label htmlFor="password" className="text-white">
             Password
           </label>
           <input
@@ -50,7 +50,7 @@ const Login = (props) => {
         <div>
           <button
             type="button"
-            className="login__button w-full btn btn-primary"
+            className="login__button w-full btn btn-secondary"
             onClick={handleSubmit}
           >
             {props.isLoading ? "Loading..." : "Login"}

@@ -10,7 +10,7 @@ const HauntsHouse = () => {
           Support the Utah Food Bank by being a Haunts Pass Home!
         </h1>
       </div>
-      <p className="volunteer__callout bg-secondary">
+      <p className="volunteer__callout">
         The more homes we have, the more people will want to donate and
         participate.
       </p>
@@ -40,9 +40,6 @@ const HauntsHouse = () => {
           src="https://docs.google.com/forms/d/e/1FAIpQLSf4Dcu0I89-h2FI2s0vl0PPrpmQFXrft2lPg25nmTz_t0XFhw/viewform?embedded=true"
           width="100%"
           height="800"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
           title="volunteer-form"
         >
           Loading…

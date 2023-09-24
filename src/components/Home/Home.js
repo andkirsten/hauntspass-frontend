@@ -80,7 +80,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="volunteer bg-default">
+      <section className="get-involved bg-default">
         <h2 className="title">Get Involved</h2>
         <div className="flex flex-col justify-center w-full lg:flex-row">
           <Link

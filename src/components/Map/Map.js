@@ -4,7 +4,9 @@ import "./Map.css";
 const Map = () => {
   return (
     <div>
-      <h1 className="map__title text-center">Haunts Pass Locations</h1>
+      <div className="map__header">
+        <h1 className="map__title text-center">Haunts Pass Locations</h1>
+      </div>
       <iframe
         className="mx-auto d-block map__iframe"
         src="https://www.google.com/maps/d/embed?mid=1JaUdsXfnYISzAOofIrfnMDYkTWk2d70&ehbc=2E312F"
