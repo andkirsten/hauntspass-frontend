@@ -6,7 +6,7 @@
   margin-bottom: 10px;
 }
 
-.r__title {
+.accordion__title {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,6 +25,13 @@
   padding: 15px 0;
 }
 
+.reward__icon {
+  width: 25px;
+  height: 25px;
+  border-radius: 20%;
+  border: solid 2px white;
+}
+
 .collapse-header {
   display: flex;
 
@@ -35,18 +42,18 @@
   margin-bottom: 10px;
 }
 
-.reward-image {
+.reward__image {
   width: 75px;
   height: 75px;
   border: 1px solid black;
   border-radius: 20%;
 }
 
-.redeem-business {
+.reward__business-description {
   width: 65%;
 }
 
-.redeem-info {
+.reward__info {
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -54,23 +61,16 @@
   padding-bottom: 20px;
 }
 
-.reward-extras {
+.reward__extras {
   padding-top: 30px;
 }
 
-.redeem__modal-title {
+.redeem-modal__title {
   font-family: "HalloweenHaunted", sans-serif;
-  font-size: 35px;
+  font-size: 25px;
   line-height: 1.2;
 }
 
-.reward-icon {
-  width: 25px;
-  height: 25px;
-  border-radius: 20%;
-  border: solid 2px white;
-}
-
-.redeem-content {
-  border: solid 10px orange;
+.redeem-modal__content {
+  border: solid 10px black;
 }

@@ -49,8 +49,8 @@ const AccordionItem = (props) => {
         onClick={onClick}
       >
         <div
-          className={`r__title collapse-title flex text-white text-xl font-medium ${
-            props.redemptions.includes(props.item._id)
+          className={`accordion__title collapse-title flex text-white text-xl font-medium ${
+            props.redemptions?.includes(props.item._id)
               ? "bg-slate-500"
               : "bg-primary"
           }`}
@@ -60,7 +60,7 @@ const AccordionItem = (props) => {
             <img
               src={props.item.imgUrl}
               alt={props.item.rewardTitle}
-              className="reward-icon"
+              className="reward__icon"
             />
           </span>
         </div>
@@ -73,19 +73,19 @@ const AccordionItem = (props) => {
                     <img
                       src={props.item.imgUrl}
                       alt="reward"
-                      className="reward-image"
+                      className="reward__image"
                     />
                   </div>
                 )}
                 {props.item.businessDescription && (
-                  <div className="redeem-business">
+                  <div className="reward__business-description">
                     <p>
                       <strong>{props.item.businessDescription}</strong>
                     </p>
                   </div>
                 )}
               </div>
-              <div className="redeem-info space-y-4">
+              <div className="reward__info space-y-4">
                 <p>
                   <strong>Reward:</strong> {props.item.offer}
                 </p>
@@ -107,7 +107,7 @@ const AccordionItem = (props) => {
               </button>
               <div>
                 {props.item.rewardExtras && (
-                  <div className="reward-extras text-center">
+                  <div className="reward__extras text-center">
                     <p>
                       <strong>Valid anytime until November 14th:</strong>{" "}
                       {props.item.rewardExtras}
@@ -130,7 +130,7 @@ const AccordionItem = (props) => {
           <div className="modal-action p-4">
             <form method="dialog">
               <button
-                className={`redeem__btn btn mr-5 ${
+                className={`redeem__btn btn mb-5 mr-5 ${
                   props.loading ? "btn-disabled" : "btn-secondary"
                 }`}
                 onClick={handleRedeem}
@@ -144,19 +144,21 @@ const AccordionItem = (props) => {
         </div>
       </dialog>
       <dialog id="redeem-modal" className="modal">
-        <div className="redeem-content modal-box w-11/12 max-w-5xl ">
-          <h3 className="redeem__modal-title font-bold text-center ">
+        <div className="redeem-modal__content modal-box w-11/12 max-w-5xl ">
+          <h3 className="redeem-modal__title text-center ">
             Enjoy your reward!
           </h3>
           <p className="text-center">
             Show this screen to the business associate to claim your reward.
           </p>
-          <p className="py-4 text-center">
-            Your {props.activeReward?.rewardTitle} Reward:
+          <p className="py-4 text-center font-bold">
+            {props.activeReward?.rewardTitle}
           </p>
-          <p className="font-bold text-center ">{props.activeReward?.offer}</p>
-          <p className="py-4 text-center">
-            Redeemed at{" "}
+          <p className="redeem-modal__reward font-bold text-center bg-accent p-3 rounded-xl">
+            {props.activeReward?.offer}
+          </p>
+          <p className="text-center mt-5">Redeemed at</p>
+          <p className="text-center">
             {formattedDateAndTime(props.currentRedemption?.redeemedAt)}{" "}
           </p>
 
