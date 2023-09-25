@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Rewards.css";
+import foodBank from "../../images/utah_food_bank_logo.png";
 
 const AccordionItem = (props) => {
   const handleRedeem = (e) => {
@@ -15,12 +16,15 @@ const AccordionItem = (props) => {
   const handleFinishRedemption = (e) => {
     e.preventDefault();
     document.getElementById("redeem-modal").close();
+    props.setCurrentRedemption(null);
   };
 
   const formattedDateAndTime = (date) => {
     const newDate = new Date(date);
-    const formattedDate = newDate.toLocaleDateString("en-US");
-    const formattedTime = newDate.toLocaleTimeString("en-US");
+    const dateOptions = { year: "numeric", month: "short", day: "numeric" };
+    const formattedDate = newDate.toLocaleDateString("en-US", dateOptions);
+    const options = { hour: "numeric", minute: "numeric" };
+    const formattedTime = newDate.toLocaleTimeString("en-US", options);
     return `${formattedDate} at ${formattedTime}`;
   };
 
@@ -44,7 +48,13 @@ const AccordionItem = (props) => {
         className={`accordion__item ${props.isOpen ? "open" : ""}`}
         onClick={onClick}
       >
-        <div className="r__title collapse-title flex text-white text-xl font-medium bg-primary">
+        <div
+          className={`r__title collapse-title flex text-white text-xl font-medium ${
+            props.redemptions.includes(props.item._id)
+              ? "bg-slate-500"
+              : "bg-primary"
+          }`}
+        >
           <span>{props.item.rewardTitle}</span>
           <span>
             <img
@@ -112,14 +122,15 @@ const AccordionItem = (props) => {
       <dialog id="confirm-modal" className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
           <h3 className="font-bold text-lg">Are You Sure?</h3>
-          <p className="py-4">
-            You can only redeem this reward ONCE! Wait until you are ready to
-            claim your reward before you redeem
+          <p className="py-4">You can only redeem this reward ONCE!</p>
+          <p>
+            Wait until you are ready to claim your reward at the business before
+            you click redeem
           </p>
-          <div className="modal-action">
+          <div className="modal-action p-4">
             <form method="dialog">
               <button
-                className={`btn ${
+                className={`redeem__btn btn mr-5 ${
                   props.loading ? "btn-disabled" : "btn-secondary"
                 }`}
                 onClick={handleRedeem}
@@ -133,22 +144,22 @@ const AccordionItem = (props) => {
         </div>
       </dialog>
       <dialog id="redeem-modal" className="modal">
-        <div className="redeem-content modal-box w-11/12 max-w-5xl">
-          <h3 className="font-bold text-lg">
-            Congrats on claiming your {props.activeReward?.rewardTitle} Reward!
+        <div className="redeem-content modal-box w-11/12 max-w-5xl ">
+          <h3 className="redeem__modal-title font-bold text-center ">
+            Enjoy your reward!
           </h3>
-          <p className="py-4">
-            <strong>Redeemed At:</strong>
+          <p className="text-center">
+            Show this screen to the business associate to claim your reward.
+          </p>
+          <p className="py-4 text-center">
+            Your {props.activeReward?.rewardTitle} Reward:
+          </p>
+          <p className="font-bold text-center ">{props.activeReward?.offer}</p>
+          <p className="py-4 text-center">
+            Redeemed at{" "}
             {formattedDateAndTime(props.currentRedemption?.redeemedAt)}{" "}
           </p>
-          <p className="py-4">
-            You have successfully redeemed your reward of{" "}
-            {props.activeReward?.offer}!
-          </p>
-          <p>Please show this screen to the business to claim your reward.</p>
-          <p className="py-4">
-            Reward terms: {props.activeReward?.rewardTerms}
-          </p>
+
           <div className="modal-action">
             <form method="dialog">
               <button className="btn" onClick={handleFinishRedemption}>
@@ -156,6 +167,10 @@ const AccordionItem = (props) => {
               </button>
             </form>
           </div>
+          <p className="text-center text-sm pt-5">
+            Thank you for supporting the
+          </p>
+          <img src={foodBank} alt="haunts logo" />
         </div>
       </dialog>
     </div>
@@ -166,8 +181,30 @@ const Accordion = (props) => {
   return (
     <div>
       {props.rewards
-        .slice() // Create a shallow copy of the rewards array
-        .sort((a, b) => a.rewardTitle.localeCompare(b.rewardTitle)) // Sort alphabetically by title
+        .slice()
+        // eslint-disable-next-line array-callback-return
+        .sort((a, b) => {
+          if (props.redemptions && Array.isArray(props.redemptions)) {
+            // Check if a or b is in props.redemptions
+            const aIsRedeemed = props.redemptions.includes(a._id);
+            const bIsRedeemed = props.redemptions.includes(b._id);
+
+            // If both are redeemed or both are not, sort alphabetically
+            if (aIsRedeemed === bIsRedeemed) {
+              return a.rewardTitle.localeCompare(b.rewardTitle);
+            }
+
+            // If only a is redeemed, move it to the bottom
+            if (aIsRedeemed) {
+              return 1;
+            }
+
+            // If only b is redeemed, move it to the bottom
+            if (bIsRedeemed) {
+              return -1;
+            }
+          }
+        })
         .map((item, index) => (
           <AccordionItem
             handleRedemption={props.handleRedemption}
@@ -180,6 +217,7 @@ const Accordion = (props) => {
             redemptions={props.redemptions}
             loading={props.loading}
             currentRedemption={props.currentRedemption}
+            setCurrentRedemption={props.setCurrentRedemption}
           />
         ))}
     </div>
@@ -213,6 +251,7 @@ const Rewards = (props) => {
           redemptions={props.redemptions}
           loading={props.loading}
           currentRedemption={props.currentRedemption}
+          setCurrentRedemption={props.setCurrentRedemption}
         />
       </div>
     </section>

@@ -1,0 +1,22 @@
+.current {
+  border-bottom: solid 5px black;
+  padding-bottom: 20px;
+}
+
+.current__header {
+  font-family: "HalloweenHaunted", sans-serif;
+  font-size: 30px;
+  line-height: 1.2;
+  background-image: url("../../images/smoke.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 10%;
+  margin: 0;
+  width: 100%;
+  border-bottom: solid 5px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

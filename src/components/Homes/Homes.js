@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+//eslint-disable-next-line
 import { Link } from "react-router-dom";
 import "./Homes.css";
+//eslint-disable-next-line
 import { neighborhoodList } from "../../utils/neighborhoodList";
 
 const AccordionItem = ({ title, homes, isOpen, toggleItem }) => {
@@ -30,6 +32,7 @@ const AccordionItem = ({ title, homes, isOpen, toggleItem }) => {
   );
 };
 
+//eslint-disable-next-line
 const Accordion = ({ items, openIndex, toggleItem }) => {
   return (
     <div>
@@ -48,7 +51,7 @@ const Accordion = ({ items, openIndex, toggleItem }) => {
 
 const Homes = () => {
   const [openIndex, setOpenIndex] = useState(-1); // Initialize with -1 to have no item open by default
-
+  //eslint-disable-next-line
   const toggleItem = (index) => {
     if (openIndex === index) {
       // Clicked on the currently open item, close it
@@ -61,7 +64,10 @@ const Homes = () => {
 
   return (
     <section className="homes flex justify-center items-center p-4">
-      <Link to="/map" className="map-btn btn btn-wide bg-white border-black">
+      <h3 className="text-2xl font-medium mb-4 text-center">
+        Home List Coming Soon...
+      </h3>
+      {/* <Link to="/map" className="map-btn btn btn-wide bg-white border-black">
         View the Map
       </Link>
       <div className="w-full accordion-container">
@@ -70,7 +76,7 @@ const Homes = () => {
           openIndex={openIndex}
           toggleItem={toggleItem}
         />
-      </div>
+      </div> */}
     </section>
   );
 };

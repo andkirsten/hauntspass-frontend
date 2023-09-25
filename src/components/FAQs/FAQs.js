@@ -5,14 +5,14 @@ import "./FAQs.css";
 const FAQ = () => {
   return (
     <section className="faq">
-      <div className="faq-header place-items-center">
-        <h1 className="faq-title text-5xl font-bold">
+      <div className="faq__header">
+        <h1 className="faq__title text-center pt-3">
           Frequently Asked Questions
         </h1>
       </div>
 
       <div className="p-6 space-y-6">
-        <h2 className="faq-subheading text-2xl font-semibold">Passholders</h2>
+        <h2 className="faq__subheading text-2xl font-semibold">Passholders</h2>
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">How do I get my pass?</h3>
           <p>
@@ -145,7 +145,7 @@ const FAQ = () => {
           </p>
         </div>
 
-        <h2 className="faq-subheading text-2xl font-semibold">
+        <h2 className="faq__subheading text-2xl font-semibold">
           Participating Homes
         </h2>
 
@@ -171,12 +171,11 @@ const FAQ = () => {
           <p>
             <span className="font-bold">Answer:</span> Your bonus treat can be
             as big or small as you want. Just tell us what works best for you,
-            and weU+2019ll share the details on the map and current offering
-            page. Examples weU+2019ve heard so far include “full-size candy
-            bars,” “Double the candy,” “Photo opportunity with characters,”
-            “custom experience” e.g., fast pass to haunted house, “bag of
-            popcorn,” “can of soda,” “a small gift bag,” or a themed toy U+002d
-            e.g., “Harry Potter wand.”
+            and we'll share the details on the map and current offering page.
+            Examples we've heard so far include “full-size candy bars,” “Double
+            the candy,” “Photo opportunity with characters,” “custom experience”
+            e.g., fast pass to haunted house, “bag of popcorn,” “can of soda,”
+            “a small gift bag,” or a themed toy - e.g., “Harry Potter wand.”
           </p>
         </div>
 
@@ -223,14 +222,13 @@ const FAQ = () => {
 
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">
-            What if the trick-or-treater claims they have a pass but canU+2019t
+            What if the trick-or-treater claims they have a pass but can't
             display it?
           </h3>
           <p>
             <span className="font-bold">Answer:</span> Just make sure the
-            costume is cute if youU+2019re going to allow it. But know that
-            Daybreak Haunts will sorely curse any trick-or-treater that is
-            telling a fib.
+            costume is cute if you're going to allow it. But know that Daybreak
+            Haunts will sorely curse any trick-or-treater that is telling a fib.
           </p>
         </div>
 

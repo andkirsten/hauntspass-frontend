@@ -8,7 +8,7 @@ import FAQs from "../FAQs/FAQs";
 import Pass from "../Pass/Pass";
 import PassForm from "../PassForm/PassForm";
 import Volunteer from "../Volunteer/Volunteer";
-import CurrentRewards from "../CurrentRewards/CurrentRewards";
+import CurrentOffers from "../CurrentOffers/CurrentOffers";
 import Map from "../Map/Map";
 // import Admin from "../Admin/Admin";
 
@@ -32,7 +32,7 @@ const Main = (props) => {
         <Route path="/about" element={<About />} />
         <Route
           path="/current-rewards"
-          element={<CurrentRewards rewards={props.rewards} />}
+          element={<CurrentOffers rewards={props.rewards} />}
         />
         <Route path="/faqs" element={<FAQs />} />
         <Route
@@ -45,6 +45,7 @@ const Main = (props) => {
                 redemptions={props.redemptions}
                 loading={props.loading}
                 currentRedemption={props.currentRedemption}
+                setCurrentRedemption={props.setCurrentRedemption}
               />
             ) : (
               <PassForm token={props.token} />
@@ -54,6 +55,7 @@ const Main = (props) => {
 
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/map" element={<Map />} />
+
         {/* <Route
           path="/admin"
           element={

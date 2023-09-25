@@ -11,12 +11,9 @@ const About = () => {
         <p>
           Daybreak Haunts is a volunteer group started in 2014 that maps
           Daybreak home locations that want to share their Halloween decorations
-          or a special Halloween event.
-        </p>
-        <p>
-          In 2022, the "Haunts Pass" was created as a fundraiser for the Utah
-          Food Bank allowing families to donate and receive rewards at
-          participating locations.
+          or a special Halloween event. In 2022, the "Haunts Pass" was created
+          as a fundraiser for the Utah Food Bank allowing families to donate and
+          receive rewards at participating locations.
         </p>
         <p>
           Since 2014 we've partnered with neighbors to create a free

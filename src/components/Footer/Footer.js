@@ -6,20 +6,20 @@ const Footer = () => {
     <div>
       <footer className="footer footer-center p-10 bg-secondary text-base-content rounded">
         <nav className="grid grid-flow-col gap-4">
-          <NavLink to="/about" className="link link-hover">
-            About us
-          </NavLink>
-          <NavLink to="/faqs" className="link link-hover">
-            FAQs
-          </NavLink>
-          <NavLink to="/volunteer" className="link link-hover">
-            Become a Haunt Pass Home
-          </NavLink>
           <NavLink
             to="https://www.justgiving.com/page/daybreak-haunts-2023"
             className="link link-hover"
           >
-            Donate to JustGiving Campaign
+            Donate to Utah Food Bank
+          </NavLink>
+          <NavLink to="/volunteer" className="link link-hover">
+            Become a Haunt Pass Home
+          </NavLink>
+          <NavLink to="/faqs" className="link link-hover">
+            FAQs
+          </NavLink>
+          <NavLink to="/about" className="link link-hover">
+            About us
           </NavLink>
         </nav>
         <nav>

@@ -158,6 +158,7 @@ function App() {
         setIsLogged={setIsLogged}
         token={token}
         currentRedemption={currentRedemption}
+        setCurrentRedemption={setCurrentRedemption}
       />
       <Footer />
     </div>

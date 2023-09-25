@@ -58,6 +58,12 @@
   padding-top: 30px;
 }
 
+.redeem__modal-title {
+  font-family: "HalloweenHaunted", sans-serif;
+  font-size: 35px;
+  line-height: 1.2;
+}
+
 .reward-icon {
   width: 25px;
   height: 25px;
@@ -66,5 +72,5 @@
 }
 
 .redeem-content {
-  border: solid 2px orange;
+  border: solid 10px orange;
 }

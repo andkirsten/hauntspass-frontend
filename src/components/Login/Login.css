@@ -10,20 +10,9 @@
   font-family: "HalloweenHaunted", sans-serif;
   font-size: 70px;
   line-height: 1.2;
-  text-align: center;
-  padding: 20px 0;
-  margin: 0;
-}
-
-.login__form {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 30px;
-  max-width: 80%;
 }
 
 .error-message {
   color: red;
   font-size: 20px;
-  max-width: 80%;
 }

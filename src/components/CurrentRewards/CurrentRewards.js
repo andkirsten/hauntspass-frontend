@@ -106,8 +106,7 @@ const CurrentRewards = (props) => {
   };
 
   return (
-    <section className="current-rewards flex flex-col justify-center items-center">
-      <h2 className="current-rewards-title">Current Reward Offers</h2>
+    <section className="flex flex-col justify-center items-center">
       <div className="w-full accordion-container">
         <Accordion
           rewards={props.rewards}

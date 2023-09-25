@@ -39,10 +39,7 @@
 
 .get-involved {
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-top: solid 5px black;
+
   border-bottom: solid 5px black;
 }
 
@@ -69,4 +66,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.sponsors__image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
 }

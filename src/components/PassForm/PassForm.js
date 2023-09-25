@@ -8,7 +8,7 @@ import api from "../../utils/api";
 
 const PassForm = (props) => {
   const { token } = props;
-  console.log(token);
+
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 

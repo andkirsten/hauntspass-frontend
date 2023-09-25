@@ -1,3 +1,7 @@
+.volunteer {
+  border-bottom: solid 5px black;
+}
+
 .volunteer__header {
   text-align: center;
   background-image: url("../../images/smoke.jpeg");
@@ -11,7 +15,7 @@
 
 .volunteer__title {
   font-family: "HalloweenHaunted", sans-serif;
-  font-size: 50px;
+  font-size: 40px;
   line-height: 1.2;
   text-align: center;
   padding: 20px;

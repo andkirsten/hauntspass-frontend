@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import step1 from "../../images/step1.png";
@@ -6,8 +6,11 @@ import step2 from "../../images/step2.png";
 import step3 from "../../images/step3.png";
 import header from "../../images/hauntspass Header2.png";
 import foodbank from "../../images/utah_food_bank_logo.png";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const Home = () => {
+  const { currentUser } = useContext(CurrentUserContext);
+
   return (
     <div className="home">
       <section className="hero">
@@ -47,17 +50,23 @@ const Home = () => {
               <img className="card-photo" src={step2} alt="kids" />
             </figure>
             <div className="card-body text-white">
-              <h2 className="card-title">GET HAUNTS PASS NOW</h2>
+              <h2 className="card-title">GET PASS</h2>
               <p>
-                Submit your donation receipt for a Haunts Pass here on the
-                website.
+                Sign up for an account then submit your donation receipt for a
+                Haunts Pass here on the website.
               </p>
               <div className="card-actions justify-end">
-                <Link to="/pass">
-                  <button className="btn btn-secondary">
-                    Get a Haunts Pass now
-                  </button>
-                </Link>
+                {currentUser ? (
+                  <Link to="/pass">
+                    <button className="btn btn-secondary">
+                      Get a Haunts Pass now
+                    </button>
+                  </Link>
+                ) : (
+                  <Link to="/signup">
+                    <button className="btn btn-secondary">Sign Up now</button>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -80,16 +89,15 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="get-involved bg-default">
+      <section className="get-involved bg-accent text-center">
         <h2 className="title">Get Involved</h2>
-        <div className="flex flex-col justify-center w-full lg:flex-row">
-          <Link
-            to="/volunteer"
-            className="option grid flex-grow h-20 card bg-primary text-white max-w-md rounded-box place-items-center"
-          >
-            Become a Haunts Pass Home
-          </Link>
-        </div>
+
+        <Link
+          to="/volunteer"
+          className="btn btn-primary btn-lg text-white mt-5 mb-5 mr-5 ml-5"
+        >
+          Become a Haunts Pass Home
+        </Link>
       </section>
       <section className="sponsors">
         <h2 className="sponsors__title title">Our Sponsors</h2>

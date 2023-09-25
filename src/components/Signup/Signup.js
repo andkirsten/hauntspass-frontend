@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import "./Signup.css";
 import useForm from "../../hooks/useForm";
 import { registerUser, loginUser, verifyToken } from "../../utils/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const Signup = (props) => {
@@ -64,9 +64,9 @@ const Signup = (props) => {
   };
 
   return (
-    <div className="signup bg-accent">
-      <h2 className="signup__title">Sign Up</h2>
-      <form className="space-y-4">
+    <div className="signup bg-slate-200">
+      <h2 className="signup__title pt-4">Sign Up</h2>
+      <form className="space-y-4 px-5">
         <div>
           <label htmlFor="name" className="text-primary">
             Name
@@ -104,7 +104,7 @@ const Signup = (props) => {
             id="password"
             name="password"
             className="w-full input input-bordered"
-            placeholder="Password"
+            placeholder="Password must be at least 8 characters"
             value={values.password}
             onChange={handleChange}
           />
@@ -124,6 +124,12 @@ const Signup = (props) => {
           </button>
         </div>
       </form>
+      <p className="signup__login pt-1">
+        Already have an account?{" "}
+        <Link className="link" to="/login">
+          Login Now
+        </Link>
+      </p>
     </div>
   );
 };

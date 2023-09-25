@@ -3,7 +3,7 @@ import "./Login.css";
 import useForm from "../../hooks/useForm";
 import { loginUser, verifyToken } from "../../utils/auth";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = (props) => {
   const { setToken, setIsLogged } = props;
@@ -55,9 +55,9 @@ const Login = (props) => {
   };
 
   return (
-    <div className="login bg-accent">
-      <h2 className="login__title text-primary">Login</h2>
-      <form className="login__form space-y-4">
+    <div className="login bg-slate-200">
+      <h2 className="login__title pt-4">Login</h2>
+      <form className="login__form space-y-4 px-5">
         <div>
           <label htmlFor="email" className="text-primary">
             Email
@@ -101,6 +101,12 @@ const Login = (props) => {
           </button>
         </div>
       </form>
+      <p className="login__signup pt-1">
+        Need an account?{" "}
+        <Link className="link" to="/signup">
+          Sign up now
+        </Link>
+      </p>
     </div>
   );
 };
