@@ -133,18 +133,19 @@ const AccordionItem = (props) => {
         </div>
       </dialog>
       <dialog id="redeem-modal" className="modal">
-        <div className="modal-box w-11/12 max-w-5xl">
+        <div className="redeem-content modal-box w-11/12 max-w-5xl">
           <h3 className="font-bold text-lg">
-            {props.activeReward?.rewardTitle} Reward!
+            Congrats on claiming your {props.activeReward?.rewardTitle} Reward!
           </h3>
           <p className="py-4">
-            redeemed at: {formattedDateAndTime(props.redemption?.redeemedAt)}{" "}
+            <strong>Redeemed At:</strong>
+            {formattedDateAndTime(props.currentRedemption?.redeemedAt)}{" "}
           </p>
           <p className="py-4">
             You have successfully redeemed your reward of{" "}
-            {props.activeReward?.offer}! Please show this screen to the business
-            to claim your reward.
+            {props.activeReward?.offer}!
           </p>
+          <p>Please show this screen to the business to claim your reward.</p>
           <p className="py-4">
             Reward terms: {props.activeReward?.rewardTerms}
           </p>
@@ -178,6 +179,7 @@ const Accordion = (props) => {
             setActiveReward={props.setActiveReward}
             redemptions={props.redemptions}
             loading={props.loading}
+            currentRedemption={props.currentRedemption}
           />
         ))}
     </div>
@@ -210,6 +212,7 @@ const Rewards = (props) => {
           setActiveReward={setActiveReward}
           redemptions={props.redemptions}
           loading={props.loading}
+          currentRedemption={props.currentRedemption}
         />
       </div>
     </section>

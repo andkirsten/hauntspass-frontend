@@ -1,25 +1,74 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import "./Signup.css";
 import useForm from "../../hooks/useForm";
+import { registerUser, loginUser, verifyToken } from "../../utils/auth";
+import { useNavigate } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const Signup = (props) => {
+  const { setToken, setIsLogged } = props;
+  const { setCurrentUser } = useContext(CurrentUserContext);
+
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const { values, handleChange } = useForm({
     name: "",
     email: "",
     password: "",
   });
 
+  const navigate = useNavigate();
+
+  const handleSignup = async (data) => {
+    setLoading(true);
+    try {
+      const res = await registerUser(data);
+      if (res) {
+        loginUser({ email: data.email, password: data.password })
+          .then((res) => {
+            if (res && res.token) {
+              localStorage.setItem("authToken", res.token);
+              verifyToken(res.token).then((res) => {
+                setCurrentUser({
+                  data: {
+                    name: res.data.user.name,
+                    email: res.data.user.email,
+                    id: res.data.user._id,
+                  },
+                });
+              });
+              setToken(res.token);
+              setIsLogged(true);
+              setError(null);
+              navigate("/pass");
+            } else {
+              setError(res.message);
+            }
+          })
+          .catch((err) => {
+            console.log(err.message);
+            setError(err.message);
+          });
+      }
+    } catch (err) {
+      console.log(err);
+      setError(err.error);
+    }
+    setLoading(false);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.handleSignup(values);
+    handleSignup(values);
   };
 
   return (
-    <div className="signup">
+    <div className="signup bg-accent">
       <h2 className="signup__title">Sign Up</h2>
       <form className="space-y-4">
         <div>
-          <label htmlFor="name" className="text-white">
+          <label htmlFor="name" className="text-primary">
             Name
           </label>
           <input
@@ -33,7 +82,7 @@ const Signup = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="email" className="text-white">
+          <label htmlFor="email" className="text-primary">
             Email
           </label>
           <input
@@ -47,7 +96,7 @@ const Signup = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="password" className="text-white">
+          <label htmlFor="password" className="text-primary">
             Password
           </label>
           <input
@@ -60,15 +109,18 @@ const Signup = (props) => {
             onChange={handleChange}
           />
         </div>
-        <div className="signup-error">{props.error}</div>
+        {error && <div className="signup__error">{error}</div>}
 
         <div>
           <button
             type="button"
-            className="signup__button w-full btn btn-secondary"
+            className={`signup__button w-full btn ${
+              loading ? "btn-disabled" : "btn-primary"
+            }`}
             onClick={handleSubmit}
+            disabled={loading}
           >
-            {props.isLoading ? "Loading..." : "Sign Up"}
+            {loading ? "Loading..." : "Sign Up"}
           </button>
         </div>
       </form>

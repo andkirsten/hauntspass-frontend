@@ -1,25 +1,65 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import "./Login.css";
 import useForm from "../../hooks/useForm";
+import { loginUser, verifyToken } from "../../utils/auth";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
+  const { setToken, setIsLogged } = props;
+  const { setCurrentUser } = useContext(CurrentUserContext);
+
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const { values, handleChange } = useForm({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
+
+  const handleLogin = (data) => {
+    setLoading(true);
+    loginUser(data)
+      .then((res) => {
+        if (res && res.token) {
+          localStorage.setItem("authToken", res.token);
+          verifyToken(res.token).then((res) => {
+            setCurrentUser({
+              data: {
+                name: res.data.user.name,
+                email: res.data.user.email,
+                id: res.data.user._id,
+              },
+            });
+          });
+          setToken(res.token);
+          setIsLogged(true);
+          setError(null);
+          navigate("/pass");
+        } else {
+          setError(res.message);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err.error);
+      });
+    setLoading(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    props.handleLogin(values);
+    handleLogin(values);
   };
 
   return (
-    <div className="login">
-      <h2 className="login__title">Login</h2>
+    <div className="login bg-accent">
+      <h2 className="login__title text-primary">Login</h2>
       <form className="login__form space-y-4">
         <div>
-          <label htmlFor="email" className="text-white">
+          <label htmlFor="email" className="text-primary">
             Email
           </label>
           <input
@@ -33,7 +73,7 @@ const Login = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="password" className="text-white">
+          <label htmlFor="password" className="text-primary">
             Password
           </label>
           <input
@@ -46,14 +86,18 @@ const Login = (props) => {
             onChange={handleChange}
           />
         </div>
-        <div className="error-message">{props.error}</div>
+        {error && <div className="error-message">{error}</div>}
+
         <div>
           <button
             type="button"
-            className="login__button w-full btn btn-secondary"
+            className={`text-white w-full btn ${
+              loading ? "btn-disabled" : "btn-primary"
+            }`}
             onClick={handleSubmit}
+            disabled={loading}
           >
-            {props.isLoading ? "Loading..." : "Login"}
+            {loading ? "Loading..." : "Login"}
           </button>
         </div>
       </form>

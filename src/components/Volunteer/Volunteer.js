@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HauntsHouse = () => {
   return (
-    <div className="volunteer">
+    <div className="volunteer bg-accent">
       <div className="volunteer__header mx-auto">
         <h1 className="volunteer__title text-3xl">
           Support the Utah Food Bank by being a Haunts Pass Home!

@@ -20,21 +20,13 @@ const Main = (props) => {
         <Route
           path="/signup"
           element={
-            <Signup
-              handleSignup={props.handleSignup}
-              error={props.error}
-              isLoading={props.isLoading}
-            />
+            <Signup setToken={props.setToken} setIsLogged={props.setIsLogged} />
           }
         />
         <Route
           path="/login"
           element={
-            <Login
-              handleLogin={props.handleLogin}
-              error={props.error}
-              isLoading={props.isLoading}
-            />
+            <Login setToken={props.setToken} setIsLogged={props.setIsLogged} />
           }
         />
         <Route path="/about" element={<About />} />
@@ -52,13 +44,10 @@ const Main = (props) => {
                 handleRedemption={props.handleRedemption}
                 redemptions={props.redemptions}
                 loading={props.loading}
+                currentRedemption={props.currentRedemption}
               />
             ) : (
-              <PassForm
-                handleCreatePass={props.handleCreatePass}
-                error={props.error}
-                loading={props.loading}
-              />
+              <PassForm token={props.token} />
             )
           }
         />

@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 import React, { useEffect, useState } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { CurrentPassContext } from "../../contexts/CurrentPassContext";
-import { registerUser, loginUser, verifyToken } from "../../utils/auth";
+import { verifyToken } from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
 
@@ -18,59 +18,12 @@ function App() {
   const navigate = useNavigate();
 
   const [token, setToken] = useState(null);
-  const [error, setError] = useState(null);
+
   const [loading, setLoading] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [rewards, setRewards] = useState([]);
   const [redemptions, setRedemptions] = useState(null);
-
-  const handleSignup = async (data) => {
-    setLoading(true);
-    try {
-      const res = await registerUser(data);
-      if (res) {
-        handleLogin({ email: data.email, password: data.password });
-        setError(null);
-        navigate("/pass");
-      } else {
-        setError(res.message);
-      }
-    } catch (err) {
-      console.log(err);
-      setError(err.validation.body.message);
-    }
-    setLoading(false);
-  };
-
-  const handleLogin = (data) => {
-    setLoading(true);
-    loginUser(data)
-      .then((res) => {
-        if (res && res.token) {
-          localStorage.setItem("authToken", res.token);
-          verifyToken(res.token).then((res) => {
-            setCurrentUser({
-              data: {
-                name: res.data.user.name,
-                email: res.data.user.email,
-                id: res.data.user._id,
-              },
-            });
-          });
-          setToken(res.token);
-          setIsLogged(true);
-          setError(null);
-          navigate("/pass");
-        } else {
-          setError(res.message);
-        }
-      })
-      .catch((err) => {
-        console.log(err.message);
-        setError(err.message);
-      });
-    setLoading(false);
-  };
+  const [currentRedemption, setCurrentRedemption] = useState(null);
 
   const handleLogout = () => {
     setCurrentUser(null);
@@ -95,33 +48,17 @@ function App() {
   //     });
   // };
 
-  const handleCreatePass = (receiptRef) => {
-    setLoading(true);
-    api
-      .createPass(receiptRef, token)
-      .then((res) => {
-        if (res) {
-          setCurrentPass(res);
-          setLoading(false);
-          navigate("/pass");
-        }
-      })
-      .catch((err) => {
-        setLoading(false);
-        setError(err.validation);
-      });
-  };
-
   const handleRedemption = (props) => {
     setLoading(true);
     const passId = currentPass.id;
     const rewardId = props;
     const data = { rewardId, passId };
+
     api
       .createRedemption(data, token)
       .then((res) => {
         if (res) {
-          setRedemptions(res);
+          setCurrentRedemption(res);
         }
         setLoading(false);
         document.getElementById("confirm-modal").close();
@@ -161,7 +98,6 @@ function App() {
           })
           .catch((err) => {
             console.log(err);
-            setError(err.message);
           });
       }
 
@@ -174,7 +110,7 @@ function App() {
             }
           })
           .catch((err) => {
-            setError(err.error);
+            console.log(err);
           });
       };
 
@@ -211,18 +147,17 @@ function App() {
       <Main
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
-        handleSignup={handleSignup}
-        handleLogin={handleLogin}
-        handleCreatePass={handleCreatePass}
         handleRedemption={handleRedemption}
         redemptions={redemptions}
         rewards={rewards}
-        error={error}
-        setError={setError}
         loading={loading}
         setLoading={setLoading}
         currentPass={currentPass}
         setCurrentPass={setCurrentPass}
+        setToken={setToken}
+        setIsLogged={setIsLogged}
+        token={token}
+        currentRedemption={currentRedemption}
       />
       <Footer />
     </div>

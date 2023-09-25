@@ -1,16 +1,46 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import "./PassForm.css";
 import useForm from "../../hooks/useForm";
 import receiptRef from "../../images/receiptRef.png";
+import { CurrentPassContext } from "../../contexts/CurrentPassContext";
+import { useNavigate } from "react-router-dom";
+import api from "../../utils/api";
 
 const PassForm = (props) => {
+  const { token } = props;
+  console.log(token);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const { setCurrentPass } = useContext(CurrentPassContext);
+
+  const navigate = useNavigate();
+
   const { values, handleChange } = useForm({
     receiptRef: "",
   });
 
+  const handleCreatePass = (receiptRef) => {
+    setLoading(true);
+    api
+      .createPass(receiptRef, token)
+      .then((res) => {
+        if (res) {
+          setCurrentPass(res);
+          setLoading(false);
+          navigate("/pass");
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(err.error);
+        console.log(err.error);
+      });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.handleCreatePass(values);
+    handleCreatePass(values);
   };
 
   return (
@@ -24,7 +54,7 @@ const PassForm = (props) => {
           number from your donation confirmation email below.
         </p>
       </div>
-      <form className="space-y-4">
+      <form className="space-y-4 max-w-lg">
         <div>
           <label htmlFor="receiptRef" className="text-gray-600">
             Receipt Reference
@@ -39,21 +69,19 @@ const PassForm = (props) => {
             onChange={handleChange}
           />
         </div>
-        {props.error && (
+        {error && (
           <div className="pass-error">
-            <p>{props.error}</p>
+            <p>{error}</p>
           </div>
         )}
         <div>
           <button
             type="button"
-            className={`w-full btn ${
-              props.loading ? "btn-disabled" : "btn-primary"
-            }`}
+            className={`w-full btn ${loading ? "btn-disabled" : "btn-primary"}`}
             onClick={handleSubmit}
-            disabled={props.loading}
+            disabled={loading}
           >
-            {props.loading ? "Loading..." : "Submit"}
+            {loading ? "Loading..." : "Submit"}
           </button>
         </div>
       </form>

@@ -44,6 +44,7 @@ const Pass = (props) => {
               handleRedemption={props.handleRedemption}
               redemptions={props.redemptions}
               loading={props.loading}
+              currentRedemption={props.currentRedemption}
             />
           )}
           {activeTab === "homes" && <Homes />}
