@@ -20,6 +20,8 @@ const FAQ = () => {
             <a
               href="https://www.justgiving.com/page/daybreak-haunts-2023"
               className="link"
+              target="_blank"
+              rel="noreferrer"
             >
               Utah Food Bank
             </a>{" "}
@@ -53,6 +55,8 @@ const FAQ = () => {
             <a
               href="https://www.justgiving.com/page/daybreak-haunts-2023"
               className="link"
+              target="_blank"
+              rel="noreferrer"
             >
               Food Bank
             </a>{" "}
@@ -127,6 +131,8 @@ const FAQ = () => {
             <a
               href="https://www.justgiving.com/page/daybreak-haunts-2023"
               className="link"
+              target="_blank"
+              rel="noreferrer"
             >
               our donation page at Justgiving.org
             </a>

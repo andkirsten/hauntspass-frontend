@@ -56,8 +56,15 @@ const Header = (props) => {
               </li>
             </ul>
           </div>
-          <NavLink to="/" className="btn btn-ghost normal-case text-xl">
-            <img className="logo" src={Logo} alt="daybreak haunts logo"></img>
+          <NavLink
+            to="/"
+            className="header__btn btn btn-ghost normal-case text-xl"
+          >
+            <img
+              className="header__logo"
+              src={Logo}
+              alt="daybreak haunts logo"
+            ></img>
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex ">
@@ -105,7 +112,7 @@ const Header = (props) => {
         </div>
         {currentUser ? (
           <div className="navbar-end">
-            <button className="btn btn-ghost text-white">
+            <button className="header__btn btn btn-ghost text-white">
               <NavLink to="/pass">My Pass</NavLink>
             </button>
             <button
@@ -117,7 +124,7 @@ const Header = (props) => {
           </div>
         ) : (
           <div className="navbar-end">
-            <button className="btn btn-ghost text-white">
+            <button className="header__btn btn btn-ghost text-white">
               <NavLink to="/login">Login</NavLink>
             </button>
             <button className="btn btn-ghost text-white">

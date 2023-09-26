@@ -55,7 +55,7 @@ const AccordionItem = (props) => {
               : "bg-primary"
           }`}
         >
-          <span>{props.item.rewardTitle}</span>
+          <p>{props.item.rewardTitle}</p>
           <span>
             <img
               src={props.item.imgUrl}

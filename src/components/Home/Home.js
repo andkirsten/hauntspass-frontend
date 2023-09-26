@@ -103,7 +103,11 @@ const Home = () => {
         <h2 className="sponsors__title title">Our Sponsors</h2>
         <div className="sponsors__container">
           <div className="sponsors__card">
-            <a href="https://alloypersonaltraining.com/">
+            <a
+              href="https://alloypersonaltraining.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 className="sponsors__image"
                 src="/images/alloy_logo.png"
@@ -117,6 +121,8 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/mathnasium_logo.jpg"
                 alt="mathnasium logo"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
@@ -126,6 +132,8 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/mountain_mikes_logo.jpeg"
                 alt="mountain mikes pizza"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
@@ -135,6 +143,8 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/cupbop.png"
                 alt="cupbop korean bbq in a cup"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
@@ -144,6 +154,8 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/warrens.png"
                 alt="warrens"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
@@ -154,6 +166,8 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/sweetAndCool.jpg"
                 alt="sweet and cool"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
@@ -163,6 +177,8 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/lucienne.jpeg"
                 alt="lucienne"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
@@ -172,6 +188,8 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/costavida.jpeg"
                 alt="costa vida"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
@@ -181,6 +199,19 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/sweet-churros.png"
                 alt="sweet churros"
+                target="_blank"
+                rel="noreferrer"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://www.himalayankitchensouthjordan.com/">
+              <img
+                className="sponsors__image"
+                src="/images/himalayan.png"
+                alt="himalayan kitchen"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>

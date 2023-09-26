@@ -13,13 +13,13 @@ const AccordionItem = (props) => {
         className={`accordion__item ${props.isOpen ? "open" : ""}`}
         onClick={onClick}
       >
-        <div className="cr__title text-white collapse-title flex text-xl font-medium bg-primary">
-          <span>{props.item.rewardTitle}</span>
+        <div className="cr__banner text-white collapse-title bg-primary">
+          <p className="cr__title">{props.item.rewardTitle}</p>
           <span>
             <img
               src={props.item.imgUrl}
               alt={props.item.rewardTitle}
-              className="reward-icon"
+              className="cr__icon"
             />
           </span>
         </div>

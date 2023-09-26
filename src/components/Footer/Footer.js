@@ -9,6 +9,8 @@ const Footer = () => {
           <NavLink
             to="https://www.justgiving.com/page/daybreak-haunts-2023"
             className="link link-hover"
+            target="_blank"
+            rel="noreferrer"
           >
             Donate to Utah Food Bank
           </NavLink>

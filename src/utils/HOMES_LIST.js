@@ -1,4 +1,4 @@
-export const neighborhoodList = [
+export const HOMES_LIST = [
   {
     title: "Founder's Park Village",
     homes: [

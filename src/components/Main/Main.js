@@ -14,7 +14,7 @@ import Map from "../Map/Map";
 
 const Main = (props) => {
   return (
-    <div className="main">
+    <main className="main">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -70,7 +70,7 @@ const Main = (props) => {
         /> */}
         <Route path="*" element={<Home />} />
       </Routes>
-    </div>
+    </main>
   );
 };
 
