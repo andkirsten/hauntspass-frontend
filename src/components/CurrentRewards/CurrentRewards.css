@@ -2,13 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-}
-
-.cr__title {
-  visibility: visible;
-  line-height: 1.2;
-  padding: 0;
 }
 
 .cr__icon {

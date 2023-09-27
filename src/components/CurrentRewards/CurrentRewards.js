@@ -8,13 +8,13 @@ const AccordionItem = (props) => {
   };
 
   return (
-    <div className="collapse bg-white">
+    <div className="collapse mb-3 bg-white">
       <div
         className={`accordion__item ${props.isOpen ? "open" : ""}`}
         onClick={onClick}
       >
-        <div className="cr__banner text-white collapse-title bg-primary">
-          <p className="cr__title">{props.item.rewardTitle}</p>
+        <div className="cr__banner px-4 text-white collapse-title bg-primary">
+          <p>{props.item.rewardTitle}</p>
           <span>
             <img
               src={props.item.imgUrl}
@@ -25,7 +25,7 @@ const AccordionItem = (props) => {
         </div>
         {props.isOpen && (
           <div className="collapse-content">
-            <div className="collapse-container">
+            <div className="collapse-container py-4">
               <div className="collapse-header">
                 <div>
                   <img
@@ -42,24 +42,26 @@ const AccordionItem = (props) => {
                   </div>
                 )}
               </div>
-              <div className="redeem-info space-y-4">
+              <div className="space-y-4 py-4">
+                <div>
+                  {props.item.rewardExtras && (
+                    <div>
+                      <p>
+                        <strong>Anytime Reward: </strong>
+                        {props.item.rewardExtras}
+                      </p>
+                    </div>
+                  )}
+                </div>
                 <p>
-                  <strong>Reward:</strong> {props.item.offer}
-                </p>
-                <p>
-                  <strong>Terms and Conditions:</strong>{" "}
-                  {props.item.rewardTerms}
+                  <strong>One-time Reward:</strong> {props.item.offer}
                 </p>
               </div>
               <div>
-                {props.item.rewardExtras && (
-                  <div className="reward-extras text-center">
-                    <p>
-                      <strong>Reward Valid Anytime:</strong>{" "}
-                      {props.item.rewardExtras}
-                    </p>
-                  </div>
-                )}
+                <p>
+                  <strong>Terms and Conditions:</strong>
+                </p>
+                <p>{props.item.rewardTerms}</p>
               </div>
             </div>
           </div>
@@ -105,7 +107,7 @@ const CurrentRewards = (props) => {
 
   return (
     <section className="flex flex-col justify-center items-center">
-      <div className="w-full accordion-container">
+      <div className="w-full accordion-container pt-5">
         <Accordion
           rewards={props.rewards}
           openIndex={openIndex}

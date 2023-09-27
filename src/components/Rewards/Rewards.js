@@ -43,13 +43,13 @@ const AccordionItem = (props) => {
   };
 
   return (
-    <div className="collapse bg-white">
+    <div className="collapse mb-3 bg-white">
       <div
         className={`accordion__item ${props.isOpen ? "open" : ""}`}
         onClick={onClick}
       >
         <div
-          className={`accordion__title collapse-title flex text-white text-xl font-medium ${
+          className={`accordion__title px-4 collapse-title flex text-white text-xl font-medium ${
             props.redemptions?.includes(props.item._id)
               ? "bg-slate-500"
               : "bg-primary"
@@ -66,8 +66,8 @@ const AccordionItem = (props) => {
         </div>
         {props.isOpen && (
           <div className="collapse-content">
-            <div className="collapse-container">
-              <div className="collapse-header">
+            <div className="collapse-container py-4">
+              <div className="collapse-header px-4">
                 {props.item.imgUrl && (
                   <div>
                     <img
@@ -85,13 +85,19 @@ const AccordionItem = (props) => {
                   </div>
                 )}
               </div>
-              <div className="reward__info space-y-4">
+              <div className="reward__info space-y-4 py-4">
+                <div>
+                  {props.item.rewardExtras && (
+                    <div>
+                      <p className="">
+                        <strong>Anytime Reward: </strong>
+                        {props.item.rewardExtras}
+                      </p>
+                    </div>
+                  )}
+                </div>
                 <p>
-                  <strong>Reward:</strong> {props.item.offer}
-                </p>
-                <p>
-                  <strong>Terms and Conditions:</strong>{" "}
-                  {props.item.rewardTerms}
+                  <strong>One-time Reward:</strong> {props.item.offer}
                 </p>
               </div>
               <button
@@ -105,16 +111,10 @@ const AccordionItem = (props) => {
               >
                 {checkRedemption() ? "Already Redeemed" : "Redeem Now"}
               </button>
-              <div>
-                {props.item.rewardExtras && (
-                  <div className="reward__extras text-center">
-                    <p>
-                      <strong>Reward Valid Anytime:</strong>{" "}
-                      {props.item.rewardExtras}
-                    </p>
-                  </div>
-                )}
-              </div>
+              <p className="pt-4">
+                <strong>Terms and Conditions:</strong>
+              </p>
+              <p className="text-center">{props.item.rewardTerms}</p>
             </div>
           </div>
         )}

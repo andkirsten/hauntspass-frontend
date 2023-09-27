@@ -2,15 +2,10 @@
   max-width: 90%;
 }
 
-.collapse {
-  margin-bottom: 10px;
-}
-
 .accordion__title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
 }
 
 .collapse-content {
@@ -22,7 +17,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px 0;
 }
 
 .reward__icon {
@@ -34,19 +28,16 @@
 
 .collapse-header {
   display: flex;
-
   align-items: center;
   width: 100%;
-  gap: 20px;
-  padding: 0 20px;
-  margin-bottom: 10px;
+  gap: 15px;
 }
 
 .reward__image {
   width: 75px;
-  height: 75px;
   border: 1px solid black;
   border-radius: 20%;
+  max-width: fit-content;
 }
 
 .reward__business-description {
@@ -58,11 +49,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-bottom: 20px;
-}
-
-.reward__extras {
-  padding-top: 30px;
 }
 
 .redeem-modal__title {
