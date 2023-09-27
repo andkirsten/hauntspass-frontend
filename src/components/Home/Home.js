@@ -241,7 +241,7 @@ const Home = () => {
             <a href="https://www.facebook.com/groups/738887694456234">
               <img
                 className="sponsors__image"
-                src="/images/justburgers.png"
+                src="/images/justBurgers.png"
                 alt="just burgers"
                 target="_blank"
                 rel="noreferrer"
