@@ -56,11 +56,11 @@ const AccordionItem = (props) => {
           }`}
         >
           <p>{props.item.rewardTitle}</p>
-          <span>
+          <span className="icon__container">
             <img
               src={props.item.imgUrl}
               alt={props.item.rewardTitle}
-              className="reward__icon"
+              className="reward__icon bg-white"
             />
           </span>
         </div>

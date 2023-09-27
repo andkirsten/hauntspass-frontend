@@ -19,7 +19,7 @@ const Home = () => {
         <div className="hero-content text-center">
           <div className="max-w-md">
             <img className="hero-image" src={header} alt="haunts pass" />
-            <div className="hero-subtitle bg-white mb-10 p-6 rounded-xl">
+            <div className="hero__callout hero-subtitle bg-white mb-10 p-6 rounded-xl">
               <p className="hero-text text-sm">Join us in supporting the</p>
               <img src={foodbank} alt="utah food bank" className="px-5" />
               <p className="hero-text font-bold mt-5">

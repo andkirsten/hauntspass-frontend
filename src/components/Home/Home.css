@@ -12,6 +12,9 @@
   padding-bottom: 40px;
 }
 
+.hero__callout {
+  border: solid 3px black;
+}
 .title {
   font-family: "HalloweenHaunted", sans-serif;
   font-size: 70px;
