@@ -4,18 +4,19 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer footer-center p-10 bg-secondary text-base-content rounded">
-        <nav className="grid grid-flow-col gap-4">
+      <footer className="footer p-10 bg-secondary text-base-content">
+        <nav>
+          <header className="footer-title">Links</header>
           <NavLink
             to="https://www.justgiving.com/page/daybreak-haunts-2023"
             className="link link-hover"
             target="_blank"
             rel="noreferrer"
           >
-            Donate Now
+            Donate to the Utah Food Bank
           </NavLink>
           <NavLink to="/volunteer" className="link link-hover">
-            Volunteer
+            Become a Haunts House
           </NavLink>
           <NavLink to="/faqs" className="link link-hover">
             FAQs
@@ -62,7 +63,9 @@ const Footer = () => {
             </a>
           </div>
         </nav>
-        <aside>
+      </footer>
+      <footer className="footer px-10 py-4 bg-secondary text-base-content">
+        <aside className="items-center grid-flow-col">
           <p>Copyright © 2023 - Firework Development and Daybreak Haunts</p>
         </aside>
       </footer>

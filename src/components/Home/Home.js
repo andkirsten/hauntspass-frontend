@@ -19,13 +19,13 @@ const Home = () => {
         <div className="hero-content text-center">
           <div className="max-w-md">
             <img className="hero-image" src={header} alt="haunts pass" />
-            <div className="hero-subtitle bg-white mb-10 p-4 rounded-xl">
+            <div className="hero-subtitle bg-white mb-10 p-6 rounded-xl">
               <p className="hero-text text-sm">Join us in supporting the</p>
               <img src={foodbank} alt="utah food bank" className="px-5" />
               <p className="hero-text font-bold mt-5">
                 BE REWARDED FOR YOUR GENEROSITY WITH OVER $350 OF DEALS
               </p>
-              <hr class="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
+              <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
               <ul className="mx-10">
                 <li className="pb-5">
                   All-month-long rewards at local Daybreak businesses
