@@ -4,12 +4,14 @@ import "./Home.css";
 import step1 from "../../images/step1.png";
 import step2 from "../../images/step2.png";
 import step3 from "../../images/step3.png";
-import header from "../../images/hauntspass Header2.png";
+import header from "../../images/2023WebsiteHeader2.png";
 import foodbank from "../../images/utah_food_bank_logo.png";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { CurrentPassContext } from "../../contexts/CurrentPassContext";
 
 const Home = () => {
   const { currentUser } = useContext(CurrentUserContext);
+  const { currentPass } = useContext(CurrentPassContext);
 
   return (
     <div className="home">
@@ -17,9 +19,19 @@ const Home = () => {
         <div className="hero-content text-center">
           <div className="max-w-md">
             <img className="hero-image" src={header} alt="haunts pass" />
-
+            <div className="hero-subtitle bg-white mb-10 p-4 rounded-xl">
+              <p className="hero-text">Join Daybreak Residents in supporting</p>
+              <img src={foodbank} alt="utah food bank" className="py-4" />
+              <p className="hero-text font-bold max-w-sm">
+                BE REWARDED FOR YOUR GENEROSITY WITH OVER $350 OF DEALS
+              </p>
+              <p className="py-3">
+                at local businesses in October and participating Daybreak Homes
+                on Halloween
+              </p>
+            </div>
             <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
-              <button className="btn btn-primary">
+              <button className="btn btn-secondary">
                 Donate Now to get your Haunts Pass
               </button>
             </a>
@@ -81,9 +93,19 @@ const Home = () => {
                 for special perks and rewards. See terms and conditions.
               </p>
               <div className="card-actions justify-end">
-                <Link to="/current-rewards">
-                  <button className="btn btn-secondary">SEE REWARDS NOW</button>
-                </Link>
+                {currentPass ? (
+                  <Link to="/pass">
+                    <button className="btn btn-secondary">
+                      SEE REWARDS NOW
+                    </button>
+                  </Link>
+                ) : (
+                  <Link to="/current-rewards">
+                    <button className="btn btn-secondary">
+                      SEE REWARDS NOW
+                    </button>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -210,6 +232,28 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/himalayan.png"
                 alt="himalayan kitchen"
+                target="_blank"
+                rel="noreferrer"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://www.facebook.com/groups/738887694456234">
+              <img
+                className="sponsors__image"
+                src="/images/justburgers.png"
+                alt="just burgers"
+                target="_blank"
+                rel="noreferrer"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://www.facebook.com/groups/738887694456234">
+              <img
+                className="sponsors__image"
+                src="/images/harmons.png"
+                alt="harmons"
                 target="_blank"
                 rel="noreferrer"
               />

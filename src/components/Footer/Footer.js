@@ -12,10 +12,10 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            Donate to Utah Food Bank
+            Donate Now
           </NavLink>
           <NavLink to="/volunteer" className="link link-hover">
-            Become a Haunt Pass Home
+            Volunteer
           </NavLink>
           <NavLink to="/faqs" className="link link-hover">
             FAQs
@@ -23,8 +23,12 @@ const Footer = () => {
           <NavLink to="/about" className="link link-hover">
             About us
           </NavLink>
+          <NavLink to="/contact" className="link link-hover">
+            Contact us
+          </NavLink>
         </nav>
         <nav>
+          <header className="footer-title">Social</header>
           <div className="grid grid-flow-col gap-4">
             <a
               href="https://www.youtube.com/shorts/QeNFUBNYGmE"
@@ -58,9 +62,6 @@ const Footer = () => {
             </a>
           </div>
         </nav>
-        <aside>
-          <p>Copyright © 2023 - Firework Development and Daybreak Haunts</p>
-        </aside>
       </footer>
     </div>
   );

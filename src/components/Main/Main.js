@@ -9,6 +9,7 @@ import Pass from "../Pass/Pass";
 import PassForm from "../PassForm/PassForm";
 import Volunteer from "../Volunteer/Volunteer";
 import CurrentOffers from "../CurrentOffers/CurrentOffers";
+import Contact from "../Contact/Contact";
 import Map from "../Map/Map";
 // import Admin from "../Admin/Admin";
 
@@ -55,7 +56,7 @@ const Main = (props) => {
 
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/map" element={<Map />} />
-
+        <Route path="/contact" element={<Contact />} />
         {/* <Route
           path="/admin"
           element={

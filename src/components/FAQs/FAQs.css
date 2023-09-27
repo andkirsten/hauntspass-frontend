@@ -10,6 +10,7 @@
   margin: 0;
   width: 100%;
   border-bottom: solid 5px black;
+  text-shadow: 2px 2px 4px orange;
 }
 
 .faq__subheading {
