@@ -27,15 +27,13 @@ const AccordionItem = (props) => {
           <div className="collapse-content">
             <div className="collapse-container">
               <div className="collapse-header">
-                {props.item.imgUrl && (
-                  <div>
-                    <img
-                      src={props.item.imgUrl}
-                      alt="reward"
-                      className="reward-image"
-                    />
-                  </div>
-                )}
+                <div>
+                  <img
+                    src={props.item.imgUrl}
+                    alt="reward"
+                    className="cr__image"
+                  />
+                </div>
                 {props.item.businessDescription && (
                   <div className="redeem-business">
                     <p>
@@ -57,7 +55,7 @@ const AccordionItem = (props) => {
                 {props.item.rewardExtras && (
                   <div className="reward-extras text-center">
                     <p>
-                      <strong>Valid anytime until November 14th:</strong>{" "}
+                      <strong>Reward Valid Anytime:</strong>{" "}
                       {props.item.rewardExtras}
                     </p>
                   </div>

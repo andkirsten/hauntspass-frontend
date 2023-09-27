@@ -62,6 +62,9 @@ const Footer = () => {
             </a>
           </div>
         </nav>
+        <aside>
+          <p>Copyright © 2023 - Firework Development and Daybreak Haunts</p>
+        </aside>
       </footer>
     </div>
   );

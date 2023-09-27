@@ -109,7 +109,7 @@ const AccordionItem = (props) => {
                 {props.item.rewardExtras && (
                   <div className="reward__extras text-center">
                     <p>
-                      <strong>Valid anytime until November 14th:</strong>{" "}
+                      <strong>Reward Valid Anytime:</strong>{" "}
                       {props.item.rewardExtras}
                     </p>
                   </div>
