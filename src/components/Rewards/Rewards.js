@@ -49,7 +49,7 @@ const AccordionItem = (props) => {
         onClick={onClick}
       >
         <div
-          className={`accordion__title px-4 collapse-title flex text-white text-xl font-medium ${
+          className={`accordion__title px-4 collapse-title text-white ${
             props.redemptions?.includes(props.item._id)
               ? "bg-slate-500"
               : "bg-primary"
@@ -241,8 +241,8 @@ const Rewards = (props) => {
   };
 
   return (
-    <section className="rewards flex justify-center items-center p-4">
-      <div className="w-full accordion-container">
+    <section className="rewards flex justify-center items-center">
+      <div className="w-full accordion-container pt-5">
         <Accordion
           handleRedemption={props.handleRedemption}
           rewards={props.rewards}
