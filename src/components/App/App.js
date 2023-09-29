@@ -17,7 +17,7 @@ function App() {
 
   const navigate = useNavigate();
 
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(() => localStorage.getItem("authToken"));
 
   const [loading, setLoading] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
@@ -86,6 +86,7 @@ function App() {
       function verifyUser() {
         verifyToken(token)
           .then((res) => {
+            localStorage.setItem("authToken", token);
             setToken(token);
             setCurrentUser({
               data: {
@@ -149,6 +150,7 @@ function App() {
         setCurrentUser={setCurrentUser}
         handleRedemption={handleRedemption}
         redemptions={redemptions}
+        setRedemptions={setRedemptions}
         rewards={rewards}
         loading={loading}
         setLoading={setLoading}

@@ -43,6 +43,7 @@ const Pass = (props) => {
               rewards={props.rewards}
               handleRedemption={props.handleRedemption}
               redemptions={props.redemptions}
+              setRedemptions={props.setRedemptions}
               loading={props.loading}
               currentRedemption={props.currentRedemption}
               setCurrentRedemption={props.setCurrentRedemption}

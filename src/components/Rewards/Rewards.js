@@ -17,6 +17,8 @@ const AccordionItem = (props) => {
     e.preventDefault();
     document.getElementById("redeem-modal").close();
     props.setCurrentRedemption(null);
+    props.setActiveReward(null);
+    props.setRedemptions([...props.redemptions, props.activeReward._id]);
   };
 
   const formattedDateAndTime = (date) => {
@@ -217,6 +219,7 @@ const Accordion = (props) => {
             activeReward={props.activeReward}
             setActiveReward={props.setActiveReward}
             redemptions={props.redemptions}
+            setRedemptions={props.setRedemptions}
             loading={props.loading}
             currentRedemption={props.currentRedemption}
             setCurrentRedemption={props.setCurrentRedemption}
@@ -251,6 +254,7 @@ const Rewards = (props) => {
           activeReward={activeReward}
           setActiveReward={setActiveReward}
           redemptions={props.redemptions}
+          setRedemptions={props.setRedemptions}
           loading={props.loading}
           currentRedemption={props.currentRedemption}
           setCurrentRedemption={props.setCurrentRedemption}
