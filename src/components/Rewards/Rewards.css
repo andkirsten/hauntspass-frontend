@@ -66,4 +66,7 @@
 
 .redeem-modal__content {
   border: solid 10px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

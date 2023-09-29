@@ -174,7 +174,7 @@ const AccordionItem = (props) => {
           <p className="text-center text-sm pt-5">
             Thank you for supporting the
           </p>
-          <img src={foodBank} alt="haunts logo" />
+          <img src={foodBank} alt="haunts logo" className="max-w-sm" />
         </div>
       </dialog>
     </div>
