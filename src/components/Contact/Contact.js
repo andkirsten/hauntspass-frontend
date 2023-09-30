@@ -7,13 +7,13 @@ const Contact = () => {
 
   const [response, setResponse] = React.useState(null);
 
-  const sendEmail = async (data) => {
-    console.log("data", data);
+  const sendEmail = async (contactForm) => {
+    console.log("data", contactForm.current);
     try {
       const response = await emailjs.sendForm(
         "service_oqd5rpd",
         "contact_form",
-        data,
+        contactForm.current,
         "DPg0uaakoZmnA4kzd"
       );
       setResponse(
