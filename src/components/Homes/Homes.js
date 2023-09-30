@@ -1,5 +1,5 @@
-// import React, { useState } from "react";
-// import { Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./Homes.css";
 // import { HOMES_LIST } from "../../utils/HOMES_LIST";
 
@@ -61,9 +61,15 @@ const Homes = () => {
 
   return (
     <section className="homes flex justify-center items-center p-4">
-      <h3 className="text-2xl font-medium mb-4 text-center">
-        Home List Coming Soon...
-      </h3>
+      <p className="text-lg text-center">
+        Receive rewards at these participating Daybreak residential homes on
+        Halloween night by showing your Haunts Pass. See the{" "}
+        <Link to="/map" className="link">
+          Haunts Pass Map
+        </Link>{" "}
+        to find locations.
+      </p>
+      <p className="text-lg text-center pt-10">Homes list coming soon!</p>
       {/* <Link to="/map" className="map-btn btn btn-wide bg-white border-black">
         View the Map
       </Link>

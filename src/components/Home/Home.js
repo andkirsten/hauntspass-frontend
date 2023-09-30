@@ -20,7 +20,9 @@ const Home = () => {
           <div className="max-w-md">
             <img className="hero-image" src={header} alt="haunts pass" />
             <div className="hero__callout hero-subtitle bg-white mb-10 p-6 rounded-xl">
-              <p className="hero-text text-sm">Join us in supporting the</p>
+              <p className="hero-text text-sm mb-2">
+                Join Daybreak residents in supporting the
+              </p>
               <img src={foodbank} alt="utah food bank" className="px-5" />
               <p className="hero-text font-bold mt-5">
                 BE REWARDED FOR YOUR GENEROSITY WITH OVER $350 OF DEALS
@@ -53,7 +55,7 @@ const Home = () => {
             <div className="card-body text-white">
               <h2 className="card-title">MAKE DONATION</h2>
               <img src={foodbank} alt="utah food bank" />
-              <p>Make a donation of $20 or more through our fundraiser.</p>
+              <p>Make a donation of $25 or more through the fundraiser.</p>
 
               <div className="card-actions justify-end">
                 <a href="https://www.justgiving.com/page/daybreak-haunts-2023">

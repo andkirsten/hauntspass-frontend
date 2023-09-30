@@ -33,7 +33,9 @@ const CurrentOffers = (props) => {
           <ul className="tabs">
             <li
               className={
-                activeTab === "current__rewards" ? "tab tab-active " : "tab "
+                activeTab === "current__rewards"
+                  ? "tab tab-bordered tab-active "
+                  : "tab tab-bordered"
               }
               onClick={() => handleTabChange("current__rewards")}
             >
@@ -41,7 +43,9 @@ const CurrentOffers = (props) => {
             </li>
             <li
               className={
-                activeTab === "current__homes" ? "tab tab-active" : "tab "
+                activeTab === "current__homes"
+                  ? "tab tab-bordered tab-active"
+                  : "tab tab-bordered"
               }
               onClick={() => handleTabChange("current__homes")}
             >

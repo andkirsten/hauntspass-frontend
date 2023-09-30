@@ -54,7 +54,7 @@ const PassForm = (props) => {
           number from your donation confirmation email below.
         </p>
       </div>
-      <form className="space-y-4 max-w-lg">
+      <form className="space-y-4 max-w-lg" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="receiptRef" className="text-gray-600">
             Receipt Reference
@@ -76,9 +76,8 @@ const PassForm = (props) => {
         )}
         <div>
           <button
-            type="button"
+            type="submit"
             className={`w-full btn ${loading ? "btn-disabled" : "btn-primary"}`}
-            onClick={handleSubmit}
             disabled={loading}
           >
             {loading ? "Loading..." : "Submit"}

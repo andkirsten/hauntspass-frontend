@@ -25,7 +25,7 @@ const FAQ = () => {
             >
               Utah Food Bank
             </a>{" "}
-            a minimum of $20 per household. Please be generous and donate as
+            a minimum of $25 per household. Please be generous and donate as
             much as you would like. A receipt will be emailed to you. Then go to
             the Daybreak Haunts website and follow the instructions to register
             your pass. You will need to provide the Receipt Reference number
@@ -60,7 +60,7 @@ const FAQ = () => {
             >
               Food Bank
             </a>{" "}
-            with a minimum of $20 per household. The business deals are designed
+            with a minimum of $25 per household. The business deals are designed
             to accommodate multiple family members. On Halloween night, while
             trick-or-treating, show your Haunts Pass to the participating home,
             which is good for all present family members that want to receive a

@@ -66,7 +66,7 @@ const Signup = (props) => {
   return (
     <div className="signup bg-slate-200">
       <h2 className="signup__title pt-4">Sign Up</h2>
-      <form className="space-y-4 px-5">
+      <form className="space-y-4 px-5" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name" className="text-primary">
             Name
@@ -113,11 +113,10 @@ const Signup = (props) => {
 
         <div>
           <button
-            type="button"
+            type="submit"
             className={`signup__button w-full btn ${
               loading ? "btn-disabled" : "btn-primary"
             }`}
-            onClick={handleSubmit}
             disabled={loading}
           >
             {loading ? "Loading..." : "Sign Up"}

@@ -29,6 +29,7 @@ function App() {
     setCurrentUser(null);
     setToken(null);
     localStorage.removeItem("authToken");
+    setCurrentPass(null);
     setIsLogged(false);
     navigate("/");
   };
@@ -65,7 +66,9 @@ function App() {
         document.getElementById("redeem-modal").showModal();
       })
       .catch((err) => {
-        console.log(err);
+        document.getElementById("confirm-modal").close();
+        document.getElementById("problem-modal").showModal();
+        setLoading(false);
       });
   };
 

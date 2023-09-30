@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Rewards.css";
 import foodBank from "../../images/utah_food_bank_logo.png";
+import { Link } from "react-router-dom";
 
 const AccordionItem = (props) => {
   const handleRedeem = (e) => {
@@ -42,6 +43,11 @@ const AccordionItem = (props) => {
     } else {
       return false;
     }
+  };
+
+  const handleProblem = (e) => {
+    e.preventDefault();
+    document.getElementById("problem-modal").close();
   };
 
   return (
@@ -150,31 +156,59 @@ const AccordionItem = (props) => {
           <h3 className="redeem-modal__title text-center ">
             Enjoy your reward!
           </h3>
-          <p className="text-center">
+          <p className="text-center text-sm px-5">
             Show this screen to the business associate to claim your reward.
           </p>
-          <p className="py-4 text-center font-bold">
-            {props.activeReward?.rewardTitle}
-          </p>
-          <p className="redeem-modal__reward font-bold text-center bg-accent p-3 rounded-xl">
-            {props.activeReward?.offer}
-          </p>
-          <p className="text-center mt-5">Redeemed at</p>
+          <div className="redeem-modal__reward text-center bg-accent py-5 px-4 my-5 border-double border-8 border-black">
+            <p className="mb-1 text-center font-bold">
+              {props.activeReward?.rewardTitle}
+            </p>
+            <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
+            <p className="text-center">{props.activeReward?.offer}</p>
+          </div>
+          <p className="text-center ">Redeemed at</p>
           <p className="text-center">
             {formattedDateAndTime(props.currentRedemption?.redeemedAt)}{" "}
           </p>
-
+          <div className="redeem-modal__thankyou text-center">
+            <p className="text-center text-sm pt-5">
+              Thank you for supporting the
+            </p>
+            <img src={foodBank} alt="haunts logo" className="px-8" />
+          </div>
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn" onClick={handleFinishRedemption}>
+              <button
+                className="btn bg-secondary"
+                onClick={handleFinishRedemption}
+              >
                 All Finished, check out other rewards.
               </button>
             </form>
           </div>
-          <p className="text-center text-sm pt-5">
-            Thank you for supporting the
+        </div>
+      </dialog>
+      <dialog id="problem-modal" className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
+          <h3 className="font-bold text-lg">Whoops!</h3>
+          <p className="py-4">
+            It appears you've already redeemed this reward. Check to see if
+            maybe the reward was redeemed on a different device already.
           </p>
-          <img src={foodBank} alt="haunts logo" className="max-w-sm" />
+          <p>
+            If you think this is an error, please send us a message on our{" "}
+            <Link to="/contact" className="link">
+              Contact Us
+            </Link>{" "}
+            page.
+          </p>
+          <div className="modal-action p-4">
+            <form method="dialog">
+              <button className="btn" onClick={handleProblem}>
+                OK
+              </button>
+            </form>
+          </div>
         </div>
       </dialog>
     </div>
