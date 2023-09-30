@@ -1,7 +1,7 @@
 {
   "name": "haunts-pass",
   "version": "0.1.0",
-  "homepage": "https://daybreakhaunts.ignorelist.com",
+  "homepage": "https://www.daybreakhaunts.org",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
