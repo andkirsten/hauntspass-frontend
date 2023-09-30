@@ -211,17 +211,7 @@ const Home = () => {
               />
             </a>
           </div>
-          <div className="sponsors__card">
-            <a href="https://www.costavida.com/locations/south-jordan">
-              <img
-                className="sponsors__image"
-                src="/images/costavida.jpeg"
-                alt="costa vida"
-                target="_blank"
-                rel="noreferrer"
-              />
-            </a>
-          </div>
+
           <div className="sponsors__card">
             <a href="https://www.google.com/maps/place/Sweet+Churros/@40.5408545,-111.9809232,17z/data=!4m6!3m5!1s0x87528507886301cb:0xd32e1d797fec8006!8m2!3d40.5408545!4d-111.9809232!16s%2Fg%2F11qywcxw41?entry=ttu">
               <img
