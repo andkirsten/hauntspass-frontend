@@ -33,7 +33,8 @@ const Home = () => {
                   All-month-long rewards at local Daybreak businesses
                 </li>
                 <li className="">
-                  Halloween day goodies at participating "Haunts Homes"
+                  Halloween day goodies and prizes at participating "Haunts
+                  Homes"
                 </li>
               </ul>
             </div>
@@ -55,7 +56,7 @@ const Home = () => {
             <div className="card-body text-white">
               <h2 className="card-title">MAKE DONATION</h2>
               <img src={foodbank} alt="utah food bank" />
-              <p>Make a donation of $25 or more through the fundraiser.</p>
+              <p>Make a donation of $25 or more through this fundraiser.</p>
 
               <div className="card-actions justify-end">
                 <a href="https://www.justgiving.com/page/daybreak-haunts-2023">

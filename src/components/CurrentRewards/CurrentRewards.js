@@ -116,6 +116,10 @@ const CurrentRewards = (props) => {
           setActiveReward={setActiveReward}
         />
       </div>
+      <p className="text-center p-10">
+        All businesses reserve the right to make adjustments to offers as needed
+        during the fundraiser period.
+      </p>
     </section>
   );
 };

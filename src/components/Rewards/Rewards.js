@@ -278,7 +278,7 @@ const Rewards = (props) => {
   };
 
   return (
-    <section className="rewards flex justify-center items-center">
+    <section className="rewards">
       <div className="w-full accordion-container pt-5">
         <Accordion
           handleRedemption={props.handleRedemption}
@@ -294,6 +294,10 @@ const Rewards = (props) => {
           setCurrentRedemption={props.setCurrentRedemption}
         />
       </div>
+      <p className="text-center p-10">
+        All businesses reserve the right to make adjustments to offers as needed
+        during the fundraiser period.
+      </p>
     </section>
   );
 };

@@ -50,7 +50,7 @@ const PassForm = (props) => {
         <p>Redeem your donation receipt to get your Haunts Pass</p>
         <p>
           One haunts pass will cover multiple people, but the donation amount
-          must be at least $20 per household. Enter your receipt reference
+          must be at least $25 per household. Enter your receipt reference
           number from your donation confirmation email below.
         </p>
       </div>
@@ -84,7 +84,11 @@ const PassForm = (props) => {
           </button>
         </div>
       </form>
-      <img src={receiptRef} alt="receipt reference" className="receiptRef" />
+      <img
+        src={receiptRef}
+        alt="receipt reference"
+        className="receiptRef border-4 border-black mt-4"
+      />
     </div>
   );
 };
