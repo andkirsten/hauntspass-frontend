@@ -49,28 +49,28 @@ const Contact = () => {
         className="p-4 space-y-4 bg-accent m-10"
       >
         <label
-          htmlFor="user_name"
+          htmlFor="from_name"
           className="block text-sm font-medium text-gray-700"
         >
           Name
         </label>
         <input
           type="text"
-          id="user_name"
-          name="user_name"
+          id="from_name"
+          name="from_name"
           className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
         />
 
         <label
-          htmlFor="user_email"
+          htmlFor="reply_to"
           className="block text-sm font-medium text-gray-700"
         >
           Email
         </label>
         <input
           type="email"
-          id="user_email"
-          name="user_email"
+          id="reply_to"
+          name="reply_to"
           className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
         />
 
