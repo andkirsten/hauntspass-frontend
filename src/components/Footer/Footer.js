@@ -32,7 +32,7 @@ const Footer = () => {
           <header className="footer-title">Social</header>
           <div className="grid grid-flow-col gap-4">
             <a
-              href="https://www.youtube.com/shorts/QeNFUBNYGmE"
+              href="https://www.youtube.com/channel/UCvKpVtQVM7ZVqsZB7PwSgDA"
               target="_blank"
               rel="noreferrer"
             >
