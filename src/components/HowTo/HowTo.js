@@ -11,11 +11,11 @@ import warrens from "../../images/warrensConfirmation.png";
 
 const HowTo = () => {
   return (
-    <div className="how-to min-h-screen text-center">
+    <div className="how-to min-h-screen text-center bg-base-200">
       <h1 className="how-to__title w-full py-4 bg-accent mb-7">
         How to Get a Haunts Pass
       </h1>
-      <p className="mb-4 mx-4">
+      <p className="mb-4 mx-4 text-xl max-w-lg">
         Watch this video for an overview of the process, and check out the
         step-by-step instructions below.
       </p>
@@ -29,8 +29,8 @@ const HowTo = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <div className="mb-6 max-w-xl">
-        <h2 className="how-to__subtitle text-2xl font-semibold mt-10 mb-4 bg-secondary text-primary p-4 w-full border-b-8 border-black border-double rounded-xl">
+      <div className="max-w-xl bg-white p-10 rounded-xl">
+        <h2 className="how-to__subtitle text-2xl font-semibold mb-5 bg-secondary text-primary p-4 w-full border-b-8 border-black border-double rounded-xl">
           STEP 1: Donate
         </h2>
 

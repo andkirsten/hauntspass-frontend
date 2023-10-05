@@ -117,17 +117,22 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <div className="get-involved__btn text-center max-w-lg p-5 bg-secondary rounded-xl border-4 border-black">
+            <button>
+              <Link to="/how-it-works">Get more detailed instructions</Link>
+            </button>
+          </div>
         </div>
       </section>
-      <section className="get-involved bg-accent text-center">
-        <h2 className="title">Get Involved</h2>
 
-        <Link
-          to="/volunteer"
-          className="btn btn-primary btn-lg text-white mt-5 mb-5 mr-5 ml-5"
-        >
-          Become a Haunts Pass Home
-        </Link>
+      <section className="get-involved bg-accent text-center">
+        <div className="get-involved__btn p-5 bg-base-200 rounded-xl border-8 border-double border-black">
+          <button>
+            <Link to="/volunteer">
+              Get involved by becoming a "Haunts Home" on Halloween
+            </Link>
+          </button>
+        </div>
       </section>
       <section className="sponsors">
         <h2 className="sponsors__title title">Our Sponsors</h2>
