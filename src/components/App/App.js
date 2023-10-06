@@ -1,10 +1,8 @@
-import { useContext } from "react";
+import React, { useEffect, useState, useContext, useLayoutEffect } from "react";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-
 import Footer from "../Footer/Footer";
-import React, { useEffect, useState } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { CurrentPassContext } from "../../contexts/CurrentPassContext";
 import { verifyToken } from "../../utils/auth";
@@ -140,6 +138,10 @@ function App() {
     };
     getRewards();
   }, []);
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <div className="app">
