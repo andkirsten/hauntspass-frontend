@@ -117,11 +117,11 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="get-involved__btn text-center max-w-lg p-5 bg-secondary rounded-xl border-4 border-black">
-            <button>
-              <Link to="/how-it-works">Get more detailed instructions</Link>
-            </button>
-          </div>
+        </div>
+        <div className="get-involved__btn text-center max-w-lg p-5 bg-secondary rounded-xl border-4 border-black m-auto mt-10">
+          <button>
+            <Link to="/how-it-works">Get more detailed instructions</Link>
+          </button>
         </div>
       </section>
 
