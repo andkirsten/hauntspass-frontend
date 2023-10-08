@@ -67,9 +67,9 @@ const Map = () => {
             <img className="h-6" src={skull} alt="skull" />
           </button>
         </div>
-        <div className="text-center">
+        <div className="text-center lg:w-3/4">
           {selectedType === "Type 1" && (
-            <div className="px-5 bg-white rounded-box py-5 mx-5">
+            <div className="p-4 bg-white rounded-box w-full">
               <h2 className="font-bold">Haunts Pass Businesses</h2>
               <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
               <p>
@@ -82,14 +82,14 @@ const Map = () => {
             </div>
           )}
           {selectedType === "Type 2" && (
-            <div className="px-5 bg-white rounded-box py-5 mx-5">
+            <div className="p-4 bg-white rounded-box w-full">
               <h2 className="font-bold">Decorated Daybreak Homes</h2>
               <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
               <p>Check out these homes and their fun Halloween decorations.</p>
             </div>
           )}
           {selectedType === "Type 3" && (
-            <div className="px-5 bg-white rounded-box py-5 mx-5">
+            <div className="p-4 bg-white rounded-box w-full">
               <h2 className="font-bold">Haunts Pass Homes</h2>
               <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
               <p>
@@ -102,7 +102,7 @@ const Map = () => {
             </div>
           )}
           {selectedType === "Type 4" && (
-            <div className="px-5 bg-white rounded-box py-5 mx-5" s>
+            <div className="p-4 bg-white rounded-box w-full">
               <h2 className="font-bold">
                 Daybreak Homes with a special event/decoration on Halloween
               </h2>
