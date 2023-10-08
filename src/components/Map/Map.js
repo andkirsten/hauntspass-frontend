@@ -5,6 +5,7 @@ import orangeHouse from "../../images/businessIconPNG.png";
 import ghost from "../../images/ghosticonpng.png";
 import house from "../../images/hauntedhouseicon.png";
 import skull from "../../images/skull.png";
+import gray from "../../images/grayPin.png";
 
 const Map = () => {
   const [selectedType, setSelectedType] = useState("Type 1");
@@ -66,6 +67,15 @@ const Map = () => {
           >
             <img className="h-6" src={skull} alt="skull" />
           </button>
+          <button
+            href="#"
+            onClick={() => handleMenuClick("Type 5")}
+            className={`tab tab-lifted ${
+              selectedType === "Type 5" ? "tab-active" : ""
+            }`}
+          >
+            <img className="h-6" src={gray} alt="grey marker" />
+          </button>
         </div>
         <div className="text-center lg:w-3/4">
           {selectedType === "Type 1" && (
@@ -108,6 +118,25 @@ const Map = () => {
               </h2>
               <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
               <p>See each home description for more information.</p>
+            </div>
+          )}
+          {selectedType === "Type 5" && (
+            <div className="p-4 bg-white rounded-box w-full">
+              <h2 className="font-bold">Last Year's Decorated Homes</h2>
+              <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
+              <p>
+                Homes submitted as decorated homes last year. Please resubmit if
+                you'd like to mark the pin as current through the{" "}
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSc-3MyiEojwrUX87uofJxRxcq5hUV23-q32y-K8_cwAS9vBWQ/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link"
+                >
+                  Haunts Home Form
+                </a>
+                .
+              </p>
             </div>
           )}
         </div>
