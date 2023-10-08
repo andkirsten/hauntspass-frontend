@@ -1,14 +1,33 @@
 .map__header {
   font-family: "HalloweenHaunted", sans-serif;
-  font-size: 70px;
+  font-size: 40px;
   line-height: 1.2;
   text-align: center;
-  padding: 20px 0;
+  padding: 8px 0;
   margin: 0;
   background-image: url("../../images/mapheader.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  border-bottom: solid 5px black;
+}
+
+.map__legend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  padding: 10px;
+}
+
+.map__subtitle {
+  font-family: "HalloweenHaunted", sans-serif;
+  font-size: 35px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0;
 }
 
 .map__iframe {

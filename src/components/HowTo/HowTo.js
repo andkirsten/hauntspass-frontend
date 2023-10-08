@@ -15,21 +15,21 @@ const HowTo = () => {
       <h1 className="how-to__title w-full py-4 bg-accent mb-7">
         How to Get a Haunts Pass
       </h1>
-      <p className="mb-4 mx-4 text-xl max-w-lg">
+      <p className="mx-4 text-xl max-w-3xl">
         Watch this video for an overview of the process, and check out the
         step-by-step instructions below.
       </p>
 
-      <div className="mb-6">
+      <div className="">
         <iframe
-          width="315"
-          height="560"
-          src="https://www.youtube.com/embed/ERXBZ8a6usw"
-          title="Haunts Pass Overview"
-          allowFullScreen
+          className="p-6 w-full"
+          height="600px"
+          src="https://www.youtube.com/embed/Vh1FS-DKkFY"
+          title="Haunts Pass Tutorial"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
       </div>
-      <div className="max-w-xl bg-white p-10 rounded-xl">
+      <div className="max-w-3xl bg-white p-10 rounded-xl">
         <h2 className="how-to__subtitle text-2xl font-semibold mb-5 bg-secondary text-primary p-4 w-full border-b-8 border-black border-double rounded-xl">
           STEP 1: Donate
         </h2>
