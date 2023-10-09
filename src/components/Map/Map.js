@@ -5,7 +5,7 @@ import orangeHouse from "../../images/businessIconPNG.png";
 import ghost from "../../images/ghosticonpng.png";
 import house from "../../images/hauntedhouseicon.png";
 import skull from "../../images/skull.png";
-import gray from "../../images/grayPin.png";
+// import gray from "../../images/gray.png";
 
 const Map = () => {
   const [selectedType, setSelectedType] = useState("Type 1");
@@ -67,7 +67,7 @@ const Map = () => {
           >
             <img className="h-6" src={skull} alt="skull" />
           </button>
-          <button
+          {/* <button
             href="#"
             onClick={() => handleMenuClick("Type 5")}
             className={`tab tab-lifted ${
@@ -75,7 +75,7 @@ const Map = () => {
             }`}
           >
             <img className="h-6" src={gray} alt="grey marker" />
-          </button>
+          </button> */}
         </div>
         <div className="text-center lg:w-3/4">
           {selectedType === "Type 1" && (
@@ -120,7 +120,7 @@ const Map = () => {
               <p>See each home description for more information.</p>
             </div>
           )}
-          {selectedType === "Type 5" && (
+          {/* {selectedType === "Type 5" && (
             <div className="p-4 bg-white rounded-box w-full">
               <h2 className="font-bold">Last Year's Decorated Homes</h2>
               <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
@@ -138,7 +138,7 @@ const Map = () => {
                 .
               </p>
             </div>
-          )}
+          )} */}
         </div>
       </div>
 
