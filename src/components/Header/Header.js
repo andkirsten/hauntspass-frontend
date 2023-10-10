@@ -35,7 +35,7 @@ const Header = (props) => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <NavLink to="/">How it works</NavLink>
+                <NavLink to="/how-it-works">How it works</NavLink>
               </li>
               {!currentPass && (
                 <li>
@@ -56,14 +56,24 @@ const Header = (props) => {
               </li>
             </ul>
           </div>
-          <NavLink to="/" className="btn btn-ghost normal-case text-xl">
-            <img className="logo" src={Logo} alt="daybreak haunts logo"></img>
+          <NavLink
+            to="/"
+            className="header__btn btn btn-ghost normal-case text-xl"
+          >
+            <img
+              className="header__logo"
+              src={Logo}
+              alt="daybreak haunts logo"
+            ></img>
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal px-1">
             <li className="text-white">
-              <NavLink className="hover:bg-accent hover:text-black" to="/">
+              <NavLink
+                className="hover:bg-accent hover:text-black"
+                to="/how-it-works"
+              >
                 How it Works
               </NavLink>
             </li>
@@ -105,7 +115,7 @@ const Header = (props) => {
         </div>
         {currentUser ? (
           <div className="navbar-end">
-            <button className="btn btn-ghost text-white">
+            <button className="header__btn btn btn-ghost text-white">
               <NavLink to="/pass">My Pass</NavLink>
             </button>
             <button
@@ -117,7 +127,7 @@ const Header = (props) => {
           </div>
         ) : (
           <div className="navbar-end">
-            <button className="btn btn-ghost text-white">
+            <button className="header__btn btn btn-ghost text-white">
               <NavLink to="/login">Login</NavLink>
             </button>
             <button className="btn btn-ghost text-white">

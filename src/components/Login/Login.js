@@ -57,7 +57,7 @@ const Login = (props) => {
   return (
     <div className="login bg-slate-200">
       <h2 className="login__title pt-4">Login</h2>
-      <form className="login__form space-y-4 px-5">
+      <form className="login__form space-y-4 px-5" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email" className="text-primary">
             Email
@@ -90,11 +90,10 @@ const Login = (props) => {
 
         <div>
           <button
-            type="button"
+            type="submit"
             className={`text-white w-full btn ${
               loading ? "btn-disabled" : "btn-primary"
             }`}
-            onClick={handleSubmit}
             disabled={loading}
           >
             {loading ? "Loading..." : "Login"}

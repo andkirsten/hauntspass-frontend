@@ -15,6 +15,7 @@ const About = () => {
           as a fundraiser for the Utah Food Bank allowing families to donate and
           receive rewards at participating locations.
         </p>
+        <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
         <p>
           Since 2014 we've partnered with neighbors to create a free
           one-night-only haunted house called Deadbreak. Though we love to see

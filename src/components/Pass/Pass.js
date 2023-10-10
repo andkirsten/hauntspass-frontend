@@ -24,13 +24,21 @@ const Pass = (props) => {
         <div>
           <ul className="tabs">
             <li
-              className={activeTab === "rewards" ? "tab tab-active " : "tab "}
+              className={
+                activeTab === "rewards"
+                  ? "tab tab-bordered tab-active "
+                  : "tab tab-bordered"
+              }
               onClick={() => handleTabChange("rewards")}
             >
               Business Rewards
             </li>
             <li
-              className={activeTab === "homes" ? "tab tab-active" : "tab "}
+              className={
+                activeTab === "homes"
+                  ? "tab tab-bordered tab-active"
+                  : "tab tab-bordered"
+              }
               onClick={() => handleTabChange("homes")}
             >
               Haunts Homes
@@ -43,6 +51,7 @@ const Pass = (props) => {
               rewards={props.rewards}
               handleRedemption={props.handleRedemption}
               redemptions={props.redemptions}
+              setRedemptions={props.setRedemptions}
               loading={props.loading}
               currentRedemption={props.currentRedemption}
               setCurrentRedemption={props.setCurrentRedemption}

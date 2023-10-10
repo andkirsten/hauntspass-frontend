@@ -8,34 +8,32 @@ const AccordionItem = (props) => {
   };
 
   return (
-    <div className="collapse bg-white">
+    <div className="collapse mb-3 bg-white">
       <div
         className={`accordion__item ${props.isOpen ? "open" : ""}`}
         onClick={onClick}
       >
-        <div className="cr__title text-white collapse-title flex text-xl font-medium bg-primary">
-          <span>{props.item.rewardTitle}</span>
+        <div className="cr__banner px-4 text-white collapse-title bg-primary">
+          <p>{props.item.rewardTitle}</p>
           <span>
             <img
               src={props.item.imgUrl}
               alt={props.item.rewardTitle}
-              className="reward-icon"
+              className="cr__icon"
             />
           </span>
         </div>
         {props.isOpen && (
           <div className="collapse-content">
-            <div className="collapse-container">
+            <div className="collapse-container py-4">
               <div className="collapse-header">
-                {props.item.imgUrl && (
-                  <div>
-                    <img
-                      src={props.item.imgUrl}
-                      alt="reward"
-                      className="reward-image"
-                    />
-                  </div>
-                )}
+                <div>
+                  <img
+                    src={props.item.imgUrl}
+                    alt="reward"
+                    className="cr__image"
+                  />
+                </div>
                 {props.item.businessDescription && (
                   <div className="redeem-business">
                     <p>
@@ -44,24 +42,26 @@ const AccordionItem = (props) => {
                   </div>
                 )}
               </div>
-              <div className="redeem-info space-y-4">
+              <div className="space-y-4 py-4">
+                <div>
+                  {props.item.rewardExtras && (
+                    <div>
+                      <p>
+                        <strong>Anytime Reward: </strong>
+                        {props.item.rewardExtras}
+                      </p>
+                    </div>
+                  )}
+                </div>
                 <p>
-                  <strong>Reward:</strong> {props.item.offer}
-                </p>
-                <p>
-                  <strong>Terms and Conditions:</strong>{" "}
-                  {props.item.rewardTerms}
+                  <strong>One-time Reward:</strong> {props.item.offer}
                 </p>
               </div>
               <div>
-                {props.item.rewardExtras && (
-                  <div className="reward-extras text-center">
-                    <p>
-                      <strong>Valid anytime until November 14th:</strong>{" "}
-                      {props.item.rewardExtras}
-                    </p>
-                  </div>
-                )}
+                <p>
+                  <strong>Terms and Conditions:</strong>
+                </p>
+                <p>{props.item.rewardTerms}</p>
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@ const CurrentRewards = (props) => {
 
   return (
     <section className="flex flex-col justify-center items-center">
-      <div className="w-full accordion-container">
+      <div className="w-full accordion-container pt-5">
         <Accordion
           rewards={props.rewards}
           openIndex={openIndex}
@@ -116,6 +116,10 @@ const CurrentRewards = (props) => {
           setActiveReward={setActiveReward}
         />
       </div>
+      <p className="text-center p-10">
+        All businesses reserve the right to make adjustments to offers as needed
+        during the fundraiser period.
+      </p>
     </section>
   );
 };

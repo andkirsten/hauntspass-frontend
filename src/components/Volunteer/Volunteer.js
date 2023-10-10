@@ -22,20 +22,29 @@ const HauntsHouse = () => {
             Location on the Daybreak Haunts map and add you to the website.
           </li>
           <li>
-            On Halloween, post the sign we give you near your door or walkway.
+            Before Halloween, we will provide you a sign that may be posted near
+            your door or walkway.
           </li>
           <li>
             Give a bonus treat or reward to those who show you their pass on the
             website.
           </li>
+          <li>
+            Please see the{" "}
+            <Link to="/faqs" className="link">
+              "Participating Homes" section of the FAQ page
+            </Link>{" "}
+            for additional information.
+          </li>
         </ol>
-        <p className="p-6">
-          Check out the{" "}
-          <Link className="link" to="/faqs">
-            FAQs page
-          </Link>{" "}
-          for more details.
+        <p>
+          Reach out to us on the{" "}
+          <a href="https://www.facebook.com/daybreakhaunts">
+            Daybreak Haunts Facebook page
+          </a>{" "}
+          with any additional questions.
         </p>
+
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSf4Dcu0I89-h2FI2s0vl0PPrpmQFXrft2lPg25nmTz_t0XFhw/viewform?embedded=true"
           width="100%"

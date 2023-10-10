@@ -4,12 +4,14 @@ import "./Home.css";
 import step1 from "../../images/step1.png";
 import step2 from "../../images/step2.png";
 import step3 from "../../images/step3.png";
-import header from "../../images/hauntspass Header2.png";
+import header from "../../images/2023WebsiteHeader2.png";
 import foodbank from "../../images/utah_food_bank_logo.png";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { CurrentPassContext } from "../../contexts/CurrentPassContext";
 
 const Home = () => {
   const { currentUser } = useContext(CurrentUserContext);
+  const { currentPass } = useContext(CurrentPassContext);
 
   return (
     <div className="home">
@@ -17,9 +19,27 @@ const Home = () => {
         <div className="hero-content text-center">
           <div className="max-w-md">
             <img className="hero-image" src={header} alt="haunts pass" />
-
+            <div className="hero__callout hero-subtitle bg-white mb-10 p-6 rounded-xl">
+              <p className="hero-text text-sm mb-2">
+                Join Daybreak residents in supporting the
+              </p>
+              <img src={foodbank} alt="utah food bank" className="px-5" />
+              <p className="hero-text font-bold mt-5">
+                BE REWARDED FOR YOUR GENEROSITY WITH OVER $350 OF DEALS
+              </p>
+              <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
+              <ul className="mx-10">
+                <li className="pb-5">
+                  All-month-long rewards at local Daybreak businesses
+                </li>
+                <li className="">
+                  Halloween day goodies and prizes at participating "Haunts
+                  Homes"
+                </li>
+              </ul>
+            </div>
             <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
-              <button className="btn btn-primary">
+              <button className="btn btn-secondary">
                 Donate Now to get your Haunts Pass
               </button>
             </a>
@@ -36,7 +56,7 @@ const Home = () => {
             <div className="card-body text-white">
               <h2 className="card-title">MAKE DONATION</h2>
               <img src={foodbank} alt="utah food bank" />
-              <p>Make a donation of $20 or more through our fundraiser.</p>
+              <p>Make a donation of $25 or more through this fundraiser.</p>
 
               <div className="card-actions justify-end">
                 <a href="https://www.justgiving.com/page/daybreak-haunts-2023">
@@ -81,29 +101,48 @@ const Home = () => {
                 for special perks and rewards. See terms and conditions.
               </p>
               <div className="card-actions justify-end">
-                <Link to="/current-rewards">
-                  <button className="btn btn-secondary">SEE REWARDS NOW</button>
-                </Link>
+                {currentPass ? (
+                  <Link to="/pass">
+                    <button className="btn btn-secondary">
+                      SEE REWARDS NOW
+                    </button>
+                  </Link>
+                ) : (
+                  <Link to="/current-rewards">
+                    <button className="btn btn-secondary">
+                      SEE REWARDS NOW
+                    </button>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
         </div>
+        <div className="get-involved__btn text-center max-w-lg p-5 bg-secondary rounded-xl border-4 border-black m-auto mt-10">
+          <button>
+            <Link to="/how-it-works">Get more detailed instructions</Link>
+          </button>
+        </div>
       </section>
-      <section className="get-involved bg-accent text-center">
-        <h2 className="title">Get Involved</h2>
 
-        <Link
-          to="/volunteer"
-          className="btn btn-primary btn-lg text-white mt-5 mb-5 mr-5 ml-5"
-        >
-          Become a Haunts Pass Home
-        </Link>
+      <section className="get-involved bg-accent text-center">
+        <div className="get-involved__btn p-5 bg-base-200 rounded-xl border-8 border-double border-black">
+          <button>
+            <Link to="/volunteer">
+              Get involved by becoming a "Haunts Home" on Halloween
+            </Link>
+          </button>
+        </div>
       </section>
       <section className="sponsors">
         <h2 className="sponsors__title title">Our Sponsors</h2>
         <div className="sponsors__container">
           <div className="sponsors__card">
-            <a href="https://alloypersonaltraining.com/">
+            <a
+              href="https://alloypersonaltraining.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 className="sponsors__image"
                 src="/images/alloy_logo.png"
@@ -117,6 +156,8 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/mathnasium_logo.jpg"
                 alt="mathnasium logo"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
@@ -126,6 +167,8 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/mountain_mikes_logo.jpeg"
                 alt="mountain mikes pizza"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
@@ -135,6 +178,8 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/cupbop.png"
                 alt="cupbop korean bbq in a cup"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
@@ -144,6 +189,8 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/warrens.png"
                 alt="warrens"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
@@ -154,6 +201,8 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/sweetAndCool.jpg"
                 alt="sweet and cool"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
@@ -163,24 +212,53 @@ const Home = () => {
                 className="sponsors__image"
                 src="/images/lucienne.jpeg"
                 alt="lucienne"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>
-          <div className="sponsors__card">
-            <a href="https://www.costavida.com/locations/south-jordan">
-              <img
-                className="sponsors__image"
-                src="/images/costavida.jpeg"
-                alt="costa vida"
-              />
-            </a>
-          </div>
+
           <div className="sponsors__card">
             <a href="https://www.google.com/maps/place/Sweet+Churros/@40.5408545,-111.9809232,17z/data=!4m6!3m5!1s0x87528507886301cb:0xd32e1d797fec8006!8m2!3d40.5408545!4d-111.9809232!16s%2Fg%2F11qywcxw41?entry=ttu">
               <img
                 className="sponsors__image"
                 src="/images/sweet-churros.png"
                 alt="sweet churros"
+                target="_blank"
+                rel="noreferrer"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://www.himalayankitchensouthjordan.com/">
+              <img
+                className="sponsors__image"
+                src="/images/himalayan.png"
+                alt="himalayan kitchen"
+                target="_blank"
+                rel="noreferrer"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://www.facebook.com/groups/738887694456234">
+              <img
+                className="sponsors__image"
+                src="/images/justBurgers.png"
+                alt="just burgers"
+                target="_blank"
+                rel="noreferrer"
+              />
+            </a>
+          </div>
+          <div className="sponsors__card">
+            <a href="https://www.facebook.com/groups/738887694456234">
+              <img
+                className="sponsors__image"
+                src="/images/harmons.png"
+                alt="harmons"
+                target="_blank"
+                rel="noreferrer"
               />
             </a>
           </div>

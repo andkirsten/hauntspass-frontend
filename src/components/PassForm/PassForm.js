@@ -50,11 +50,11 @@ const PassForm = (props) => {
         <p>Redeem your donation receipt to get your Haunts Pass</p>
         <p>
           One haunts pass will cover multiple people, but the donation amount
-          must be at least $20 per household. Enter your receipt reference
+          must be at least $25 per household. Enter your receipt reference
           number from your donation confirmation email below.
         </p>
       </div>
-      <form className="space-y-4 max-w-lg">
+      <form className="space-y-4 max-w-lg" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="receiptRef" className="text-gray-600">
             Receipt Reference
@@ -76,16 +76,19 @@ const PassForm = (props) => {
         )}
         <div>
           <button
-            type="button"
+            type="submit"
             className={`w-full btn ${loading ? "btn-disabled" : "btn-primary"}`}
-            onClick={handleSubmit}
             disabled={loading}
           >
             {loading ? "Loading..." : "Submit"}
           </button>
         </div>
       </form>
-      <img src={receiptRef} alt="receipt reference" className="receiptRef" />
+      <img
+        src={receiptRef}
+        alt="receipt reference"
+        className="receiptRef border-4 border-black mt-4"
+      />
     </div>
   );
 };

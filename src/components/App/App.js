@@ -1,10 +1,8 @@
-import { useContext } from "react";
+import React, { useEffect, useState, useContext, useLayoutEffect } from "react";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-
 import Footer from "../Footer/Footer";
-import React, { useEffect, useState } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { CurrentPassContext } from "../../contexts/CurrentPassContext";
 import { verifyToken } from "../../utils/auth";
@@ -17,7 +15,7 @@ function App() {
 
   const navigate = useNavigate();
 
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(() => localStorage.getItem("authToken"));
 
   const [loading, setLoading] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
@@ -29,6 +27,7 @@ function App() {
     setCurrentUser(null);
     setToken(null);
     localStorage.removeItem("authToken");
+    setCurrentPass(null);
     setIsLogged(false);
     navigate("/");
   };
@@ -65,7 +64,9 @@ function App() {
         document.getElementById("redeem-modal").showModal();
       })
       .catch((err) => {
-        console.log(err);
+        document.getElementById("confirm-modal").close();
+        document.getElementById("problem-modal").showModal();
+        setLoading(false);
       });
   };
 
@@ -86,6 +87,7 @@ function App() {
       function verifyUser() {
         verifyToken(token)
           .then((res) => {
+            localStorage.setItem("authToken", token);
             setToken(token);
             setCurrentUser({
               data: {
@@ -137,6 +139,10 @@ function App() {
     getRewards();
   }, []);
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <div className="app">
       <Header
@@ -149,6 +155,7 @@ function App() {
         setCurrentUser={setCurrentUser}
         handleRedemption={handleRedemption}
         redemptions={redemptions}
+        setRedemptions={setRedemptions}
         rewards={rewards}
         loading={loading}
         setLoading={setLoading}

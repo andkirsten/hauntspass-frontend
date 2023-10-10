@@ -9,12 +9,14 @@ import Pass from "../Pass/Pass";
 import PassForm from "../PassForm/PassForm";
 import Volunteer from "../Volunteer/Volunteer";
 import CurrentOffers from "../CurrentOffers/CurrentOffers";
+import Contact from "../Contact/Contact";
 import Map from "../Map/Map";
+import HowTo from "../HowTo/HowTo";
 // import Admin from "../Admin/Admin";
 
 const Main = (props) => {
   return (
-    <div className="main">
+    <main className="main">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -43,6 +45,7 @@ const Main = (props) => {
                 rewards={props.rewards}
                 handleRedemption={props.handleRedemption}
                 redemptions={props.redemptions}
+                setRedemptions={props.setRedemptions}
                 loading={props.loading}
                 currentRedemption={props.currentRedemption}
                 setCurrentRedemption={props.setCurrentRedemption}
@@ -55,7 +58,8 @@ const Main = (props) => {
 
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/map" element={<Map />} />
-
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/how-it-works" element={<HowTo />} />
         {/* <Route
           path="/admin"
           element={
@@ -70,7 +74,7 @@ const Main = (props) => {
         /> */}
         <Route path="*" element={<Home />} />
       </Routes>
-    </div>
+    </main>
   );
 };
 
