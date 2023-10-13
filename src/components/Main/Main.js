@@ -26,7 +26,7 @@ const Main = (props) => {
           }
         />
         <Route
-          path="/login"
+          path="/signin"
           element={
             <Login setToken={props.setToken} setIsLogged={props.setIsLogged} />
           }

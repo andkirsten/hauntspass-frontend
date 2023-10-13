@@ -125,7 +125,7 @@ const Signup = (props) => {
       </form>
       <p className="signup__login pt-1">
         Already have an account?{" "}
-        <Link className="link" to="/login">
+        <Link className="link" to="/signin">
           Login Now
         </Link>
       </p>
