@@ -5,7 +5,7 @@ import { HOMES_LIST } from "../../utils/HOMES_LIST";
 
 const AccordionItem = ({ title, homes, isOpen, toggleItem }) => {
   return (
-    <div className="collapse bg-white">
+    <div className="collapse bg-white mt-2">
       <div
         className={`accordion__item ${isOpen ? "open" : ""}`}
         onClick={toggleItem}
@@ -61,7 +61,7 @@ const Homes = () => {
 
   return (
     <section className="homes flex justify-center items-center p-4">
-      <p className="text-lg text-center">
+      <p className="text-lg text-center px-5 max-w-2xl pb-5">
         Receive rewards at these participating Daybreak residential homes on
         Halloween night by showing your Haunts Pass, while supplies last. See
         the{" "}
