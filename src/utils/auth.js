@@ -13,7 +13,7 @@ export function registerUser(data) {
 }
 
 export function loginUser(data) {
-  return fetch(`${baseUrl}/login`, {
+  return fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

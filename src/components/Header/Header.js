@@ -128,7 +128,7 @@ const Header = (props) => {
         ) : (
           <div className="navbar-end">
             <button className="header__btn btn btn-ghost text-white">
-              <NavLink to="/login">Login</NavLink>
+              <NavLink to="/signin">Login</NavLink>
             </button>
             <button className="btn btn-ghost text-white">
               <div className="indicator">
