@@ -10,6 +10,7 @@ export const HOMES_LIST = [
       "4574 Kestrel Ridge Rd.(Daybreak Holiday House) - Double the Candy",
       "11658 South Oakmond Road (Halloween Town) - Full size candy bar, from 6-8pm",
       "4527 W Silent Rain Dr - Pokémon cards and double candy",
+      "4831 W. Pine Canyon Lane (Witch's Cottage) - A Small prize or more candy",
     ],
   },
   {
@@ -19,6 +20,8 @@ export const HOMES_LIST = [
       "4389 W Blackshear Drive (Viking Encampment) - Dragon Toy, from 5:30 to 8:30pm",
       "10913 Fern Ridge Dr. (Deadbreak Haunted House) - Fast Pass to the Haunted House",
       "10973 Indigo Sky Way - Halloween Pokemon Card Pack",
+      "4422 W Iron Mountain Drive (Inflatables!!!) - Finger lights & Candy",
+      "11162 S. Topview Rd. (Topview Terrow) - Full size candy bar",
     ],
   },
   {
@@ -29,6 +32,7 @@ export const HOMES_LIST = [
       "10327 S Lac Vieux Rd (Haunted Acres) - Halloween pop-its",
       "5193 Bowstring Way (Ghouls Just Want To Have Fun) - Glow Stick",
       "10253 S. Silver Mine Road (Nightmare Before Christmas/Haunted Mansion Version) - Oogie Boogie Treat Bag",
+      "10481 S. Kestrel Rise Rd. (Ursula's Lair) - Extra Candy Prize Choice",
     ],
   },
   {
@@ -38,6 +42,8 @@ export const HOMES_LIST = [
       "10871 S. Lake Island Drive (Lake Island Shipwreck) - double the candy",
       "10922 S Lake Island Drive (Barbie Land) - Special Treat",
       "11032 Paddle Board Way (Welcome, Witches) - A small gift bag",
+      "10917 S. Paddle Board Way (Pool Party Barbie) - Themed Toy",
+      "10952 S. Paddle Board Way (Paw Patrol Rescues Halloween) - Full size candy bar",
     ],
   },
   {
@@ -49,6 +55,7 @@ export const HOMES_LIST = [
       "5097 Lake Terrace (Haunted Mantion on Lake Terrance) - tbd",
       "6321 W. Copper Hawk Dr. (Witch House) - Desk 'pets' and extra candy",
       "5017 W. Lake Terrace Ave. (Witches House) - Full size candy bar and Pokemon cards, before 9pm",
+      "5073 W. Lake Terrace Ave. (Arkham Graveyard) - Full size candy bar, from 6-8pm",
     ],
   },
   {
@@ -57,6 +64,8 @@ export const HOMES_LIST = [
       "6357 West Meadow Grass Dr. (Graveyard) - Glow in the Dark Tattoo or Horror Movie Sticker",
       "6369 West Upland View Dr.  (Gateway to 'Heck') - Halloween Zipper Bracelets",
       "6277 Birch Run Rd (Dead to Breakfast) - Full size candy bar or chips",
+      "11422 S. Holly Springs Dr. (Haunted Stone House) - Full size candy bars, till 9pm",
+      "6858 W. Meadow Grass Dr. (Haunted House) - King size candy bar",
     ],
   },
 ];

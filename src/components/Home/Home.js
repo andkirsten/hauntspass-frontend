@@ -144,7 +144,7 @@ const Home = () => {
               rel="noreferrer"
             >
               <img
-                className="sponsors__image"
+                className="spon__image"
                 src="/images/alloy_logo.png"
                 alt="alloy personal training"
               />
@@ -153,7 +153,7 @@ const Home = () => {
           <div className="sponsors__card">
             <a href="https://www.mathnasium.com/southjordan/about">
               <img
-                className="sponsors__image"
+                className="spon__image"
                 src="/images/mathnasium_logo.jpg"
                 alt="mathnasium logo"
                 target="_blank"
@@ -164,7 +164,7 @@ const Home = () => {
           <div className="sponsors__card">
             <a href="https://www.mountainmikespizza.com/locations/south-jordan-w-10400-s/">
               <img
-                className="sponsors__image"
+                className="spon__image"
                 src="/images/mountain_mikes_logo.jpeg"
                 alt="mountain mikes pizza"
                 target="_blank"
@@ -175,7 +175,7 @@ const Home = () => {
           <div className="sponsors__card">
             <a href="https://www.cupbop.com/">
               <img
-                className="sponsors__image"
+                className="spon__image"
                 src="/images/cupbop.png"
                 alt="cupbop korean bbq in a cup"
                 target="_blank"
@@ -186,7 +186,7 @@ const Home = () => {
           <div className="sponsors__card">
             <a href="https://mywarrens.com/">
               <img
-                className="sponsors__image"
+                className="spon__image"
                 src="/images/warrens.png"
                 alt="warrens"
                 target="_blank"
@@ -198,7 +198,7 @@ const Home = () => {
           <div className="sponsors__card">
             <a href="https://www.google.com/maps/place/Sweet+and+Cool/@40.5468679,-112.0053056,17z/data=!3m1!4b1!4m6!3m5!1s0x875285cb41b19bdd:0xb41c307d94b60a15!8m2!3d40.5468679!4d-112.0027307!16s%2Fg%2F11t_jdvqhg?entry=ttu">
               <img
-                className="sponsors__image"
+                className="spon__image"
                 src="/images/sweetAndCool.jpg"
                 alt="sweet and cool"
                 target="_blank"
@@ -209,7 +209,7 @@ const Home = () => {
           <div className="sponsors__card">
             <a href="https://luciennesalon.com/">
               <img
-                className="sponsors__image"
+                className="spon__image"
                 src="/images/lucienne.jpeg"
                 alt="lucienne"
                 target="_blank"
@@ -221,7 +221,7 @@ const Home = () => {
           <div className="sponsors__card">
             <a href="https://www.google.com/maps/place/Sweet+Churros/@40.5408545,-111.9809232,17z/data=!4m6!3m5!1s0x87528507886301cb:0xd32e1d797fec8006!8m2!3d40.5408545!4d-111.9809232!16s%2Fg%2F11qywcxw41?entry=ttu">
               <img
-                className="sponsors__image"
+                className="spon__image"
                 src="/images/sweet-churros.png"
                 alt="sweet churros"
                 target="_blank"
@@ -232,7 +232,7 @@ const Home = () => {
           <div className="sponsors__card">
             <a href="https://www.himalayankitchensouthjordan.com/">
               <img
-                className="sponsors__image"
+                className="spon__image"
                 src="/images/himalayan.png"
                 alt="himalayan kitchen"
                 target="_blank"
@@ -243,7 +243,7 @@ const Home = () => {
           <div className="sponsors__card">
             <a href="https://www.facebook.com/groups/738887694456234">
               <img
-                className="sponsors__image"
+                className="spon__image"
                 src="/images/justBurgers.png"
                 alt="just burgers"
                 target="_blank"
@@ -254,7 +254,7 @@ const Home = () => {
           <div className="sponsors__card">
             <a href="https://www.facebook.com/groups/738887694456234">
               <img
-                className="sponsors__image"
+                className="spon__image"
                 src="/images/harmons.png"
                 alt="harmons"
                 target="_blank"
