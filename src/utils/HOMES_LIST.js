@@ -22,6 +22,7 @@ export const HOMES_LIST = [
       "10973 Indigo Sky Way - Halloween Pokemon Card Pack",
       "4422 W Iron Mountain Drive (Inflatables!!!) - Finger lights & Candy",
       "11162 S. Topview Rd. (Topview Terrow) - Full size candy bar",
+      "10707 S. Ozarks Drive (Super Mario Bros Rainbow Road) - Professional family or child photo portrait & hi-res photo download link will be sent to the parent's preferred contact method",
     ],
   },
   {
@@ -52,10 +53,12 @@ export const HOMES_LIST = [
       "5087 W Lake Terrace Ave (Stranger Things) - Stranger Things art print",
       "5101 Dock Street (Skeleton Party) - gift bag with Pokemon cards",
       "10588 Wild Rice Dr (Marvel Halloween) - Spiderman Treats, from 6-8pm",
-      "5097 Lake Terrace (Haunted Mantion on Lake Terrance) - tbd",
+      "5097 Lake Terrace (Haunted Mantion on Lake Terrance) - Full sized candy bar",
       "6321 W. Copper Hawk Dr. (Witch House) - Desk 'pets' and extra candy",
       "5017 W. Lake Terrace Ave. (Witches House) - Full size candy bar and Pokemon cards, before 9pm",
       "5073 W. Lake Terrace Ave. (Arkham Graveyard) - Full size candy bar, from 6-8pm",
+      "10842 S. Kestrel Rise Road (Arachnophobia) - Halloween Toy plus Treat",
+      "4996 West Split Rock Drive (Hocus Pocus) - Full size candy or double candy",
     ],
   },
   {
