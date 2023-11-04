@@ -50,6 +50,16 @@ const AccordionItem = (props) => {
     document.getElementById("problem-modal").close();
   };
 
+  const checkExpiration = () => {
+    const today = new Date();
+    const expirationDate = new Date(props.item.expirationDate);
+    if (today > expirationDate) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <div className="collapse mb-3 bg-white">
       <div
@@ -58,7 +68,7 @@ const AccordionItem = (props) => {
       >
         <div
           className={`accordion__title px-4 collapse-title text-white ${
-            props.redemptions?.includes(props.item._id) || props.checkExpiration
+            props.redemptions?.includes(props.item._id) || checkExpiration()
               ? "bg-slate-500"
               : "bg-primary"
           }`}
@@ -108,7 +118,7 @@ const AccordionItem = (props) => {
                   <strong>One-time Reward:</strong> {props.item.offer}
                 </p>
               </div>
-              {props.checkExpiration ? (
+              {checkExpiration() ? (
                 <button
                   className="reward-redeem-btn btn btn-wide btn-disabled"
                   disabled
@@ -225,15 +235,7 @@ const AccordionItem = (props) => {
 };
 
 const Accordion = (props) => {
-  const checkExpiration = () => {
-    const today = new Date();
-    const expirationDate = new Date(props.item.expirationDate);
-    if (today > expirationDate) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  console.log(props);
 
   return (
     <div>
@@ -241,9 +243,6 @@ const Accordion = (props) => {
         .slice()
         // eslint-disable-next-line array-callback-return
         .sort((a, b) => {
-          if (checkExpiration()) {
-            return 1;
-          }
           if (props.redemptions && Array.isArray(props.redemptions)) {
             // Check if a or b is in props.redemptions
             const aIsRedeemed = props.redemptions.includes(a._id);
@@ -279,7 +278,6 @@ const Accordion = (props) => {
             loading={props.loading}
             currentRedemption={props.currentRedemption}
             setCurrentRedemption={props.setCurrentRedemption}
-            checkExpiration={checkExpiration()}
           />
         ))}
     </div>
