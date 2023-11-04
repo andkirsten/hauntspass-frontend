@@ -58,7 +58,7 @@ const AccordionItem = (props) => {
       >
         <div
           className={`accordion__title px-4 collapse-title text-white ${
-            props.redemptions?.includes(props.item._id)
+            props.redemptions?.includes(props.item._id) || props.checkExpiration
               ? "bg-slate-500"
               : "bg-primary"
           }`}
@@ -108,17 +108,26 @@ const AccordionItem = (props) => {
                   <strong>One-time Reward:</strong> {props.item.offer}
                 </p>
               </div>
-              <button
-                className={`reward-redeem-btn btn btn-wide ${
-                  checkRedemption() ? "btn-disabled" : "btn-secondary"
-                } `}
-                onClick={() =>
-                  document.getElementById("confirm-modal").showModal()
-                }
-                disabled={checkRedemption()}
-              >
-                {checkRedemption() ? "Already Redeemed" : "Redeem Now"}
-              </button>
+              {props.checkExpiration ? (
+                <button
+                  className="reward-redeem-btn btn btn-wide btn-disabled"
+                  disabled
+                >
+                  Expired
+                </button>
+              ) : (
+                <button
+                  className={`reward-redeem-btn btn btn-wide ${
+                    checkRedemption() ? "btn-disabled" : "btn-secondary"
+                  } `}
+                  onClick={() =>
+                    document.getElementById("confirm-modal").showModal()
+                  }
+                  disabled={checkRedemption()}
+                >
+                  {checkRedemption() ? "Already Redeemed" : "Redeem Now"}
+                </button>
+              )}
               <p className="pt-4">
                 <strong>Terms and Conditions:</strong>
               </p>
@@ -216,12 +225,25 @@ const AccordionItem = (props) => {
 };
 
 const Accordion = (props) => {
+  const checkExpiration = () => {
+    const today = new Date();
+    const expirationDate = new Date(props.item.expirationDate);
+    if (today > expirationDate) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <div>
       {props.rewards
         .slice()
         // eslint-disable-next-line array-callback-return
         .sort((a, b) => {
+          if (checkExpiration()) {
+            return 1;
+          }
           if (props.redemptions && Array.isArray(props.redemptions)) {
             // Check if a or b is in props.redemptions
             const aIsRedeemed = props.redemptions.includes(a._id);
@@ -257,6 +279,7 @@ const Accordion = (props) => {
             loading={props.loading}
             currentRedemption={props.currentRedemption}
             setCurrentRedemption={props.setCurrentRedemption}
+            checkExpiration={checkExpiration()}
           />
         ))}
     </div>
