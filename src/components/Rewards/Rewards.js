@@ -247,9 +247,11 @@ const Accordion = (props) => {
             // Check if a or b is in props.redemptions
             const aIsRedeemed = props.redemptions.includes(a._id);
             const bIsRedeemed = props.redemptions.includes(b._id);
+            const aIsExpired = new Date(a.expirationDate) < new Date();
+            const bIsExpired = new Date(b.expirationDate) < new Date();
 
             // If both are redeemed or both are not, sort alphabetically
-            if (aIsRedeemed === bIsRedeemed) {
+            if (aIsRedeemed === bIsRedeemed && aIsExpired === bIsExpired) {
               return a.rewardTitle.localeCompare(b.rewardTitle);
             }
 
@@ -260,6 +262,16 @@ const Accordion = (props) => {
 
             // If only b is redeemed, move it to the bottom
             if (bIsRedeemed) {
+              return -1;
+            }
+
+            // If only a is expired, move it to the bottom
+            if (aIsExpired) {
+              return 1;
+            }
+
+            // If only b is expired, move it to the bottom
+            if (bIsExpired) {
               return -1;
             }
           }
