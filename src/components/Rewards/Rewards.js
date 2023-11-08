@@ -319,7 +319,15 @@ const Accordion = ({
   );
 };
 
-const Rewards = (props) => {
+const Rewards = ({
+  rewards,
+  handleRedemption,
+  redemptions,
+  setRedemptions,
+  loading,
+  currentRedemption,
+  setCurrentRedemption,
+}) => {
   const [openIndex, setOpenIndex] = useState(-1); // Initialize with -1 to have no item open by default
   const [activeReward, setActiveReward] = useState(null);
 
@@ -337,17 +345,17 @@ const Rewards = (props) => {
     <section className="rewards">
       <div className="w-full accordion-container pt-5">
         <Accordion
-          handleRedemption={props.handleRedemption}
-          rewards={props.rewards}
+          handleRedemption={handleRedemption}
+          rewards={rewards}
           openIndex={openIndex}
           toggleItem={toggleItem}
           activeReward={activeReward}
           setActiveReward={setActiveReward}
-          redemptions={props.redemptions}
-          setRedemptions={props.setRedemptions}
-          loading={props.loading}
-          currentRedemption={props.currentRedemption}
-          setCurrentRedemption={props.setCurrentRedemption}
+          redemptions={redemptions}
+          setRedemptions={setRedemptions}
+          loading={loading}
+          currentRedemption={currentRedemption}
+          setCurrentRedemption={setCurrentRedemption}
         />
       </div>
       <p className="text-center p-10">
