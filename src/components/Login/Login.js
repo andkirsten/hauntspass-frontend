@@ -20,12 +20,10 @@ function Login(props) {
 
   const handleLogin = (data) => {
     setLoading(true);
-    console.log(data);
+
     loginUser(data)
       .then((res) => {
         if (res && res.token) {
-          console.log(res);
-          console.log(res.token);
           localStorage.setItem("authToken", res.token);
           verifyToken(res.token).then((res) => {
             setCurrentUser({
@@ -45,7 +43,6 @@ function Login(props) {
         }
       })
       .catch((err) => {
-        console.log(err);
         setError(err.error);
       });
     setLoading(false);
