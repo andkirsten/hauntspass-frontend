@@ -1,12 +1,12 @@
-import React from "react";
-import CurrentRewards from "../CurrentRewards/CurrentRewards";
-import Homes from "../Homes/Homes";
-import "./CurrentOffers.css";
+import React from 'react';
+import CurrentRewards from '../CurrentRewards/CurrentRewards';
+import Homes from '../Homes/Homes';
+import './CurrentOffers.css';
 
-const CurrentOffers = (props) => {
-  //eslint-disable-next-line
+function CurrentOffers(props) {
+  // eslint-disable-next-line
 
-  const [activeTab, setActiveTab] = React.useState("current__rewards");
+  const [activeTab, setActiveTab] = React.useState('current__rewards');
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -33,35 +33,35 @@ const CurrentOffers = (props) => {
           <ul className="tabs">
             <li
               className={
-                activeTab === "current__rewards"
-                  ? "tab tab-bordered tab-active "
-                  : "tab tab-bordered"
+                activeTab === 'current__rewards'
+                  ? 'tab tab-bordered tab-active '
+                  : 'tab tab-bordered'
               }
-              onClick={() => handleTabChange("current__rewards")}
+              onClick={() => handleTabChange('current__rewards')}
             >
               Business Rewards
             </li>
             <li
               className={
-                activeTab === "current__homes"
-                  ? "tab tab-bordered tab-active"
-                  : "tab tab-bordered"
+                activeTab === 'current__homes'
+                  ? 'tab tab-bordered tab-active'
+                  : 'tab tab-bordered'
               }
-              onClick={() => handleTabChange("current__homes")}
+              onClick={() => handleTabChange('current__homes')}
             >
               Haunts Homes
             </li>
           </ul>
         </div>
         <div className="tab-content">
-          {activeTab === "current__rewards" && (
+          {activeTab === 'current__rewards' && (
             <CurrentRewards rewards={props.rewards} />
           )}
-          {activeTab === "current__homes" && <Homes />}
+          {activeTab === 'current__homes' && <Homes />}
         </div>
       </section>
     </div>
   );
-};
+}
 
 export default CurrentOffers;

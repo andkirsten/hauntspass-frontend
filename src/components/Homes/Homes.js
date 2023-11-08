@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Homes.css";
-import { HOMES_LIST } from "../../utils/HOMES_LIST";
+import HOMES_LIST from "../../utils/HOMES_LIST";
 
-const AccordionItem = ({ title, homes, isOpen, toggleItem }) => {
+function AccordionItem({ title, homes, isOpen, toggleItem }) {
   return (
     <div className="collapse bg-white mt-2">
       <div
@@ -12,9 +12,7 @@ const AccordionItem = ({ title, homes, isOpen, toggleItem }) => {
       >
         <div className="collapse-title text-xl text-white font-medium bg-primary">
           <span>{title}</span>
-          <span
-            className={`accordion__icon ${isOpen ? "rotate-180" : ""}`}
-          ></span>
+          <span className={`accordion__icon ${isOpen ? "rotate-180" : ""}`} />
         </div>
         {isOpen && (
           <div className="collapse-content">
@@ -28,9 +26,9 @@ const AccordionItem = ({ title, homes, isOpen, toggleItem }) => {
       </div>
     </div>
   );
-};
+}
 
-const Accordion = ({ items, openIndex, toggleItem }) => {
+function Accordion({ items, openIndex, toggleItem }) {
   return (
     <div>
       {items.map((item, index) => (
@@ -44,9 +42,9 @@ const Accordion = ({ items, openIndex, toggleItem }) => {
       ))}
     </div>
   );
-};
+}
 
-const Homes = () => {
+function Homes() {
   const [openIndex, setOpenIndex] = useState(-1); // Initialize with -1 to have no item open by default
 
   const toggleItem = (index) => {
@@ -82,6 +80,6 @@ const Homes = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Homes;

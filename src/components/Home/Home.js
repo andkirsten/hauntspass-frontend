@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import "./Home.css";
-import step1 from "../../images/step1.png";
-import step2 from "../../images/step2.png";
-import step3 from "../../images/step3.png";
-import header from "../../images/2023WebsiteHeader2.png";
-import foodbank from "../../images/utah_food_bank_logo.png";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { CurrentPassContext } from "../../contexts/CurrentPassContext";
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import './Home.css';
+import step1 from '../../images/step1.png';
+import step2 from '../../images/step2.png';
+import step3 from '../../images/step3.png';
+import header from '../../images/2023WebsiteHeader2.png';
+import foodbank from '../../images/utah_food_bank_logo.png';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { CurrentPassContext } from '../../contexts/CurrentPassContext';
 
-const Home = () => {
+function Home() {
   const { currentUser } = useContext(CurrentUserContext);
   const { currentPass } = useContext(CurrentPassContext);
 
@@ -266,6 +266,6 @@ const Home = () => {
       </section>
     </div>
   );
-};
+}
 
 export default Home;

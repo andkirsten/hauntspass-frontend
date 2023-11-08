@@ -1,12 +1,12 @@
-import { handleResponse } from "./api";
-import { baseUrl } from "./constants";
+import { handleResponse } from './api';
+import baseUrl from './constants';
 
 export function registerUser(data) {
   return fetch(`${baseUrl}/signup`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
   }).then(handleResponse);
@@ -14,9 +14,9 @@ export function registerUser(data) {
 
 export function loginUser(data) {
   return fetch(`${baseUrl}/signin`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
 
     body: JSON.stringify(data),
@@ -25,7 +25,7 @@ export function loginUser(data) {
 
 export function verifyToken(token) {
   return fetch(`${baseUrl}/users/me`, {
-    method: "GET",
+    method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
     },

@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react";
-import "./PassForm.css";
-import useForm from "../../hooks/useForm";
-import receiptRef from "../../images/receiptRef.png";
-import { CurrentPassContext } from "../../contexts/CurrentPassContext";
-import { useNavigate } from "react-router-dom";
-import api from "../../utils/api";
+import React, { useState, useContext } from 'react';
+import './PassForm.css';
+import { useNavigate } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
+import receiptRef from '../../images/receiptRef.png';
+import { CurrentPassContext } from '../../contexts/CurrentPassContext';
+import api from '../../utils/api';
 
-const PassForm = (props) => {
+function PassForm(props) {
   const { token } = props;
 
   const [error, setError] = useState(null);
@@ -17,7 +17,7 @@ const PassForm = (props) => {
   const navigate = useNavigate();
 
   const { values, handleChange } = useForm({
-    receiptRef: "",
+    receiptRef: '',
   });
 
   const handleCreatePass = (receiptRef) => {
@@ -28,7 +28,7 @@ const PassForm = (props) => {
         if (res) {
           setCurrentPass(res);
           setLoading(false);
-          navigate("/pass");
+          navigate('/pass');
         }
       })
       .catch((err) => {
@@ -77,10 +77,10 @@ const PassForm = (props) => {
         <div>
           <button
             type="submit"
-            className={`w-full btn ${loading ? "btn-disabled" : "btn-primary"}`}
+            className={`w-full btn ${loading ? 'btn-disabled' : 'btn-primary'}`}
             disabled={loading}
           >
-            {loading ? "Loading..." : "Submit"}
+            {loading ? 'Loading...' : 'Submit'}
           </button>
         </div>
       </form>
@@ -91,6 +91,6 @@ const PassForm = (props) => {
       />
     </div>
   );
-};
+}
 
 export default PassForm;

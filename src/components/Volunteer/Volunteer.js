@@ -1,8 +1,8 @@
-import React from "react";
-import "./Volunteer.css";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './Volunteer.css';
+import { Link } from 'react-router-dom';
 
-const HauntsHouse = () => {
+function HauntsHouse() {
   return (
     <div className="volunteer bg-accent">
       <div className="volunteer__header mx-auto">
@@ -30,18 +30,22 @@ const HauntsHouse = () => {
             website.
           </li>
           <li>
-            Please see the{" "}
+            Please see the
+            {' '}
             <Link to="/faqs" className="link">
               "Participating Homes" section of the FAQ page
-            </Link>{" "}
+            </Link>
+            {' '}
             for additional information.
           </li>
         </ol>
         <p>
-          Reach out to us on the{" "}
+          Reach out to us on the
+          {' '}
           <a href="https://www.facebook.com/daybreakhaunts">
             Daybreak Haunts Facebook page
-          </a>{" "}
+          </a>
+          {' '}
           with any additional questions.
         </p>
 
@@ -56,6 +60,6 @@ const HauntsHouse = () => {
       </div>
     </div>
   );
-};
+}
 
 export default HauntsHouse;

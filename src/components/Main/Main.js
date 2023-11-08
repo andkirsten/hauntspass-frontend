@@ -1,20 +1,20 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Home from "../Home/Home";
-import Signup from "../Signup/Signup";
-import Login from "../Login/Login";
-import About from "../About/About";
-import FAQs from "../FAQs/FAQs";
-import Pass from "../Pass/Pass";
-import PassForm from "../PassForm/PassForm";
-import Volunteer from "../Volunteer/Volunteer";
-import CurrentOffers from "../CurrentOffers/CurrentOffers";
-import Contact from "../Contact/Contact";
-import Map from "../Map/Map";
-import HowTo from "../HowTo/HowTo";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from '../Home/Home';
+import Signup from '../Signup/Signup';
+import Login from '../Login/Login';
+import About from '../About/About';
+import FAQs from '../FAQs/FAQs';
+import Pass from '../Pass/Pass';
+import PassForm from '../PassForm/PassForm';
+import Volunteer from '../Volunteer/Volunteer';
+import CurrentOffers from '../CurrentOffers/CurrentOffers';
+import Contact from '../Contact/Contact';
+import Map from '../Map/Map';
+import HowTo from '../HowTo/HowTo';
 // import Admin from "../Admin/Admin";
 
-const Main = (props) => {
+function Main(props) {
   return (
     <main className="main">
       <Routes>
@@ -76,6 +76,6 @@ const Main = (props) => {
       </Routes>
     </main>
   );
-};
+}
 
 export default Main;

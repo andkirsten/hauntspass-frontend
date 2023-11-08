@@ -1,7 +1,7 @@
-import React from "react";
-import "./About.css";
+import React from 'react';
+import './About.css';
 
-const About = () => {
+function About() {
   return (
     <section className="mx-auto">
       <div className="about__heading">
@@ -40,6 +40,6 @@ const About = () => {
       </div>
     </section>
   );
-};
+}
 
 export default About;

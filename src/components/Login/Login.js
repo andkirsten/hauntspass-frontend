@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import "./Login.css";
+import { useNavigate, Link } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import { loginUser, verifyToken } from "../../utils/auth";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { useNavigate, Link } from "react-router-dom";
 
-const Login = (props) => {
+function Login(props) {
   const { setToken, setIsLogged } = props;
   const { setCurrentUser } = useContext(CurrentUserContext);
 
@@ -20,9 +20,12 @@ const Login = (props) => {
 
   const handleLogin = (data) => {
     setLoading(true);
+    console.log(data);
     loginUser(data)
       .then((res) => {
         if (res && res.token) {
+          console.log(res);
+          console.log(res.token);
           localStorage.setItem("authToken", res.token);
           verifyToken(res.token).then((res) => {
             setCurrentUser({
@@ -68,6 +71,7 @@ const Login = (props) => {
             className="w-full input input-bordered"
             placeholder="Email"
             name="email"
+            autoComplete="email"
             value={values.email}
             onChange={handleChange}
           />
@@ -82,6 +86,7 @@ const Login = (props) => {
             className="w-full input input-bordered"
             placeholder="Password"
             name="password"
+            autoComplete="current-password"
             value={values.password}
             onChange={handleChange}
           />
@@ -108,6 +113,6 @@ const Login = (props) => {
       </p>
     </div>
   );
-};
+}
 
 export default Login;

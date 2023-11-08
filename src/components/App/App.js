@@ -1,13 +1,15 @@
-import React, { useEffect, useState, useContext, useLayoutEffect } from "react";
-import "./App.css";
-import Header from "../Header/Header";
-import Main from "../Main/Main";
-import Footer from "../Footer/Footer";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { CurrentPassContext } from "../../contexts/CurrentPassContext";
-import { verifyToken } from "../../utils/auth";
-import { useNavigate } from "react-router-dom";
-import api from "../../utils/api";
+import React, {
+  useEffect, useState, useContext, useLayoutEffect,
+} from 'react';
+import './App.css';
+import { useNavigate } from 'react-router-dom';
+import Header from '../Header/Header';
+import Main from '../Main/Main';
+import Footer from '../Footer/Footer';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { CurrentPassContext } from '../../contexts/CurrentPassContext';
+import { verifyToken } from '../../utils/auth';
+import api from '../../utils/api';
 
 function App() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
@@ -15,7 +17,7 @@ function App() {
 
   const navigate = useNavigate();
 
-  const [token, setToken] = useState(() => localStorage.getItem("authToken"));
+  const [token, setToken] = useState(() => localStorage.getItem('authToken'));
 
   const [loading, setLoading] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
@@ -26,10 +28,10 @@ function App() {
   const handleLogout = () => {
     setCurrentUser(null);
     setToken(null);
-    localStorage.removeItem("authToken");
+    localStorage.removeItem('authToken');
     setCurrentPass(null);
     setIsLogged(false);
-    navigate("/");
+    navigate('/');
   };
 
   /* ---------------------------- for admin feature --------------------------- */
@@ -60,12 +62,12 @@ function App() {
           setCurrentRedemption(res);
         }
         setLoading(false);
-        document.getElementById("confirm-modal").close();
-        document.getElementById("redeem-modal").showModal();
+        document.getElementById('confirm-modal').close();
+        document.getElementById('redeem-modal').showModal();
       })
       .catch((err) => {
-        document.getElementById("confirm-modal").close();
-        document.getElementById("problem-modal").showModal();
+        document.getElementById('confirm-modal').close();
+        document.getElementById('problem-modal').showModal();
         setLoading(false);
       });
   };
@@ -87,7 +89,7 @@ function App() {
       function verifyUser() {
         verifyToken(token)
           .then((res) => {
-            localStorage.setItem("authToken", token);
+            localStorage.setItem('authToken', token);
             setToken(token);
             setCurrentUser({
               data: {

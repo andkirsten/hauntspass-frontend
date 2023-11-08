@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Map.css";
-import orangeHouse from "../../images/businessIconPNG.png";
-import ghost from "../../images/ghosticonpng.png";
-import house from "../../images/hauntedhouseicon.png";
-import skull from "../../images/skull.png";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Map.css';
+import orangeHouse from '../../images/businessIconPNG.png';
+import ghost from '../../images/ghosticonpng.png';
+import house from '../../images/hauntedhouseicon.png';
+import skull from '../../images/skull.png';
 // import gray from "../../images/gray.png";
 
-const Map = () => {
-  const [selectedType, setSelectedType] = useState("Type 1");
+function Map() {
+  const [selectedType, setSelectedType] = useState('Type 1');
 
   const handleMenuClick = (type) => {
     setSelectedType(type);
@@ -26,9 +26,9 @@ const Map = () => {
         </h2>
         <div className="tabs">
           <button
-            onClick={() => handleMenuClick("Type 1")}
+            onClick={() => handleMenuClick('Type 1')}
             className={`tab tab-lifted ${
-              selectedType === "Type 1" ? "tab-active" : ""
+              selectedType === 'Type 1' ? 'tab-active' : ''
             }`}
           >
             <img className="h-6" src={orangeHouse} alt="orange house" />
@@ -38,18 +38,18 @@ const Map = () => {
           </button>
 
           <button
-            onClick={() => handleMenuClick("Type 2")}
+            onClick={() => handleMenuClick('Type 2')}
             className={`tab tab-lifted ${
-              selectedType === "Type 2" ? "tab-active" : ""
+              selectedType === 'Type 2' ? 'tab-active' : ''
             }`}
           >
             <img className="h-6" src={ghost} alt="ghost" />
           </button>
 
           <button
-            onClick={() => handleMenuClick("Type 3")}
+            onClick={() => handleMenuClick('Type 3')}
             className={`tab tab-lifted ${
-              selectedType === "Type 3" ? "tab-active" : ""
+              selectedType === 'Type 3' ? 'tab-active' : ''
             }`}
           >
             <img className="h-6" src={house} alt="grey house" />
@@ -60,9 +60,9 @@ const Map = () => {
 
           <button
             href="#"
-            onClick={() => handleMenuClick("Type 4")}
+            onClick={() => handleMenuClick('Type 4')}
             className={`tab tab-lifted ${
-              selectedType === "Type 4" ? "tab-active" : ""
+              selectedType === 'Type 4' ? 'tab-active' : ''
             }`}
           >
             <img className="h-6" src={skull} alt="skull" />
@@ -78,7 +78,7 @@ const Map = () => {
           </button> */}
         </div>
         <div className="text-center lg:w-3/4">
-          {selectedType === "Type 1" && (
+          {selectedType === 'Type 1' && (
             <div className="p-4 bg-white rounded-box w-full">
               <h2 className="font-bold">Haunts Pass Businesses</h2>
               <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
@@ -91,14 +91,14 @@ const Map = () => {
               </button>
             </div>
           )}
-          {selectedType === "Type 2" && (
+          {selectedType === 'Type 2' && (
             <div className="p-4 bg-white rounded-box w-full">
               <h2 className="font-bold">Decorated Daybreak Homes</h2>
               <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
               <p>Check out these homes and their fun Halloween decorations.</p>
             </div>
           )}
-          {selectedType === "Type 3" && (
+          {selectedType === 'Type 3' && (
             <div className="p-4 bg-white rounded-box w-full">
               <h2 className="font-bold">Haunts Pass Homes</h2>
               <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
@@ -111,7 +111,7 @@ const Map = () => {
               </button>
             </div>
           )}
-          {selectedType === "Type 4" && (
+          {selectedType === 'Type 4' && (
             <div className="p-4 bg-white rounded-box w-full">
               <h2 className="font-bold">
                 Daybreak Homes with a special event/decoration on Halloween
@@ -149,10 +149,10 @@ const Map = () => {
           width="100%"
           height="480"
           style={{ border: 0 }}
-        ></iframe>
+        />
       </div>
     </div>
   );
-};
+}
 
 export default Map;

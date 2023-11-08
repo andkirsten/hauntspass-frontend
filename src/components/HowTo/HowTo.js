@@ -1,15 +1,15 @@
-import React from "react";
-import "./HowTo.css";
-import { Link } from "react-router-dom";
-import donation from "../../images/donationamount.png";
-import email from "../../images/emailaddress.png";
-import signup from "../../images/signup.png";
-import receipt from "../../images/receiptreferenceInput.png";
-import anytime from "../../images/mountainmikesAnytime.png";
-import ticket from "../../images/hauntspassticket.png";
-import warrens from "../../images/warrensConfirmation.png";
+import React from 'react';
+import './HowTo.css';
+import { Link } from 'react-router-dom';
+import donation from '../../images/donationamount.png';
+import email from '../../images/emailaddress.png';
+import signup from '../../images/signup.png';
+import receipt from '../../images/receiptreferenceInput.png';
+import anytime from '../../images/mountainmikesAnytime.png';
+import ticket from '../../images/hauntspassticket.png';
+import warrens from '../../images/warrensConfirmation.png';
 
-const HowTo = () => {
+function HowTo() {
   return (
     <div className="how-to min-h-screen text-center bg-base-200">
       <h1 className="how-to__title w-full py-4 bg-accent mb-7">
@@ -27,7 +27,7 @@ const HowTo = () => {
           src="https://www.youtube.com/embed/Vh1FS-DKkFY"
           title="Haunts Pass Tutorial"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        ></iframe>
+        />
       </div>
       <div className="max-w-3xl bg-white p-10 rounded-xl">
         <h2 className="how-to__subtitle text-2xl font-semibold mb-5 bg-secondary text-primary p-4 w-full border-b-8 border-black border-double rounded-xl">
@@ -143,16 +143,18 @@ const HowTo = () => {
       </div>
       <div className="my-15 w-full bg-accent py-5">
         <p className="mx-5 text-2xl">
-          Check out our{" "}
+          Check out our
+          {' '}
           <Link to="/faqs" className="link">
             Frequently Asked Questions
-          </Link>{" "}
+          </Link>
+          {' '}
           for more information.
         </p>
         <p className="mt-7 mx-5 text-2xl"> Have a Happy Halloween!</p>
       </div>
     </div>
   );
-};
+}
 
 export default HowTo;

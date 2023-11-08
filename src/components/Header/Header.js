@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
-import Logo from "../../images/daybreakhauntslogoWhiteborder.png";
-import "./Header.css";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { CurrentPassContext } from "../../contexts/CurrentPassContext";
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import Logo from '../../images/daybreakhauntslogoWhiteborder.png';
+import './Header.css';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { CurrentPassContext } from '../../contexts/CurrentPassContext';
 
-const Header = (props) => {
+function Header(props) {
   const { currentUser } = useContext(CurrentUserContext);
   const { currentPass } = useContext(CurrentPassContext);
 
@@ -64,7 +64,7 @@ const Header = (props) => {
               className="header__logo"
               src={Logo}
               alt="daybreak haunts logo"
-            ></img>
+            />
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex ">
@@ -140,6 +140,6 @@ const Header = (props) => {
       </div>
     </header>
   );
-};
+}
 
 export default Header;

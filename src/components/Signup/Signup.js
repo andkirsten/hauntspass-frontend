@@ -1,11 +1,11 @@
-import React, { useState, useContext } from "react";
-import "./Signup.css";
-import useForm from "../../hooks/useForm";
-import { registerUser, loginUser, verifyToken } from "../../utils/auth";
-import { useNavigate, Link } from "react-router-dom";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import React, { useState, useContext } from 'react';
+import './Signup.css';
+import { useNavigate, Link } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
+import { registerUser, loginUser, verifyToken } from '../../utils/auth';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-const Signup = (props) => {
+function Signup(props) {
   const { setToken, setIsLogged } = props;
   const { setCurrentUser } = useContext(CurrentUserContext);
 
@@ -13,9 +13,9 @@ const Signup = (props) => {
   const [loading, setLoading] = useState(false);
 
   const { values, handleChange } = useForm({
-    name: "",
-    email: "",
-    password: "",
+    name: '',
+    email: '',
+    password: '',
   });
 
   const navigate = useNavigate();
@@ -23,27 +23,27 @@ const Signup = (props) => {
   const handleSignup = async (data) => {
     setLoading(true);
     try {
-      const res = await registerUser(data);
-      if (res) {
+      const registerRes = await registerUser(data);
+      if (registerRes) {
         loginUser({ email: data.email, password: data.password })
-          .then((res) => {
-            if (res && res.token) {
-              localStorage.setItem("authToken", res.token);
-              verifyToken(res.token).then((res) => {
+          .then((loginRes) => {
+            if (loginRes && loginRes.token) {
+              localStorage.setItem('authToken', loginRes.token);
+              verifyToken(loginRes.token).then((verifyRes) => {
                 setCurrentUser({
                   data: {
-                    name: res.data.user.name,
-                    email: res.data.user.email,
-                    id: res.data.user._id,
+                    name: verifyRes.data.user.name,
+                    email: verifyRes.data.user.email,
+                    id: verifyRes.data.user._id,
                   },
                 });
               });
-              setToken(res.token);
+              setToken(loginRes.token);
               setIsLogged(true);
               setError(null);
-              navigate("/pass");
+              navigate('/pass');
             } else {
-              setError(res.message);
+              setError(loginRes.message);
             }
           })
           .catch((err) => {
@@ -115,22 +115,23 @@ const Signup = (props) => {
           <button
             type="submit"
             className={`signup__button w-full btn ${
-              loading ? "btn-disabled" : "btn-primary"
+              loading ? 'btn-disabled' : 'btn-primary'
             }`}
             disabled={loading}
           >
-            {loading ? "Loading..." : "Sign Up"}
+            {loading ? 'Loading...' : 'Sign Up'}
           </button>
         </div>
       </form>
       <p className="signup__login pt-1">
-        Already have an account?{" "}
+        Already have an account?
+        {' '}
         <Link className="link" to="/signin">
           Login Now
         </Link>
       </p>
     </div>
   );
-};
+}
 
 export default Signup;

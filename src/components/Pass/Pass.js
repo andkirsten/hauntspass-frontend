@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 
-import Rewards from "../Rewards/Rewards";
-import Homes from "../Homes/Homes";
-import "./Pass.css";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import Rewards from '../Rewards/Rewards';
+import Homes from '../Homes/Homes';
+import './Pass.css';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-const Pass = (props) => {
-  //eslint-disable-next-line
+function Pass(props) {
+  // eslint-disable-next-line
   const { currentUser } = useContext(CurrentUserContext);
 
-  const [activeTab, setActiveTab] = React.useState("rewards");
+  const [activeTab, setActiveTab] = React.useState('rewards');
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -18,35 +18,35 @@ const Pass = (props) => {
   return (
     <div className="pass-page bg-secondary">
       <section className="pass">
-        <div className="pass__container"></div>
+        <div className="pass__container" />
       </section>
       <section className="rewards">
         <div>
           <ul className="tabs">
             <li
               className={
-                activeTab === "rewards"
-                  ? "tab tab-bordered tab-active "
-                  : "tab tab-bordered"
+                activeTab === 'rewards'
+                  ? 'tab tab-bordered tab-active '
+                  : 'tab tab-bordered'
               }
-              onClick={() => handleTabChange("rewards")}
+              onClick={() => handleTabChange('rewards')}
             >
               Business Rewards
             </li>
             <li
               className={
-                activeTab === "homes"
-                  ? "tab tab-bordered tab-active"
-                  : "tab tab-bordered"
+                activeTab === 'homes'
+                  ? 'tab tab-bordered tab-active'
+                  : 'tab tab-bordered'
               }
-              onClick={() => handleTabChange("homes")}
+              onClick={() => handleTabChange('homes')}
             >
               Haunts Homes
             </li>
           </ul>
         </div>
         <div className="tab-content">
-          {activeTab === "rewards" && (
+          {activeTab === 'rewards' && (
             <Rewards
               rewards={props.rewards}
               handleRedemption={props.handleRedemption}
@@ -57,11 +57,11 @@ const Pass = (props) => {
               setCurrentRedemption={props.setCurrentRedemption}
             />
           )}
-          {activeTab === "homes" && <Homes />}
+          {activeTab === 'homes' && <Homes />}
         </div>
       </section>
     </div>
   );
-};
+}
 
 export default Pass;

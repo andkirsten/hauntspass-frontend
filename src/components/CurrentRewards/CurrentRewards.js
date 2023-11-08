@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import "./CurrentRewards.css";
+import React, { useState } from 'react';
+import './CurrentRewards.css';
 
-const AccordionItem = (props) => {
+function AccordionItem(props) {
   const onClick = () => {
     props.toggleItem(props.index);
     props.setActiveReward(props.item);
@@ -10,7 +10,7 @@ const AccordionItem = (props) => {
   return (
     <div className="collapse mb-3 bg-white">
       <div
-        className={`accordion__item ${props.isOpen ? "open" : ""}`}
+        className={`accordion__item ${props.isOpen ? 'open' : ''}`}
         onClick={onClick}
       >
         <div className="cr__banner px-4 text-white collapse-title bg-primary">
@@ -54,7 +54,9 @@ const AccordionItem = (props) => {
                   )}
                 </div>
                 <p>
-                  <strong>One-time Reward:</strong> {props.item.offer}
+                  <strong>One-time Reward:</strong>
+                  {' '}
+                  {props.item.offer}
                 </p>
               </div>
               <div>
@@ -69,9 +71,9 @@ const AccordionItem = (props) => {
       </div>
     </div>
   );
-};
+}
 
-const Accordion = (props) => {
+function Accordion(props) {
   return (
     <div>
       {props.rewards
@@ -89,9 +91,9 @@ const Accordion = (props) => {
         ))}
     </div>
   );
-};
+}
 
-const CurrentRewards = (props) => {
+function CurrentRewards(props) {
   const [openIndex, setOpenIndex] = useState(-1); // Initialize with -1 to have no item open by default
   const [activeReward, setActiveReward] = useState(null);
 
@@ -122,6 +124,6 @@ const CurrentRewards = (props) => {
       </p>
     </section>
   );
-};
+}
 
 export default CurrentRewards;

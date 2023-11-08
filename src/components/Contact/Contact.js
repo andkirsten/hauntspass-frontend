@@ -1,29 +1,29 @@
-import React, { useRef } from "react";
-import emailjs from "emailjs-com";
-import "./Contact.css";
+import React, { useRef } from 'react';
+import emailjs from 'emailjs-com';
+import './Contact.css';
 
-const Contact = () => {
+function Contact() {
   const contactForm = useRef();
 
   const [response, setResponse] = React.useState(null);
 
   const sendEmail = async (data) => {
-    console.log("data", data);
+    console.log('data', data);
     try {
       const response = await emailjs.sendForm(
-        "service_oqd5rpd",
-        "contact_form",
+        'service_oqd5rpd',
+        'contact_form',
         data,
-        "DPg0uaakoZmnA4kzd"
+        'DPg0uaakoZmnA4kzd',
       );
       setResponse(
-        "Your message has been sent, we will get back to you within 48 hours."
+        'Your message has been sent, we will get back to you within 48 hours.',
       );
-      document.getElementById("contact-modal").showModal();
-      console.log("Email sent", response.text);
+      document.getElementById('contact-modal').showModal();
+      console.log('Email sent', response.text);
     } catch (err) {
-      setResponse("Something went wrong, please try again.");
-      console.log("Email failed to send", err);
+      setResponse('Something went wrong, please try again.');
+      console.log('Email failed to send', err);
     }
   };
 
@@ -35,7 +35,7 @@ const Contact = () => {
 
   const handleCloseModal = () => {
     setResponse(null); // Set response to null
-    document.getElementById("contact-modal").close(); // Close the modal
+    document.getElementById('contact-modal').close(); // Close the modal
   };
 
   return (
@@ -85,7 +85,7 @@ const Contact = () => {
           name="message"
           rows="4"
           className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
-        ></textarea>
+        />
 
         <button
           type="submit"
@@ -109,5 +109,5 @@ const Contact = () => {
       </dialog>
     </div>
   );
-};
+}
 export default Contact;

@@ -1,25 +1,40 @@
 import React, { useState } from "react";
 import "./Rewards.css";
-import foodBank from "../../images/utah_food_bank_logo.png";
 import { Link } from "react-router-dom";
+import foodBank from "../../images/utah_food_bank_logo.png";
 
-const AccordionItem = (props) => {
+// destructure props
+
+function AccordionItem({
+  item,
+  isOpen,
+  toggleItem,
+  activeReward,
+  setActiveReward,
+  handleRedemption,
+  redemptions,
+  setRedemptions,
+  loading,
+  currentRedemption,
+  setCurrentRedemption,
+  index,
+}) {
   const handleRedeem = (e) => {
     e.preventDefault();
-    props.handleRedemption(props.activeReward._id);
+    handleRedemption(activeReward._id);
   };
 
   const onClick = () => {
-    props.toggleItem(props.index);
-    props.setActiveReward(props.item);
+    toggleItem(index);
+    setActiveReward(item);
   };
 
   const handleFinishRedemption = (e) => {
     e.preventDefault();
     document.getElementById("redeem-modal").close();
-    props.setCurrentRedemption(null);
-    props.setActiveReward(null);
-    props.setRedemptions([...props.redemptions, props.activeReward._id]);
+    setCurrentRedemption(null);
+    setActiveReward(null);
+    setRedemptions([...redemptions, activeReward._id]);
   };
 
   const formattedDateAndTime = (date) => {
@@ -32,17 +47,16 @@ const AccordionItem = (props) => {
   };
 
   const checkRedemption = () => {
-    if (props.redemptions === undefined) {
+    if (redemptions === undefined) {
       return false;
     }
-    if (props.activeReward === undefined) {
+    if (activeReward === undefined) {
       return false;
     }
-    if (props.redemptions.includes(props.activeReward?._id)) {
+    if (redemptions.includes(activeReward?._id)) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   };
 
   const handleProblem = (e) => {
@@ -52,70 +66,69 @@ const AccordionItem = (props) => {
 
   const checkExpiration = () => {
     const today = new Date();
-    const expirationDate = new Date(props.item.expirationDate);
+    const expirationDate = new Date(item.expirationDate);
     if (today > expirationDate) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   };
 
   return (
     <div className="collapse mb-3 bg-white">
       <div
-        className={`accordion__item ${props.isOpen ? "open" : ""}`}
+        className={`accordion__item ${isOpen ? "open" : ""}`}
         onClick={onClick}
       >
         <div
           className={`accordion__title px-4 collapse-title text-white ${
-            props.redemptions?.includes(props.item._id) || checkExpiration()
+            redemptions?.includes(item._id) || checkExpiration()
               ? "bg-slate-500"
               : "bg-primary"
           }`}
         >
-          <p>{props.item.rewardTitle}</p>
+          <p>{item.rewardTitle}</p>
           <span className="icon__container">
             <img
-              src={props.item.imgUrl}
-              alt={props.item.rewardTitle}
+              src={item.imgUrl}
+              alt={item.rewardTitle}
               className="reward__icon bg-white"
             />
           </span>
         </div>
-        {props.isOpen && (
+        {isOpen && (
           <div className="collapse-content">
             <div className="collapse-container py-4">
               <div className="collapse-header px-4">
-                {props.item.imgUrl && (
+                {item.imgUrl && (
                   <div>
                     <img
-                      src={props.item.imgUrl}
+                      src={item.imgUrl}
                       alt="reward"
                       className="reward__image"
                     />
                   </div>
                 )}
-                {props.item.businessDescription && (
+                {item.businessDescription && (
                   <div className="reward__business-description">
                     <p>
-                      <strong>{props.item.businessDescription}</strong>
+                      <strong>{item.businessDescription}</strong>
                     </p>
                   </div>
                 )}
               </div>
               <div className="reward__info space-y-4 py-4">
                 <div>
-                  {props.item.rewardExtras && (
+                  {item.rewardExtras && (
                     <div>
                       <p className="">
                         <strong>Anytime Reward: </strong>
-                        {props.item.rewardExtras}
+                        {item.rewardExtras}
                       </p>
                     </div>
                   )}
                 </div>
                 <p>
-                  <strong>One-time Reward:</strong> {props.item.offer}
+                  <strong>One-time Reward:</strong> {item.offer}
                 </p>
               </div>
               {checkExpiration() ? (
@@ -141,7 +154,7 @@ const AccordionItem = (props) => {
               <p className="pt-4">
                 <strong>Terms and Conditions:</strong>
               </p>
-              <p className="text-center">{props.item.rewardTerms}</p>
+              <p className="text-center">{item.rewardTerms}</p>
             </div>
           </div>
         )}
@@ -158,12 +171,12 @@ const AccordionItem = (props) => {
             <form method="dialog">
               <button
                 className={`redeem__btn btn mb-5 mr-5 ${
-                  props.loading ? "btn-disabled" : "btn-secondary"
+                  loading ? "btn-disabled" : "btn-secondary"
                 }`}
                 onClick={handleRedeem}
-                disabled={props.loading}
+                disabled={loading}
               >
-                {props.loading ? "Loading Reward" : "Yes, Redeem Now"}
+                {loading ? "Loading Reward" : "Yes, Redeem Now"}
               </button>
               <button className="btn">No, Cancel</button>
             </form>
@@ -180,14 +193,14 @@ const AccordionItem = (props) => {
           </p>
           <div className="redeem-modal__reward text-center bg-accent py-5 px-4 my-5 border-double border-8 border-black">
             <p className="mb-1 text-center font-bold">
-              {props.activeReward?.rewardTitle}
+              {activeReward?.rewardTitle}
             </p>
             <hr className="my-3 mx-10 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
-            <p className="text-center">{props.activeReward?.offer}</p>
+            <p className="text-center">{activeReward?.offer}</p>
           </div>
           <p className="text-center ">Redeemed at</p>
           <p className="text-center">
-            {formattedDateAndTime(props.currentRedemption?.redeemedAt)}{" "}
+            {formattedDateAndTime(currentRedemption?.redeemedAt)}{" "}
           </p>
           <div className="redeem-modal__thankyou text-center">
             <p className="text-center text-sm pt-5">
@@ -232,21 +245,31 @@ const AccordionItem = (props) => {
       </dialog>
     </div>
   );
-};
+}
 
-const Accordion = (props) => {
-  console.log(props);
-
+const Accordion = ({
+  rewards,
+  openIndex,
+  toggleItem,
+  activeReward,
+  setActiveReward,
+  handleRedemption,
+  redemptions,
+  setRedemptions,
+  loading,
+  currentRedemption,
+  setCurrentRedemption,
+}) => {
   return (
     <div>
-      {props.rewards
+      {rewards
         .slice()
         // eslint-disable-next-line array-callback-return
         .sort((a, b) => {
-          if (props.redemptions && Array.isArray(props.redemptions)) {
+          if (redemptions && Array.isArray(redemptions)) {
             // Check if a or b is in props.redemptions
-            const aIsRedeemed = props.redemptions.includes(a._id);
-            const bIsRedeemed = props.redemptions.includes(b._id);
+            const aIsRedeemed = redemptions.includes(a._id);
+            const bIsRedeemed = redemptions.includes(b._id);
             const aIsExpired = new Date(a.expirationDate) < new Date();
             const bIsExpired = new Date(b.expirationDate) < new Date();
 
@@ -278,18 +301,18 @@ const Accordion = (props) => {
         })
         .map((item, index) => (
           <AccordionItem
-            handleRedemption={props.handleRedemption}
-            key={index}
+            handleRedemption={handleRedemption}
+            key={item._id}
             item={item}
-            isOpen={index === props.openIndex}
-            toggleItem={() => props.toggleItem(index)}
-            activeReward={props.activeReward}
-            setActiveReward={props.setActiveReward}
-            redemptions={props.redemptions}
-            setRedemptions={props.setRedemptions}
-            loading={props.loading}
-            currentRedemption={props.currentRedemption}
-            setCurrentRedemption={props.setCurrentRedemption}
+            isOpen={index === openIndex}
+            toggleItem={() => toggleItem(index)}
+            activeReward={activeReward}
+            setActiveReward={setActiveReward}
+            redemptions={redemptions}
+            setRedemptions={setRedemptions}
+            loading={loading}
+            currentRedemption={currentRedemption}
+            setCurrentRedemption={setCurrentRedemption}
           />
         ))}
     </div>
